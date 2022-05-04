@@ -1,11 +1,12 @@
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView } from "react-native";
 import React from "react";
+import { stylesB, stylesL, stylesM, stylesO, stylesS} from "./../appTheme/styles/styles";
 
 const History = () => {
   return (
-    <View>
-      <Text>History</Text>
-    </View>
+    <SafeAreaView style={stylesB.body}>
+      
+    </SafeAreaView>
   );
 };
 
