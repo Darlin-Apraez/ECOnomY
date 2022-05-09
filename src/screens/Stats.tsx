@@ -8,15 +8,15 @@ import {
   stylesS,
 } from "./../appTheme/styles/styles";
 
-const History = () => {
+const Stats = () => {
   return (
     <SafeAreaView>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
       <View style={stylesB.completo}>
-        <Text>History</Text>
+        <Text>Stats</Text>
       </View>
     </SafeAreaView>
   );
 };
 
-export default History;
+export default Stats;
