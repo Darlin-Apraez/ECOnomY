@@ -116,4 +116,47 @@ export const stylesM = StyleSheet.create({
   // =====================================================================
   // END UNITY VARIABLES.
   // =====================================================================
+
+  SplashScale: {
+    width: 270,
+    height: 270,
+    display: "flex",
+    resizeMode: "contain",
+    // marginTop: 0,
+    // left: 10,
+    // backgroundColor: "red",
+  },
+
+  SplashContain: {
+    width: 400,
+    height: 400,
+    margin: "auto",
+    top: 150,
+    // backgroundColor: "red",
+  },
+
+  SplashUnder: {
+    left: 250,
+    marginTop: 350,
+  },
+
+  EcoLogo: {
+    margin: "auto",
+    position: "absolute",
+    resizeMode: "contain",
+    width: 300,
+    height: 300,
+    marginTop: 100,
+  },
+
+  NameScale: {
+    width: 350,
+    height: 350,
+    resizeMode: "contain",
+    left: 40,
+    top: 120,
+  }
+
 });
+
+
