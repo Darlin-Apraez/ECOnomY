@@ -7,6 +7,7 @@ import {
   CardStyleInterpolators,
 } from "@react-navigation/stack";
 import Splash from "./src/screens/Splash";
+import Register from './src/screens/Register';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -16,6 +17,11 @@ export default function App() {
         <Stack.Screen
           name="Splash"
           component={Splash}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Register"
+          component={Register}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
