@@ -1,24 +1,32 @@
-import { View, Text, Image, StatusBar, SafeAreaView } from "react-native";
-import React from "react";
 import {
-  stylesB,
-  stylesL,
-  stylesM,
-  stylesO,
-  stylesS,
-} from "./../appTheme/styles/styles";
+  Text,
+  View,
+  SafeAreaView,
+  StatusBar,
+  TouchableOpacity,
+} from "react-native";
+import React from "react";
 
-const Register = () => {
+const Register = ({ navigation }: { navigation: any }) => {
   return (
     <SafeAreaView>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
-      <View style={stylesB.completo}>
-        <Text>Register</Text>
-        <Image
-          source={require("../../assets/img/ECOnomY.Name.png")}
-          style={stylesM.NameScale}
-        />
+      {/* <View style={stylesB.completo}> */}
+      <View
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <TouchableOpacity onPress={() => navigation.navigate("CreateAccount")}>
+          <Text>Crear Cuenta</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+          <Text>Iniciar Sesión</Text>
+        </TouchableOpacity>
       </View>
+
+      {/* </View> */}
     </SafeAreaView>
   );
 };

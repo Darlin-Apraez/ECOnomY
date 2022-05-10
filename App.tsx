@@ -11,13 +11,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import DrawerMenu from "./src/components/DrawerMenu";
 
 import Splash from "./src/screens/Splash";
-import Register from "./src/screens/Register";
 import CreateAccount from "./src/screens/CreateAccount";
-import Login from "./src/screens/Login";
 import Verification from "./src/screens/Verification";
 import Balance from "./src/screens/Balance";
 import Receive from "./src/screens/Receive";
 import Send from "./src/screens/Send";
+import Login from "./src/screens/Login";
+import Register from "./src/screens/Register";
 
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
@@ -60,11 +60,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Splash"
           component={Splash}
           options={{ headerShown: false }}
-        />
+        />*/}
         <Stack.Screen
           name="Register"
           component={Register}

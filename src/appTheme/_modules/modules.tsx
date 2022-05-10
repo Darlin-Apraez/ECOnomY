@@ -155,8 +155,28 @@ export const stylesM = StyleSheet.create({
     resizeMode: "contain",
     left: 40,
     top: 120,
-  }
+  },
 
+  btnRegister: {
+    width: 100,
+    height: 50,
+    backgroundColor: "green",
+    margin: 20,
+    borderRadius: 8,
+  },
+
+  textAccount: {
+    marginLeft: 20,
+    marginTop: 20,
+    color: "black",
+  },
+
+  inputAccount: {
+    width: 150,
+    height: 40,
+    borderRadius: 8,
+    borderWidth: 2,
+    marginLeft: 20,
+    borderColor: "green",
+  },
 });
-
-

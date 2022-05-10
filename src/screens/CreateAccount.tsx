@@ -1,5 +1,14 @@
-import { View, Text, SafeAreaView, StatusBar } from "react-native";
-import React from "react";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StatusBar,
+  TextInput,
+  TouchableOpacity,
+  AsyncStorage,
+} from "react-native";
+import React, { Component } from "react";
+import { useNavigation } from "@react-navigation/native";
 import {
   stylesB,
   stylesL,
@@ -8,15 +17,101 @@ import {
   stylesS,
 } from "./../appTheme/styles/styles";
 
-const CreateAccount = () => {
-  return (
-    <SafeAreaView>
-      <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
-      <View style={stylesB.completo}>
-        <Text>Create Account</Text>
-      </View>
-    </SafeAreaView>
-  );
-};
+export default class Register extends Component {
+  //En el state declaramos los campos
+  constructor(props) {
+    super(props);
+    this.state = {
+      isReady: false,
+      Nombre: "",
+      Email: "",
+      Contraseña: "",
+      ConfirContra: "",
+    };
+  }
 
-export default CreateAccount;
+  //creamos una constante a la cual le asignamos los campos correspondientes a ese state
+  Register = () => {
+    const { Nombre } = this.state;
+    const { Email } = this.state;
+    const { Contraseña } = this.state;
+    const { ConfirContra } = this.state;
+
+    //
+
+    //usamos el fetch, señalamos el EndPoint o url donde nosotros enviamos la información
+    fetch("http://192.168.1.16/pruebas/registro.php", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-type": "application/json",
+      },
+      //stringify enviar serializados los campos que necesitemos
+      body: JSON.stringify({
+        nombre: Nombre,
+        Email: Email,
+        Contraseña: Contraseña,
+        ConfirContra: ConfirContra,
+      }),
+    })
+      .then((respuesta) => respuesta.text())
+      .then((responseJson) => {
+        alert(responseJson);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  render() {
+    // const navigation = useNavigation();
+    return (
+      <SafeAreaView>
+        <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
+        {/* <View style={stylesB.completo}> */}
+        <View>
+          <Text style={stylesM.textAccount}>NOMBRE</Text>
+          <TextInput
+            style={stylesM.inputAccount}
+            onChangeText={(Nombre) => this.setState({ Nombre })}
+          />
+
+          <Text style={stylesM.textAccount}>EMAIL</Text>
+          <TextInput
+            style={stylesM.inputAccount}
+            onChangeText={(Email) => this.setState({ Email })}
+          />
+
+          <Text style={stylesM.textAccount}>CONTRASEÑA</Text>
+          <TextInput
+            style={stylesM.inputAccount}
+            onChangeText={(Contraseña) => this.setState({ Contraseña })}
+          />
+
+          <Text style={stylesM.textAccount}>CONFIRMAR CONTRASEÑA</Text>
+          <TextInput
+            style={stylesM.inputAccount}
+            onChangeText={(ConfirContra) => this.setState({ ConfirContra })}
+          />
+
+          <TouchableOpacity
+            style={{
+              backgroundColor: "green",
+              width: 100,
+              height: 40,
+              marginTop: 20,
+              marginLeft: 40,
+            }}
+            onPress={this.Register}
+
+            // onPress={() => navigation.navigate(Balance)}
+          >
+            <Text>Enviar</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* </View> */}
+      </SafeAreaView>
+    );
+  }
+}
