@@ -150,11 +150,13 @@ export const stylesM = StyleSheet.create({
   },
 
   NameScale: {
-    width: 350,
-    height: 350,
+    width: 370,
+    height: 370,
     resizeMode: "contain",
-    left: 40,
-    top: 120,
+    // left: 40,
+    // top: 120,
+    left: "1.5%",
+    top: 100,
   },
 
   btnRegister: {
@@ -179,4 +181,21 @@ export const stylesM = StyleSheet.create({
     marginLeft: 20,
     borderColor: "green",
   },
+
+  buttonCreate: {
+    borderWidth: 7,
+    borderColor: "#5cb032",
+    width: 250,
+    height: 70,
+    padding: 15,
+    borderRadius: 18,
+    marginLeft: 55,
+    marginTop: 20,
+    backgroundColor: "white",
+  },
+
+  BacColor: {
+    backgroundColor: "#c2ea5b",
+  }
+
 });
