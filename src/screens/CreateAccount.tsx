@@ -37,30 +37,40 @@ export default class Register extends Component {
     const { Contraseña } = this.state;
     const { ConfirContra } = this.state;
 
-    //
-
-    //usamos el fetch, señalamos el EndPoint o url donde nosotros enviamos la información
-    fetch("http://192.168.1.16/pruebas/registro.php", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-type": "application/json",
-      },
-      //stringify enviar serializados los campos que necesitemos
-      body: JSON.stringify({
-        nombre: Nombre,
-        Email: Email,
-        Contraseña: Contraseña,
-        ConfirContra: ConfirContra,
-      }),
-    })
-      .then((respuesta) => respuesta.text())
-      .then((responseJson) => {
-        alert(responseJson);
+    if (Nombre == "") {
+      alert("Es necesario el nombre");
+    } else if (Email == "") {
+      alert("Es necesario el email");
+    } else if (Contraseña == "") {
+      alert("Es necesaria la contraseña");
+    } else if (ConfirContra == "") {
+      alert("Es necesario confirmar la contraseña");
+    } else if (Contraseña != ConfirContra) {
+      alert("Las contraseñas no coinciden");
+    } else {
+      //usamos el fetch, señalamos el EndPoint o url donde nosotros enviamos la información
+      fetch("http://192.168.1.16/pruebas/registro.php", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json",
+        },
+        //stringify enviar serializados los campos que necesitemos
+        body: JSON.stringify({
+          nombre: Nombre,
+          Email: Email,
+          Contraseña: Contraseña,
+          ConfirContra: ConfirContra,
+        }),
       })
-      .catch((error) => {
-        console.log(error);
-      });
+        .then((respuesta) => respuesta.text())
+        .then((responseJson) => {
+          alert(responseJson);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   render() {
@@ -106,12 +116,14 @@ export default class Register extends Component {
               // paddingLeft: 23,
               right: -105,
               top: 50,
-              }}
+            }}
             onPress={this.Register}
 
             // onPress={() => navigation.navigate(Balance)}
           >
-            <Text style={{fontWeight: "bold", margin: 15, left: 5.5,}}>ENVIAR</Text>
+            <Text style={{ fontWeight: "bold", margin: 15, left: 5.5 }}>
+              ENVIAR
+            </Text>
           </TouchableOpacity>
         </View>
 

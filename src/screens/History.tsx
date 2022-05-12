@@ -12,9 +12,18 @@ const History = () => {
   return (
     <SafeAreaView>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
-      <View style={stylesB.completo}>
+      {/* <View style={stylesB.completo}> */}
+      <View
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: 50,
+          backgroundColor: "red",
+        }}
+      >
         <Text>History</Text>
       </View>
+      {/* </View> */}
     </SafeAreaView>
   );
 };

@@ -12,9 +12,9 @@ const Balance = () => {
   return (
     <SafeAreaView>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
-      <View style={stylesB.completo}>
-        <Text>Balance</Text>
-      </View>
+      {/* <View style={stylesB.completo}> */}
+      <Text>Balance</Text>
+      {/* </View> */}
     </SafeAreaView>
   );
 };

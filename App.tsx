@@ -18,17 +18,12 @@ import Receive from "./src/screens/Receive";
 import Send from "./src/screens/Send";
 import Login from "./src/screens/Login";
 import Register from "./src/screens/Register";
+import History from "./src/screens/History";
+import Stats from "./src/screens/Stats";
+import Indicators from "./src/screens/Indicators";
 
 const Drawer = createDrawerNavigator();
-const Tab = createBottomTabNavigator();
-
-function NavigationMenu() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Balance" component={Balance} />
-    </Tab.Navigator>
-  );
-}
+// const Tab = createBottomTabNavigator();
 
 function DrawerApp() {
   return (
@@ -42,13 +37,43 @@ function DrawerApp() {
       }}
     >
       <Drawer.Screen
-        name="NavigationMenu"
-        component={NavigationMenu}
+        name="Balance"
+        component={Balance}
         options={{
           swipeEnabled: false,
           headerTransparent: true,
           headerTitle: "",
-          headerTintColor: "white",
+          headerTintColor: "grey",
+        }}
+      />
+      <Drawer.Screen
+        name="History"
+        component={History}
+        options={{
+          swipeEnabled: false,
+          headerTransparent: true,
+          headerTitle: "",
+          headerTintColor: "grey",
+        }}
+      />
+      <Drawer.Screen
+        name="Stats"
+        component={Stats}
+        options={{
+          swipeEnabled: false,
+          headerTransparent: true,
+          headerTitle: "",
+          headerTintColor: "grey",
+        }}
+      />
+      <Drawer.Screen
+        name="Indicators"
+        component={Indicators}
+        options={{
+          swipeEnabled: false,
+          headerTransparent: true,
+          headerTitle: "",
+          headerTintColor: "grey",
         }}
       />
     </Drawer.Navigator>
@@ -85,11 +110,11 @@ export default function App() {
           component={Verification}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Balance"
           component={Balance}
           options={{ headerShown: false }}
-        />
+        />*/}
         <Stack.Screen
           name="Receive"
           component={Receive}
