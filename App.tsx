@@ -21,6 +21,8 @@ import Register from "./src/screens/Register";
 import History from "./src/screens/History";
 import Stats from "./src/screens/Stats";
 import Indicators from "./src/screens/Indicators";
+import GenerateQR from "./src/screens/GenerateQR";
+import ReaderQR from "./src/screens/ReaderQR";
 
 const Drawer = createDrawerNavigator();
 // const Tab = createBottomTabNavigator();
@@ -85,7 +87,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Splash"
           component={Splash}
           options={{ headerShown: false }}
@@ -109,13 +111,13 @@ export default function App() {
           name="Verification"
           component={Verification}
           options={{ headerShown: false }}
-        />
+        /> */}
         {/* <Stack.Screen
           name="Balance"
           component={Balance}
           options={{ headerShown: false }}
         />*/}
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Receive"
           component={Receive}
           options={{ headerShown: false }}
@@ -128,6 +130,16 @@ export default function App() {
         <Stack.Screen
           name="DrawerApp"
           component={DrawerApp}
+          options={{ headerShown: false }}
+        /> */}
+        {/* <Stack.Screen
+          name="GenerateQR"
+          component={GenerateQR}
+          options={{ headerShown: false }}
+        /> */}
+        <Stack.Screen
+          name="ReaderQR"
+          component={ReaderQR}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

@@ -207,8 +207,7 @@ export const stylesM = StyleSheet.create({
   textEmailFrame: {
     width: 350,
     borderWidth: 2,
-    borderColor: "#5cb032"
-
+    borderColor: "#5cb032",
   },
 
   wrapperCA: {
@@ -227,8 +226,51 @@ export const stylesM = StyleSheet.create({
     right: -105,
     top: 70,
     fontWeight: "300",
-  }
+  },
 
+  //GnerateQR
 
+  boton: {
+    height: 50,
+    width: 80,
+    borderRadius: 6,
+    elevation: 3,
+    shadowRadius: 6,
+    backgroundColor: "green",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
+  //ReaderQR
+  container_scanner: {
+    height: 300,
+    width: 300,
+    marginTop: 50,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
+  colorqr: {
+    alignItems: "center",
+    justifyContent: "center",
+    paddingLeft: "5%",
+    paddingRight: "4%",
+  },
+
+  botonScan: {
+    height: 50,
+    width: 80,
+    borderRadius: 6,
+    elevation: 3,
+    shadowRadius: 6,
+    backgroundColor: "green",
+    alignItems: "center",
+    justifyContent: "center",
+    top: 100,
+  },
 });
