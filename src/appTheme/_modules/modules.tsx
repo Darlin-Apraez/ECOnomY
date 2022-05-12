@@ -168,18 +168,24 @@ export const stylesM = StyleSheet.create({
   },
 
   textAccount: {
-    marginLeft: 20,
+    marginLeft: 25,
     marginTop: 20,
     color: "black",
+    width: 500,
+    fontSize: 15,
+    fontWeight: "300",
   },
 
   inputAccount: {
-    width: 150,
-    height: 40,
+    width: 350,
+    height: 50,
     borderRadius: 8,
     borderWidth: 2,
     marginLeft: 20,
-    borderColor: "green",
+    borderColor: "#5cb032",
+    backgroundColor: "#c2ea5b",
+    margin: 15,
+    paddingLeft: 10,
   },
 
   buttonCreate: {
@@ -196,6 +202,33 @@ export const stylesM = StyleSheet.create({
 
   BacColor: {
     backgroundColor: "#c2ea5b",
+  },
+
+  textEmailFrame: {
+    width: 350,
+    borderWidth: 2,
+    borderColor: "#5cb032"
+
+  },
+
+  wrapperCA: {
+    top: 50,
+  },
+
+  txtButtonSend: {
+    backgroundColor: "#5CB032",
+    width: 105,
+    height: 50,
+    marginTop: 20,
+    marginLeft: 40,
+    borderRadius: 8,
+    padding: 13,
+    paddingLeft: 23,
+    right: -105,
+    top: 70,
+    fontWeight: "300",
   }
+
+
 
 });

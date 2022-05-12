@@ -69,7 +69,7 @@ export default class Register extends Component {
       <SafeAreaView>
         <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
         {/* <View style={stylesB.completo}> */}
-        <View>
+        <View style={stylesM.wrapperCA}>
           <Text style={stylesM.textAccount}>NOMBRE</Text>
           <TextInput
             style={stylesM.inputAccount}
@@ -78,7 +78,7 @@ export default class Register extends Component {
 
           <Text style={stylesM.textAccount}>EMAIL</Text>
           <TextInput
-            style={stylesM.inputAccount}
+            style={[stylesM.inputAccount, stylesM.textEmailFrame]}
             onChangeText={(Email) => this.setState({ Email })}
           />
 
@@ -96,17 +96,22 @@ export default class Register extends Component {
 
           <TouchableOpacity
             style={{
-              backgroundColor: "green",
-              width: 100,
-              height: 40,
+              backgroundColor: "#5CB032",
+              width: 105,
+              height: 50,
               marginTop: 20,
               marginLeft: 40,
-            }}
+              borderRadius: 8,
+              // padding: 13,
+              // paddingLeft: 23,
+              right: -105,
+              top: 50,
+              }}
             onPress={this.Register}
 
             // onPress={() => navigation.navigate(Balance)}
           >
-            <Text>Enviar</Text>
+            <Text style={{fontWeight: "bold", margin: 15, left: 5.5,}}>ENVIAR</Text>
           </TouchableOpacity>
         </View>
 
