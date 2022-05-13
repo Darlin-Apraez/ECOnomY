@@ -17,6 +17,9 @@ function DrawerMenu({ navigation }: { navigation: any }) {
   return (
     <View style={{ flex: 1 }}>
       <View style={{ top: 20 }}>
+        <TouchableOpacity onPress={() => navigation.navigate("Balance")}>
+          <Text>BALANCE</Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate("History")}>
           <Text>HISTORIAL</Text>
         </TouchableOpacity>

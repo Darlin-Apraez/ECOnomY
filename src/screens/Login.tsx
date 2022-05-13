@@ -28,7 +28,7 @@ const Login = ({ navigation }: { navigation: any }) => {
       alert("Llenar los dos campos");
     } else {
       //usamos el fetch, señalamos el EndPoint o url donde nosotros enviamos la información
-      navigation.navigate("Balance");
+      navigation.navigate("DrawerApp");
       fetch("http://192.168.1.16/pruebas/login.php", {
         method: "POST",
         headers: {

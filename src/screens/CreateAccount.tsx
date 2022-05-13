@@ -37,7 +37,7 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
       alert("Las contraseñas no coinciden");
     } else {
       //usamos el fetch, señalamos el EndPoint o url donde nosotros enviamos la información
-      navigation.navigate("Balance");
+      navigation.navigate("DrawerApp");
       fetch("http://192.168.1.16/pruebas/registro.php", {
         method: "POST",
         headers: {

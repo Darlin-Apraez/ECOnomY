@@ -38,7 +38,7 @@ function DrawerApp() {
         },
       }}
     >
-      {/* <Drawer.Screen
+      <Drawer.Screen
         name="Balance"
         component={Balance}
         options={{
@@ -47,7 +47,7 @@ function DrawerApp() {
           headerTitle: "",
           headerTintColor: "grey",
         }}
-      /> */}
+      />
       <Drawer.Screen
         name="History"
         component={History}
@@ -112,11 +112,11 @@ export default function App() {
           component={Verification}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Balance"
           component={Balance}
-          options={{ headerShown: false, gestureEnabled: false }}
-        />
+          options={{ headerShown: false }}
+        /> */}
         <Stack.Screen
           name="Receive"
           component={Receive}
