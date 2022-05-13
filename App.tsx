@@ -38,7 +38,7 @@ function DrawerApp() {
         },
       }}
     >
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="Balance"
         component={Balance}
         options={{
@@ -47,7 +47,7 @@ function DrawerApp() {
           headerTitle: "",
           headerTintColor: "grey",
         }}
-      />
+      /> */}
       <Drawer.Screen
         name="History"
         component={History}
@@ -87,7 +87,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Splash"
           component={Splash}
           options={{ headerShown: false }}
@@ -111,13 +111,13 @@ export default function App() {
           name="Verification"
           component={Verification}
           options={{ headerShown: false }}
-        /> */}
-        {/* <Stack.Screen
+        />
+        <Stack.Screen
           name="Balance"
           component={Balance}
-          options={{ headerShown: false }}
-        />*/}
-        {/* <Stack.Screen
+          options={{ headerShown: false, gestureEnabled: false }}
+        />
+        <Stack.Screen
           name="Receive"
           component={Receive}
           options={{ headerShown: false }}
@@ -131,12 +131,12 @@ export default function App() {
           name="DrawerApp"
           component={DrawerApp}
           options={{ headerShown: false }}
-        /> */}
-        {/* <Stack.Screen
+        />
+        <Stack.Screen
           name="GenerateQR"
           component={GenerateQR}
           options={{ headerShown: false }}
-        /> */}
+        />
         <Stack.Screen
           name="ReaderQR"
           component={ReaderQR}
