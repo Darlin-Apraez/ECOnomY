@@ -16,19 +16,22 @@ import {
   stylesO,
   stylesS,
 } from "./../appTheme/styles/styles";
+import { validateEmail } from "../utils/helpers";
 
 const Login = ({ navigation }: { navigation: any }) => {
   const [Email, setEmail] = useState("");
   const [Contraseña, setContraseña] = useState("");
 
-  function Logeo() {
-    if (Email == "") {
-      alert("Llenar los dos campos");
-    } else if (Contraseña == "") {
-      alert("Llenar los dos campos");
+  const [errorEmail, setErrorEmail] = useState("");
+
+  //validar datos
+  const registerUser = () => {
+    if (!validateData()) {
+      return;
     } else {
+      console.log("Funciona perro");
+
       //usamos el fetch, señalamos el EndPoint o url donde nosotros enviamos la información
-      navigation.navigate("DrawerApp");
       fetch("http://192.168.1.16/pruebas/login.php", {
         method: "POST",
         headers: {
@@ -42,17 +45,34 @@ const Login = ({ navigation }: { navigation: any }) => {
           Contraseña: Contraseña,
         }),
       })
-        .then((respuesta) => respuesta.text())
+        .then((respuesta) => respuesta.json())
         .then((responseJson) => {
           alert(responseJson);
-          //guardo de forma local el token
-          AsyncStorage.setItem("token", "86");
+          if (responseJson == "Ingreso exitoso") {
+            //guardo de forma local el token
+            AsyncStorage.setItem("token", "86");
+            navigation.navigate("DrawerApp");
+          }
         })
         .catch((error) => {
           console.log(error);
         });
     }
-  }
+
+    // Logeo();
+  };
+
+  const validateData = () => {
+    setErrorEmail("");
+    let isValid = true;
+
+    if (!validateEmail(Email)) {
+      setErrorEmail("Debes de ingresar un email válido");
+      alert("Debes ingresar un Email valido");
+      isValid = false;
+    }
+    return isValid;
+  };
 
   return (
     <SafeAreaView style={stylesB.body}>
@@ -67,6 +87,7 @@ const Login = ({ navigation }: { navigation: any }) => {
 
         <Text style={stylesM.textAccount}>CONTRASEÑA</Text>
         <TextInput
+          secureTextEntry={true}
           style={stylesM.inputAccount}
           onChangeText={(Contraseña) => setContraseña(Contraseña)}
         />
@@ -79,7 +100,7 @@ const Login = ({ navigation }: { navigation: any }) => {
             marginTop: 20,
             marginLeft: 40,
           }}
-          onPress={Logeo}
+          onPress={registerUser}
         >
           <Text>Enviar</Text>
         </TouchableOpacity>

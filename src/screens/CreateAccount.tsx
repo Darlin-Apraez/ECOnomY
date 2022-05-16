@@ -16,19 +16,32 @@ import {
   stylesO,
   stylesS,
 } from "./../appTheme/styles/styles";
+import { validateEmail } from "../utils/helpers";
 
 const CreateAccount = ({ navigation }: { navigation: any }) => {
   const [Nombre, setNombre] = useState("");
   const [Email, setEmail] = useState("");
   const [Contraseña, setContraseña] = useState("");
   const [ConfirContra, setConfirContra] = useState("");
+  const [errorEmail, setErrorEmail] = useState("");
 
-  //creamos una constante a la cual le asignamos los campos correspondientes a ese state
-  function Registro() {
+  const validateData = () => {
+    setErrorEmail("");
+    let isValid = true;
+
+    if (!validateEmail(Email)) {
+      setErrorEmail("Debes de ingresar un email válido");
+      alert("Debes ingresar un Email valido");
+      isValid = false;
+    }
+    return isValid;
+  };
+
+  const validation = () => {
     if (Nombre == "") {
       alert("Es necesario el nombre");
-    } else if (Email == "") {
-      alert("Es necesario el email");
+    } else if (!validateData()) {
+      return;
     } else if (Contraseña == "") {
       alert("Es necesaria la contraseña");
     } else if (ConfirContra == "") {
@@ -60,7 +73,7 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
           console.log(error);
         });
     }
-  }
+  };
 
   return (
     <SafeAreaView>
@@ -104,7 +117,7 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
             right: -105,
             top: 50,
           }}
-          onPress={Registro}
+          onPress={validation}
 
           // onPress={() => navigation.navigate(Balance)}
         >
