@@ -29,10 +29,10 @@ const Login = ({ navigation }: { navigation: any }) => {
     if (!validateData()) {
       return;
     } else {
-      console.log("Funciona perro");
+      console.log("Funciona bro");
 
       //usamos el fetch, señalamos el EndPoint o url donde nosotros enviamos la información
-      fetch("http://192.168.1.16/pruebas/login.php", {
+      fetch("http://192.168.1.15/pruebas/login.php", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -77,35 +77,30 @@ const Login = ({ navigation }: { navigation: any }) => {
   return (
     <SafeAreaView style={stylesB.body}>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
-      {/* <View style={stylesB.completo}> */}
-      <View>
-        <Text style={stylesM.textAccount}>EMAIL</Text>
-        <TextInput
-          style={stylesM.inputAccount}
-          onChangeText={(Email) => setEmail(Email)}
-        />
+      <View style={stylesB.completo}>
+        <View>
+          <Text style={stylesM.textAccount}>EMAIL</Text>
+          <TextInput
+            style={stylesM.inputAccount}
+            onChangeText={(Email) => setEmail(Email)}
+          />
 
-        <Text style={stylesM.textAccount}>CONTRASEÑA</Text>
-        <TextInput
-          secureTextEntry={true}
-          style={stylesM.inputAccount}
-          onChangeText={(Contraseña) => setContraseña(Contraseña)}
-        />
-
-        <TouchableOpacity
-          style={{
-            backgroundColor: "green",
-            width: 100,
-            height: 40,
-            marginTop: 20,
-            marginLeft: 40,
-          }}
-          onPress={registerUser}
-        >
-          <Text>Enviar</Text>
-        </TouchableOpacity>
+          <Text style={stylesM.textAccount}>CONTRASEÑA</Text>
+          <TextInput
+            secureTextEntry={true}
+            style={stylesM.inputAccount}
+            onChangeText={(Contraseña) => setContraseña(Contraseña)}
+          />
+          <View style={stylesM.containerBotonLogin}>
+            <TouchableOpacity
+              style={[stylesM.botonGreenLogin]}
+              onPress={registerUser}
+            >
+              <Text style={stylesM.textBotonLogin}>INGRESAR</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
-      {/* </View> */}
     </SafeAreaView>
   );
 };

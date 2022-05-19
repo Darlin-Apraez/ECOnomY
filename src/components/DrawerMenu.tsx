@@ -1,5 +1,7 @@
-import { View, Text, TouchableOpacity } from "react-native";
-import React from "react";
+import { View, Text, TouchableOpacity, Alert, BackHandler } from "react-native";
+import React, { useEffect } from "react";
+import { stylesM } from "../appTheme/_modules/modules";
+import { stylesO } from "../appTheme/_other/other";
 
 function DrawerMenu({ navigation }: { navigation: any }) {
   // async function SignOut() {
@@ -14,29 +16,54 @@ function DrawerMenu({ navigation }: { navigation: any }) {
   //       console.log(errorMessage);
   //     });
   // }
+
   return (
     <View style={{ flex: 1 }}>
       <View style={{ top: 20 }}>
-        <TouchableOpacity onPress={() => navigation.navigate("Balance")}>
-          <Text>BALANCE</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Balance")}
+          style={stylesM.botonMenuDrawer}
+        >
+          <Text style={stylesM.textMenuDrawer}>BALANCE</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("History")}>
-          <Text>HISTORIAL</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("History")}
+          style={stylesM.botonMenuDrawer}
+        >
+          <Text
+            style={[stylesM.textMenuDrawer, stylesO.textMenuDrawer_centerOne]}
+          >
+            HISTORIAL
+          </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Stats")}>
-          <Text>ESTADISTICAS</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Stats")}
+          style={stylesM.botonMenuDrawer}
+        >
+          <Text
+            style={[stylesM.textMenuDrawer, stylesO.textMenuDrawer_centerTwo]}
+          >
+            ESTADISTICAS
+          </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Indicators")}>
-          <Text>INDICADORES</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Indicators")}
+          style={stylesM.botonMenuDrawer}
+        >
+          <Text
+            style={[stylesM.textMenuDrawer, stylesO.textMenuDrawer_centerThree]}
+          >
+            INDICADORES
+          </Text>
         </TouchableOpacity>
       </View>
-      <View style={{ marginTop: 100 }}>
-        <TouchableOpacity activeOpacity={0.5}>
-          {/* <View style={[stylesM.closeSesionMenu_width, stylesL.JustifyAlign]}>
-        <IconX name="x-circle" size={sizeIconX} color="#fff" />
-      </View> */}
-
-          <Text style={{ color: "white" }}>Cerrar sesión.</Text>
+      <View style={stylesM.containerLogout}>
+        <TouchableOpacity
+          activeOpacity={0.5}
+          onPress={() => navigation.navigate("Register")}
+          style={stylesM.backgroundLogout}
+        >
+          <Text style={stylesM.logout}>Cerrar Sesión</Text>
         </TouchableOpacity>
       </View>
     </View>

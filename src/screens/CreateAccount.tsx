@@ -51,7 +51,7 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
     } else {
       //usamos el fetch, señalamos el EndPoint o url donde nosotros enviamos la información
       navigation.navigate("DrawerApp");
-      fetch("http://192.168.1.16/pruebas/registro.php", {
+      fetch("http://192.168.1.15/pruebas/registro.php", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -76,57 +76,47 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={stylesB.body}>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
-      {/* <View style={stylesB.completo}> */}
-      <View style={stylesM.wrapperCA}>
-        <Text style={stylesM.textAccount}>NOMBRE</Text>
-        <TextInput
-          style={stylesM.inputAccount}
-          onChangeText={(Nombre) => setNombre(Nombre)}
-        />
+      <View style={stylesB.completo}>
+        <View style={stylesM.wrapperCA}>
+          <Text style={stylesM.textAccount}>NOMBRE</Text>
+          <TextInput
+            style={stylesM.inputAccount}
+            onChangeText={(Nombre) => setNombre(Nombre)}
+          />
 
-        <Text style={stylesM.textAccount}>EMAIL</Text>
-        <TextInput
-          style={[stylesM.inputAccount, stylesM.textEmailFrame]}
-          onChangeText={(Email) => setEmail(Email)}
-        />
+          <Text style={stylesM.textAccount}>EMAIL</Text>
+          <TextInput
+            style={stylesM.inputAccount}
+            onChangeText={(Email) => setEmail(Email)}
+          />
 
-        <Text style={stylesM.textAccount}>CONTRASEÑA</Text>
-        <TextInput
-          style={stylesM.inputAccount}
-          onChangeText={(Contraseña) => setContraseña(Contraseña)}
-        />
+          <Text style={stylesM.textAccount}>CONTRASEÑA</Text>
+          <TextInput
+            style={stylesM.inputAccount}
+            onChangeText={(Contraseña) => setContraseña(Contraseña)}
+          />
 
-        <Text style={stylesM.textAccount}>CONFIRMAR CONTRASEÑA</Text>
-        <TextInput
-          style={stylesM.inputAccount}
-          onChangeText={(ConfirContra) => setConfirContra(ConfirContra)}
-        />
-
+          <Text style={stylesM.textAccount}>CONFIRMAR CONTRASEÑA</Text>
+          <TextInput
+            style={stylesM.inputAccount}
+            onChangeText={(ConfirContra) => setConfirContra(ConfirContra)}
+          />
+        </View>
         <TouchableOpacity
-          style={{
-            backgroundColor: "#5CB032",
-            width: 105,
-            height: 50,
-            marginTop: 20,
-            marginLeft: 40,
-            borderRadius: 8,
-            // padding: 13,
-            // paddingLeft: 23,
-            right: -105,
-            top: 50,
-          }}
+          style={[
+            stylesM.botonGreen,
+            stylesL.JustifyAlign,
+            stylesO.botonGreen_alineacion,
+          ]}
           onPress={validation}
 
           // onPress={() => navigation.navigate(Balance)}
         >
-          <Text style={{ fontWeight: "bold", margin: 15, left: 5.5 }}>
-            ENVIAR
-          </Text>
+          <Text style={stylesM.textBoton}>REGISTRAR</Text>
         </TouchableOpacity>
       </View>
-      {/* </View> */}
     </SafeAreaView>
   );
 };

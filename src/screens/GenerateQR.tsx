@@ -42,7 +42,7 @@ const GenerateQR = ({ navigation }: { navigation: any }) => {
     <SafeAreaView style={stylesB.body}>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
       <View style={stylesB.completo}>
-        <View style={{ marginTop: 20 }}>
+        <View style={stylesM.containerQR}>
           <QRCode
             value="https://humanenergysolutions.com/"
             // logo={logoImg}
@@ -54,15 +54,15 @@ const GenerateQR = ({ navigation }: { navigation: any }) => {
             placeholder="useless placeholder"
             value={str}
           />
-          <Text>{Aleatorio}</Text>
-          <TouchableOpacity
+          {/* <Text>{Aleatorio}</Text> */}
+          {/* <TouchableOpacity
             style={stylesB.body}
             // onPress={() =>
             //   navigation.navigate("A donde tenga que ir")
             // }
           >
             <Text>Enviar</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity
             activeOpacity={0.8}
             style={stylesM.boton}

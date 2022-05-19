@@ -52,27 +52,32 @@ const ReaderQR = ({ navigation }: { navigation: any }) => {
     }
 
     return (
-      <SafeAreaView>
+      <SafeAreaView style={stylesB.body}>
         <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
         <View style={stylesB.completo}>
-          <View style={stylesM.container_scanner}>
-            <BarCodeScanner
-              onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-              style={StyleSheet.absoluteFillObject}
-            />
-            {scanned && (
-              // <Button title={"Tap to Scan Again"} onPress={() => setScanned(false)} />
-              <TouchableOpacity onPress={() => setScanned(false)}>
-                <Text>Escanear de nuevo</Text>
-              </TouchableOpacity>
-            )}
-          </View>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={stylesM.botonScan}
+          {/* <View style={stylesM.container_scanner}> */}
+          <BarCodeScanner
+            onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+            style={[StyleSheet.absoluteFillObject, stylesM.BarCode]}
           >
-            <Text>Regresar</Text>
-          </TouchableOpacity>
+            {scanned}
+          </BarCodeScanner>
+
+          <View style={stylesM.containerReScan}>
+            <TouchableOpacity
+              onPress={() => navigation.goBack()}
+              style={stylesM.botonScan}
+            >
+              <Text>Regresar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setScanned(false)}
+              style={stylesM.botonReScan}
+            >
+              <Text>Escanear de nuevo</Text>
+            </TouchableOpacity>
+          </View>
+          {/* </View> */}
         </View>
       </SafeAreaView>
     );
@@ -112,15 +117,17 @@ const ReaderQR = ({ navigation }: { navigation: any }) => {
           <BarCodeScanner
             onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
             style={[StyleSheet.absoluteFillObject, stylesM.colorqr]}
-          />
-          {scanned && (
+          >
+            {scanned}
+          </BarCodeScanner>
+          <View style={stylesM.containerReScan}>
             <TouchableOpacity
               onPress={() => setScanned(false)}
-              style={stylesM.botonScan}
+              style={stylesM.botonReScan}
             >
               <Text>Escanear de nuevo</Text>
             </TouchableOpacity>
-          )}
+          </View>
         </View>
         <TouchableOpacity
           onPress={() => navigation.goBack()}

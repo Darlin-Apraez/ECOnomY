@@ -33,8 +33,9 @@ function DrawerApp() {
       drawerContent={DrawerMenu}
       screenOptions={{
         drawerStyle: {
-          backgroundColor: "green",
+          backgroundColor: "#c2ea5b",
           width: 300,
+          // alignItems: "center",
         },
       }}
     >
@@ -107,16 +108,23 @@ export default function App() {
           component={CreateAccount}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+
+        {/*<Stack.Screen
           name="Verification"
           component={Verification}
           options={{ headerShown: false }}
-        />
+        /> */}
         {/* <Stack.Screen
           name="Balance"
           component={Balance}
           options={{ headerShown: false }}
         /> */}
+
+        <Stack.Screen
+          name="DrawerApp"
+          component={DrawerApp}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="Receive"
           component={Receive}
@@ -125,11 +133,6 @@ export default function App() {
         <Stack.Screen
           name="Send"
           component={Send}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="DrawerApp"
-          component={DrawerApp}
           options={{ headerShown: false }}
         />
         <Stack.Screen
