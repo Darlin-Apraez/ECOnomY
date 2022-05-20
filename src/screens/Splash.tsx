@@ -31,14 +31,6 @@ const Splash = ({ navigation }: { navigation: any }) => {
             />
           </Animatable.View>
         </View>
-
-        {/* <LottieView
-        autoPlay
-        ref={animation}
-        style={stylesM.SplashContain}
-        // Find more Lottie files at https://lottiefiles.com/featured
-        source={require('../../assets/lottie/67943-tree-green.json')}
-      /> */}
       </View>
     </SafeAreaView>
   );

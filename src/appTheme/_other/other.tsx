@@ -4,6 +4,10 @@ export const stylesO = StyleSheet.create({
   colorp: {
     backgroundColor: "red",
   },
+  completo__flexGrow: {
+    flexGrow: 1,
+    flex: 0,
+  },
   botonGreen_alineacion: {
     marginTop: 50,
   },

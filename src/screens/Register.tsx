@@ -44,18 +44,20 @@ const Register = ({ navigation }: { navigation: any }) => {
             style={stylesM.NameScale}
           />
           {/* </View> */}
-          <TouchableOpacity
-            onPress={() => navigation.navigate("CreateAccount")}
-            style={stylesM.buttonCreate}
-          >
-            <Text style={{ fontSize: 20, marginLeft: 25 }}>CREAR CUENTA</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Login")}
-            style={stylesM.buttonCreate}
-          >
-            <Text style={{ fontSize: 20, marginLeft: 25 }}>INICIAR SESIÓN</Text>
-          </TouchableOpacity>
+          <View style={stylesM.containerButtons}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("CreateAccount")}
+              style={stylesM.buttonCreate}
+            >
+              <Text style={stylesM.textButtonCreate}>CREAR CUENTA</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("Login")}
+              style={stylesM.buttonCreate}
+            >
+              <Text style={stylesM.textButtonCreate}>INICIAR SESIÓN</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </SafeAreaView>

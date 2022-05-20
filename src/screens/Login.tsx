@@ -19,15 +19,15 @@ import {
 import { validateEmail } from "../utils/helpers";
 
 const Login = ({ navigation }: { navigation: any }) => {
-  const [Email, setEmail] = useState("");
-  const [Contraseña, setContraseña] = useState("");
+  const [usuario, setUsuario] = useState("");
+  const [contraseña, setContraseña] = useState("");
 
   const [errorEmail, setErrorEmail] = useState("");
 
   //validar datos
   const registerUser = () => {
-    if (!validateData()) {
-      return;
+    if (usuario == "") {
+      alert("Usuario incorrecto / Completar campo");
     } else {
       console.log("Funciona bro");
 
@@ -41,8 +41,8 @@ const Login = ({ navigation }: { navigation: any }) => {
 
         //stringify enviar serializados los campos que necesitemos
         body: JSON.stringify({
-          Email: Email,
-          Contraseña: Contraseña,
+          usuario: usuario,
+          contraseña: contraseña,
         }),
       })
         .then((respuesta) => respuesta.json())
@@ -62,34 +62,34 @@ const Login = ({ navigation }: { navigation: any }) => {
     // Logeo();
   };
 
-  const validateData = () => {
-    setErrorEmail("");
-    let isValid = true;
+  // const validateData = () => {
+  //   setErrorEmail("");
+  //   let isValid = true;
 
-    if (!validateEmail(Email)) {
-      setErrorEmail("Debes de ingresar un email válido");
-      alert("Debes ingresar un Email valido");
-      isValid = false;
-    }
-    return isValid;
-  };
+  //   if (!validateEmail(Email)) {
+  //     setErrorEmail("Debes de ingresar un email válido");
+  //     alert("Debes ingresar un Email valido");
+  //     isValid = false;
+  //   }
+  //   return isValid;
+  // };
 
   return (
     <SafeAreaView style={stylesB.body}>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
       <View style={stylesB.completo}>
-        <View>
-          <Text style={stylesM.textAccount}>EMAIL</Text>
+        <View style={stylesM.containerGeneral}>
+          <Text style={stylesM.textAccount}>USUARIO</Text>
           <TextInput
             style={stylesM.inputAccount}
-            onChangeText={(Email) => setEmail(Email)}
+            onChangeText={(usuario) => setUsuario(usuario)}
           />
 
           <Text style={stylesM.textAccount}>CONTRASEÑA</Text>
           <TextInput
             secureTextEntry={true}
             style={stylesM.inputAccount}
-            onChangeText={(Contraseña) => setContraseña(Contraseña)}
+            onChangeText={(contraseña) => setContraseña(contraseña)}
           />
           <View style={stylesM.containerBotonLogin}>
             <TouchableOpacity

@@ -23,6 +23,7 @@ import Stats from "./src/screens/Stats";
 import Indicators from "./src/screens/Indicators";
 import GenerateQR from "./src/screens/GenerateQR";
 import ReaderQR from "./src/screens/ReaderQR";
+import Variables from "./src/screens/Variables";
 
 const Drawer = createDrawerNavigator();
 // const Tab = createBottomTabNavigator();
@@ -60,8 +61,8 @@ function DrawerApp() {
         }}
       />
       <Drawer.Screen
-        name="Stats"
-        component={Stats}
+        name="Indicators"
+        component={Indicators}
         options={{
           swipeEnabled: false,
           headerTransparent: true,
@@ -70,8 +71,8 @@ function DrawerApp() {
         }}
       />
       <Drawer.Screen
-        name="Indicators"
-        component={Indicators}
+        name="Variables"
+        component={Variables}
         options={{
           swipeEnabled: false,
           headerTransparent: true,
@@ -88,7 +89,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Splash"
           component={Splash}
           options={{ headerShown: false }}
@@ -107,7 +108,7 @@ export default function App() {
           name="CreateAccount"
           component={CreateAccount}
           options={{ headerShown: false }}
-        />
+        /> */}
 
         {/*<Stack.Screen
           name="Verification"
@@ -125,11 +126,11 @@ export default function App() {
           component={DrawerApp}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        {/*<Stack.Screen
           name="Receive"
           component={Receive}
           options={{ headerShown: false }}
-        />
+        /> */}
         <Stack.Screen
           name="Send"
           component={Send}

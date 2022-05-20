@@ -15,11 +15,19 @@ import {
   stylesO,
   stylesS,
 } from "./../appTheme/styles/styles";
+import { Dropdown, MultiSelect } from "react-native-element-dropdown";
 import Icon from "react-native-vector-icons/Ionicons";
 import CheckBox from "@react-native-community/checkbox";
 
+const actions = [
+  { label: "01-Siembra de arboles" },
+  { label: "02-Limpieza de playas" },
+  { label: "03-Llevar tus propias bolsas" },
+  { label: "04-Reembolso" },
+];
+
 const Send = ({ navigation }: { navigation: any }) => {
-  const [isSelected, setSelection] = useState(false);
+  const [dropdown, setDropdown] = useState(null);
 
   return (
     <SafeAreaView style={stylesB.body}>
@@ -28,36 +36,26 @@ const Send = ({ navigation }: { navigation: any }) => {
         <View style={stylesM.containerboxSend}>
           <Text style={stylesM.boxSend}>ENVIAR</Text>
         </View>
-        <View style={stylesM.ContainerTitulo}>
-          <Text style={stylesM.textTitulo}>SELECCIONE EL ROL DEL RECEPTOR</Text>
-        </View>
-        <View style={stylesM.containerReceptor}>
-          {/* <CheckBox
-            value={isSelected}
-            onValueChange={setSelection}
-            style={stylesM.checkbox}
-          /> */}
-          <TouchableOpacity style={stylesM.botonCheck}>
-            <Icon name="checkbox-outline" size={30} color="#65C82C" />
-          </TouchableOpacity>
-          <Image
-            source={require("./../../assets/img/ECOamIgo.png")}
-            style={stylesM.imgAmigo}
-          />
-
-          <TouchableOpacity style={stylesM.botonCheck}>
-            <Icon name="checkbox-outline" size={30} color="#65C82C" />
-          </TouchableOpacity>
-          <Image
-            source={require("./../../assets/img/ECOafiLiado.png")}
-            style={stylesM.imgAmigo}
-          />
-        </View>
         <View style={stylesM.containerCant}>
           <Text>CANTIDAD A ENVIAR</Text>
           <TextInput style={stylesM.textInputSend} />
-          <Text>NÚMERO AL QUE ENVIA</Text>
+          <Text>USUARIO AL QUE ENVIA</Text>
           <TextInput style={stylesM.textInputSend} />
+          <Text style={stylesM.textActions}>ACCIONES SOSTENIBLES</Text>
+          <Dropdown
+            data={actions}
+            style={stylesM.dropDown}
+            searchPlaceholder="Search"
+            labelField="label"
+            valueField="value"
+            label="Dropdown"
+            placeholder="Select item"
+            value={dropdown}
+            onChange={(item) => {
+              setDropdown(item.value);
+              console.log("selected", item);
+            }}
+          />
         </View>
         <View style={stylesM.containerQRSend}>
           <Image

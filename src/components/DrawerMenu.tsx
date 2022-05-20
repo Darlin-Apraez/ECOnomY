@@ -19,7 +19,7 @@ function DrawerMenu({ navigation }: { navigation: any }) {
 
   return (
     <View style={{ flex: 1 }}>
-      <View style={{ top: 20 }}>
+      <View style={stylesM.containerDrawer}>
         <TouchableOpacity
           onPress={() => navigation.navigate("Balance")}
           style={stylesM.botonMenuDrawer}
@@ -37,23 +37,23 @@ function DrawerMenu({ navigation }: { navigation: any }) {
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Stats")}
+          onPress={() => navigation.navigate("Indicators")}
           style={stylesM.botonMenuDrawer}
         >
           <Text
             style={[stylesM.textMenuDrawer, stylesO.textMenuDrawer_centerTwo]}
           >
-            ESTADISTICAS
+            INDICADORES
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Indicators")}
+          onPress={() => navigation.navigate("Variables")}
           style={stylesM.botonMenuDrawer}
         >
           <Text
             style={[stylesM.textMenuDrawer, stylesO.textMenuDrawer_centerThree]}
           >
-            INDICADORES
+            VARIABLES
           </Text>
         </TouchableOpacity>
       </View>

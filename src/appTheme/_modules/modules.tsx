@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 
-const fontSizeTwelveIos = Platform.OS === "ios" ? 8.5 : 10;
+const fontSizeQR = Platform.OS === "ios" ? 14 : 17;
 const windowWidth = Dimensions.get("screen").width;
 const windowHeight = Dimensions.get("screen").height;
 
@@ -31,9 +31,9 @@ export const stylesM = StyleSheet.create({
     fontWeight: "normal",
   },
 
-  fontSizeTwelve: {
-    fontSize: RFValue(fontSizeTwelveIos),
-  },
+  // fontSizeTwelve: {
+  //   fontSize: RFValue(fontSizeTwelveIos),
+  // },
 
   fontSizeFourteen: {
     fontSize: RFValue(12),
@@ -124,73 +124,85 @@ export const stylesM = StyleSheet.create({
     backgroundColor: "#5CB032",
     width: 105,
     height: 50,
-    marginTop: 20,
     borderRadius: 8,
     alignItems: "center",
-    alignContent: "center",
+    justifyContent: "center",
+  },
+  //estilo general
+  textAccount: {
+    marginLeft: RFValue(8),
+    marginTop: RFValue(18),
+    color: "black",
+    fontSize: 15,
+    fontWeight: "300",
+  },
+  //********************** */
+
+  //screen Splash
+
+  EcoLogo: {
+    resizeMode: "contain",
+    width: RFValue(291),
+    height: RFValue(291),
+    marginVertical: RFValue(182),
   },
 
+  //End Splash
+
+  //Screen Register
+  BacColor: {
+    backgroundColor: "#c2ea5b",
+  },
+  NameScale: {
+    width: RFValue(345),
+    height: RFValue(138),
+    resizeMode: "contain",
+    marginTop: RFValue(170),
+  },
+  containerButtons: {
+    marginTop: RFValue(23),
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  buttonCreate: {
+    borderWidth: 7,
+    borderColor: "#5cb032",
+    width: RFValue(228),
+    height: RFValue(64),
+    //padding: 15,
+    borderRadius: 18,
+    marginBottom: RFValue(14),
+    backgroundColor: "white",
+    justifyContent: "center",
+  },
+  textButtonCreate: {
+    fontSize: 20,
+    textAlign: "center",
+  },
+  //End Register
+
   //Login
+  containerGeneral: {
+    marginTop: RFValue(25),
+  },
   containerBotonLogin: {
-    marginTop: 30,
+    marginTop: RFValue(27),
+    justifyContent: "center",
     alignItems: "center",
   },
   botonGreenLogin: {
     backgroundColor: "#5CB032",
-    width: 105,
-    height: 50,
+    width: RFValue(98),
+    height: RFValue(46),
     borderRadius: 8,
     alignItems: "center",
-    alignContent: "center",
+    justifyContent: "center",
   },
   textBotonLogin: {
     fontWeight: "bold",
-    margin: 15,
+    textAlign: "center",
   },
-  //end Login
-
-  //screen Splash
-  SplashScale: {
-    width: 270,
-    height: 270,
-    display: "flex",
-    resizeMode: "contain",
-    // marginTop: 0,
-    // left: 10,
-    // backgroundColor: "red",
-  },
-
-  SplashContain: {
-    width: 400,
-    height: 400,
-    margin: "auto",
-    top: 150,
-    // backgroundColor: "red",
-  },
-
-  SplashUnder: {
-    left: 250,
-    marginTop: 350,
-  },
-
-  EcoLogo: {
-    resizeMode: "contain",
-    width: 300,
-    height: 300,
-    marginVertical: 200,
-  },
-
-  //end screen Splash
-
-  NameScale: {
-    width: 370,
-    height: 370,
-    resizeMode: "contain",
-    // left: 40,
-    // top: 120,
-    left: "1.5%",
-    top: 100,
-  },
+  //End Login
 
   btnRegister: {
     width: 100,
@@ -199,50 +211,33 @@ export const stylesM = StyleSheet.create({
     margin: 20,
     borderRadius: 8,
   },
+
   // screen createaccount
+  containerInterno: {
+    marginLeft: RFValue(20),
+  },
   wrapperCA: {
-    marginLeft: -15,
+    marginTop: RFValue(20),
   },
-
-  textAccount: {
-    marginLeft: 10,
-    marginTop: 20,
-    color: "black",
-    fontSize: 15,
-    fontWeight: "300",
-  },
-
   inputAccount: {
-    width: 350,
-    height: 50,
+    width: RFValue(317),
+    height: RFValue(45),
     borderRadius: 8,
     borderWidth: 2,
     borderColor: "#5cb032",
     backgroundColor: "#c2ea5b",
-    marginTop: 15,
-    padding: 10,
+    marginTop: RFValue(13),
+    padding: RFValue(8),
   },
-
   textBoton: {
     fontWeight: "bold",
-    margin: 8,
+    margin: RFValue(6),
   },
-
-  buttonCreate: {
-    borderWidth: 7,
-    borderColor: "#5cb032",
-    width: 250,
-    height: 70,
-    padding: 15,
-    borderRadius: 18,
-    marginLeft: 55,
-    marginTop: 20,
-    backgroundColor: "white",
+  containerCaRegister: {
+    alignItems: "center",
+    justifyContent: "center",
   },
-
-  BacColor: {
-    backgroundColor: "#c2ea5b",
-  },
+  //End CreateAccount
 
   txtButtonSend: {
     backgroundColor: "#5CB032",
@@ -263,34 +258,34 @@ export const stylesM = StyleSheet.create({
   //Balance
   textInputBalance: {
     backgroundColor: "#c2ea5b",
-    width: 330,
-    height: 320,
+    width: RFValue(295),
+    height: RFValue(290),
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 80,
+    marginTop: RFValue(73),
     borderRadius: 30,
   },
 
   textBalance: {
-    fontSize: 100,
-    marginTop: -320,
+    fontSize: RFValue(92),
+    marginTop: RFValue(-290),
     fontWeight: "bold",
   },
 
   ecoPunto: {
-    width: 170,
-    height: 170,
+    width: RFValue(155),
+    height: RFValue(155),
   },
 
   containerBotones: {
     alignItems: "center",
     flexDirection: "row",
-    marginTop: 50,
+    marginTop: RFValue(46),
   },
 
   botonSend: {
-    height: 50,
-    width: 120,
+    height: RFValue(45),
+    width: RFValue(110),
     borderRadius: 6,
     elevation: 3,
     shadowRadius: 6,
@@ -299,94 +294,97 @@ export const stylesM = StyleSheet.create({
     justifyContent: "center",
   },
   botonSend2: {
-    height: 50,
-    width: 120,
+    height: RFValue(45),
+    width: RFValue(110),
     borderRadius: 6,
     elevation: 3,
     shadowRadius: 6,
     backgroundColor: "#5cb032",
     alignItems: "center",
     justifyContent: "center",
-    marginLeft: 60,
+    marginLeft: RFValue(55),
   },
 
   logoECOnomY: {
-    height: 300,
-    width: 300,
+    height: RFValue(100),
+    width: RFValue(272),
     resizeMode: "contain",
-    marginTop: 60,
+    marginTop: RFValue(150),
   },
 
   //end Balance
 
   //Drawer
+  containerDrawer: {
+    marginTop: RFValue(20),
+  },
   botonMenuDrawer: {
-    margin: 20,
+    margin: RFValue(20),
   },
   textMenuDrawer: {
     fontWeight: "bold",
-    fontSize: 20,
-    marginLeft: 5,
+    fontSize: RFValue(17),
+    marginLeft: RFValue(3),
   },
   containerLogout: {
-    marginTop: 100,
+    marginTop: RFValue(95),
     alignItems: "center",
   },
   backgroundLogout: {
     backgroundColor: "#ff7777",
-    height: 40,
-    width: 150,
+    height: RFValue(37),
+    width: RFValue(143),
     borderRadius: 8,
     justifyContent: "center",
     alignItems: "center",
   },
   logout: {
     color: "black",
-    fontSize: 15,
+    fontSize: RFValue(13),
     fontWeight: "bold",
   },
   //end Drawer
 
   //Receive
   containerboxReceive: {
-    marginTop: 10,
-    marginLeft: -250,
+    marginTop: RFValue(9),
+    marginLeft: RFValue(-227),
+    height: RFValue(37),
+    width: RFValue(145),
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#c2ea5b",
   },
   boxReceive: {
-    height: 40,
-    width: 150,
-    backgroundColor: "#c2ea5b",
     textAlign: "center",
     textAlignVertical: "center",
-    fontSize: 20,
+    fontSize: RFValue(18),
     fontWeight: "bold",
   },
   textInputBalanceReceive: {
     backgroundColor: "#c2ea5b",
-    width: 330,
-    height: 320,
+    width: RFValue(300),
+    height: RFValue(292),
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 30,
+    marginTop: RFValue(27),
     borderRadius: 30,
   },
   containerimgQR: {
-    marginTop: 40,
-    marginLeft: -170,
+    marginTop: RFValue(36),
+    marginLeft: RFValue(-165),
   },
   imageQR: {
-    height: 100,
-    width: 100,
+    height: RFValue(91),
+    width: RFValue(91),
   },
   botonGenerate: {
     backgroundColor: "#c2ea5b",
-    height: 40,
-    width: 200,
+    height: RFValue(36),
+    width: RFValue(182),
     borderRadius: 80,
-    marginTop: -70,
-    marginLeft: 150,
+    marginTop: RFValue(-63),
+    marginLeft: RFValue(135),
     elevation: 3,
     shadowRadius: 6,
     alignItems: "center",
@@ -395,30 +393,32 @@ export const stylesM = StyleSheet.create({
   textGenerate: {
     textAlign: "center",
     textAlignVertical: "center",
-    fontSize: 20,
+    fontSize: RFValue(fontSizeQR),
     fontWeight: "bold",
   },
   containerNumCuenta: {
-    width: 240,
-    height: 100,
-    marginTop: 80,
+    width: RFValue(219),
+    height: RFValue(91),
+    marginTop: RFValue(72),
     alignItems: "center",
   },
   textContainerNumCuenta: {
-    fontSize: 20,
+    fontSize: RFValue(18),
   },
   textInputNumCuenta: {
-    width: 230,
-    height: 40,
+    width: RFValue(210),
+    height: RFValue(37),
     borderColor: "#c2ea5b",
     borderWidth: 2,
     borderRadius: 80,
-    marginTop: 10,
-    padding: 10,
+    margin: RFValue(9),
+    padding: RFValue(9),
   },
   containerCopy: {
-    marginLeft: 295,
-    marginTop: -59,
+    marginLeft: RFValue(270),
+    marginTop: RFValue(-55),
+    height: RFValue(30),
+    width: RFValue(25),
   },
   botonCopy: {
     height: 50,
@@ -432,7 +432,17 @@ export const stylesM = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginLeft: 280,
-    marginTop: 30,
+    marginTop: 100,
+  },
+  botonReturnReceive: {
+    height: 40,
+    width: 150,
+    borderRadius: 80,
+    backgroundColor: "#c2ea5b",
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: -280,
+    marginTop: -40,
   },
   //end Receive
   //GenerateQR
@@ -502,6 +512,7 @@ export const stylesM = StyleSheet.create({
   },
   containerCant: {
     marginLeft: -60,
+    marginTop: 40,
   },
   textInputSend: {
     width: 280,
@@ -513,17 +524,29 @@ export const stylesM = StyleSheet.create({
     padding: 10,
     marginBottom: 20,
   },
+  textActions: {
+    marginTop: 30,
+    fontWeight: "bold",
+  },
+  dropDown: {
+    width: 180,
+    height: 70,
+    marginTop: 25,
+    padding: 5,
+    borderColor: "#c2ea5b",
+    borderWidth: 2,
+  },
   containerQRSend: {
-    marginTop: 40,
-    marginLeft: -150,
+    marginTop: -83,
+    marginLeft: 195,
   },
   botonScanSend: {
     backgroundColor: "#c2ea5b",
     height: 40,
     width: 150,
     borderRadius: 80,
-    marginTop: -70,
-    marginLeft: 150,
+    marginTop: 20,
+    marginLeft: 190,
     elevation: 3,
     shadowRadius: 6,
     alignItems: "center",
@@ -587,4 +610,15 @@ export const stylesM = StyleSheet.create({
     margin: 20,
   },
   //end ReaderQR
+
+  //Indicator
+  containerIndicator: {
+    marginTop: 40,
+  },
+  indicator: {
+    resizeMode: "contain",
+    height: 250,
+    width: 250,
+  },
+  //End Indicator
 });

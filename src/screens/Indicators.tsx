@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StatusBar } from "react-native";
+import { View, Text, SafeAreaView, StatusBar, Image } from "react-native";
 import React from "react";
 import {
   stylesB,
@@ -10,20 +10,16 @@ import {
 
 const Indicators = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={stylesB.body}>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
-      {/* <View style={stylesB.completo}> */}
-      <View
-        style={{
-          alignItems: "center",
-          justifyContent: "center",
-          marginTop: 50,
-          backgroundColor: "red",
-        }}
-      >
-        <Text>Indicators</Text>
+      <View style={[stylesB.completo, stylesM.BacColor]}>
+        <View style={stylesM.containerIndicator}>
+          <Image
+            source={require("./../../assets/img/indicadorUno.png")}
+            style={stylesM.indicator}
+          />
+        </View>
       </View>
-      {/* </View> */}
     </SafeAreaView>
   );
 };
