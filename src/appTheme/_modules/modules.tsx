@@ -614,11 +614,152 @@ export const stylesM = StyleSheet.create({
   //Indicator
   containerIndicator: {
     marginTop: 40,
+    alignItems: "center",
+  },
+  txtSostenibilidad: {
+    fontSize: 20,
   },
   indicator: {
     resizeMode: "contain",
+    marginTop: -25,
     height: 250,
     width: 250,
   },
+  txtGraficaG: {
+    fontSize: 20,
+    marginTop: -25,
+  },
+  indicatorTwo: {
+    resizeMode: "contain",
+    marginTop: -50,
+    height: 400,
+    width: 400,
+  },
+  indicatorThree: {
+    resizeMode: "contain",
+    marginTop: -70,
+    height: 300,
+    width: 300,
+  },
   //End Indicator
+
+  //History
+  containerHistorial: {
+    marginTop: 45,
+    alignItems: "center",
+  },
+  txtHistorial: {
+    fontSize: 25,
+    fontWeight: "bold",
+  },
+  dropDownHistory: {
+    width: 250,
+    height: 70,
+    marginTop: 25,
+    padding: 5,
+    borderColor: "#5cb032",
+    borderWidth: 2,
+  },
+  textInputHistory: {
+    height: 350,
+    width: 350,
+    backgroundColor: "#5cb032",
+    marginTop: 150,
+    borderRadius: 10,
+  },
+  //End History
+
+  //Variables
+  colorInputs: {
+    backgroundColor: "#ffeb7b",
+  },
+  containerInputs: {
+    marginTop: 50,
+  },
+  sectionOne: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  txtTitulo: {
+    fontSize: 20,
+    fontWeight: "bold",
+    paddingTop: 10,
+  },
+  inputsVariables: {
+    width: 140,
+    height: 140,
+    margin: 10,
+    borderRadius: 20,
+    alignItems: "center",
+  },
+  viewOne: {
+    marginTop: 20,
+    flexDirection: "row",
+    textAlign: "center",
+  },
+  txtDates: {
+    marginHorizontal: 15,
+    fontSize: 15,
+  },
+  txtDates2: {
+    marginHorizontal: 19.5,
+    fontSize: 15,
+  },
+  txtDates3: {
+    marginHorizontal: 10,
+    fontSize: 15,
+  },
+  viewTwo: {
+    flexDirection: "row",
+    textAlign: "center",
+  },
+  txtDatesNum: {
+    marginHorizontal: 20,
+    fontSize: 15,
+  },
+  txtDatesNum1: {
+    marginHorizontal: 17,
+    fontSize: 15,
+  },
+  txtDatesNum2: {
+    marginHorizontal: 15,
+    fontSize: 15,
+  },
+  txtDatesNum3: {
+    marginHorizontal: 21.2,
+    fontSize: 15,
+  },
+  txtDatesNum4: {
+    marginHorizontal: 23.5,
+    fontSize: 15,
+  },
+  txtDatesNum5: {
+    marginHorizontal: 15,
+    fontSize: 15,
+  },
+  txtDatesNum6: {
+    marginHorizontal: 25,
+    fontSize: 15,
+  },
+  txtTituloT: {
+    fontSize: 17,
+    fontWeight: "bold",
+    paddingTop: 10,
+  },
+  sectionTwo: {
+    flexDirection: "column",
+    alignItems: "center",
+    marginLeft: 15,
+  },
+  inputsVariabless: {
+    width: 314.5,
+    height: 90,
+    margin: 10,
+    borderRadius: 20,
+    paddingTop: 10,
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+
+  //End Variables
 });
