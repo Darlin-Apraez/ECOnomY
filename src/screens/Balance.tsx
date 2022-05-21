@@ -24,28 +24,37 @@ import {
 const Balance = ({ navigation }: { navigation: any }) => {
   const [registro_id, setregistro_id] = useState("");
   const [ECOpuntos, setECOpuntos] = useState("");
-  const [Email, setEmail] = useState("");
 
-  // useEffect(() => {
-  //   const backAction = () => {
-  //     Alert.alert("Espera", "¿Seguro que quieres salir?", [
-  //       {
-  //         text: "Cancelar",
-  //         onPress: () => null,
-  //         style: "cancel",
-  //       },
-  //       { text: "Si", onPress: () => BackHandler.exitApp() },
-  //     ]);
-  //     return true;
-  //   };
+  // const VB = 100;
+  // const Balance = VB;
+  // const VE = 5;
+  // const RESULT = VB - VE;
 
-  //   const backHandler = BackHandler.addEventListener(
-  //     "hardwareBackPress",
-  //     backAction
-  //   );
+  function envioECOpuntos(VB = 5, VE = 2) {
+    return VB - VE;
+  }
+  console.log(envioECOpuntos);
 
-  //   return () => backHandler.remove();
-  // }, []);
+  useEffect(() => {
+    const backAction = () => {
+      Alert.alert("Espera", "¿Seguro que quieres salir?", [
+        {
+          text: "Cancelar",
+          onPress: () => null,
+          style: "cancel",
+        },
+        { text: "Si", onPress: () => BackHandler.exitApp() },
+      ]);
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
+
+    return () => backHandler.remove();
+  }, []);
 
   // const SearchUser = () => {
   //   // const ECOpuntos = useState;
@@ -83,7 +92,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
           style={stylesM.textInputBalance}
           // {...SearchUser}
         />
-        <Text style={stylesM.textBalance}>100</Text>
+        <Text style={stylesM.textBalance}>{envioECOpuntos}</Text>
         <Image
           source={require("./../../assets/img/ECOpunTo.png")}
           style={stylesM.ecoPunto}

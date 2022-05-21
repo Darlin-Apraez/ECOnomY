@@ -25,6 +25,11 @@ const actions = [
   { label: "03-Llevar tus propias bolsas" },
   { label: "04-Reembolso" },
 ];
+const VB = "";
+Number(VB);
+const Balance = VB;
+const VE = "";
+// const RESULT = VB - VE;
 
 const Send = ({ navigation }: { navigation: any }) => {
   const [dropdown, setDropdown] = useState(null);
@@ -38,7 +43,7 @@ const Send = ({ navigation }: { navigation: any }) => {
         </View>
         <View style={stylesM.containerCant}>
           <Text>CANTIDAD A ENVIAR</Text>
-          <TextInput style={stylesM.textInputSend} />
+          <TextInput style={stylesM.textInputSend} {...VE} />
           <Text>USUARIO AL QUE ENVIA</Text>
           <TextInput style={stylesM.textInputSend} />
           <Text style={stylesM.textActions}>ACCIONES SOSTENIBLES</Text>
@@ -70,9 +75,17 @@ const Send = ({ navigation }: { navigation: any }) => {
         >
           <Text style={stylesM.textGenerate}>Escanear QR</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={stylesM.btnSend}>
-          <Text style={stylesM.textBtnSend}>ENVIAR</Text>
-        </TouchableOpacity>
+        <View style={stylesM.containerbtns}>
+          <TouchableOpacity
+            style={stylesM.btnBack}
+            onPress={() => navigation.goBack()}
+          >
+            <Text style={stylesM.textBtnSend}>REGRESAR</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={stylesM.btnSend}>
+            <Text style={stylesM.textBtnSend}>ENVIAR</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );

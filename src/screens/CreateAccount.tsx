@@ -50,7 +50,7 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
     } else {
       //usamos el fetch, señalamos el EndPoint o url donde nosotros enviamos la información
       navigation.navigate("DrawerApp");
-      fetch("http://192.168.1.15/pruebas/newregistro.php", {
+      fetch("http://192.168.1.14/pruebas/newregistro.php", {
         method: "POST",
         headers: {
           Accept: "application/json",

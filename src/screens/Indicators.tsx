@@ -1,4 +1,11 @@
-import { View, Text, SafeAreaView, StatusBar, Image } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StatusBar,
+  Image,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import {
   stylesB,
@@ -57,23 +64,20 @@ const Indicators = () => {
     <SafeAreaView style={stylesB.body}>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
       <View style={[stylesB.completo, stylesM.BacColor]}>
-        <View style={stylesM.containerIndicator}>
-          <Text style={stylesM.txtSostenibilidad}>NIVEL DE SOSTENIBILIDAD</Text>
-          <Image
-            source={require("./../../assets/img/indicadorUno.png")}
-            style={stylesM.indicator}
-          />
-          <Text style={stylesM.txtGraficaG}>GRÁFICA GENERAL</Text>
-          <Image
-            source={require("./../../assets/img/Grafica-Lineal.jpeg")}
-            style={stylesM.indicatorTwo}
-          />
-          <Text style={stylesM.txtGraficaG}>GRÁFICA PERSONAL</Text>
-          <Image
-            source={require("./../../assets/img/Personal.jpeg")}
-            style={stylesM.indicatorThree}
-          />
-        </View>
+        <ScrollView style={stylesM.scrollView}>
+          <View style={stylesM.containerIndicator}>
+            <Text style={stylesM.txtSostenibilidad}>TÚ APORTE</Text>
+            <Image
+              source={require("./../../assets/img/IndicadorPersonal.png")}
+              style={stylesM.indicator}
+            />
+            <Text style={stylesM.txtGraficaG}>GRÁFICA GENERAL</Text>
+            <Image
+              source={require("./../../assets/img/LinealGrafica.jpeg")}
+              style={stylesM.indicatorTwo}
+            />
+          </View>
+        </ScrollView>
       </View>
     </SafeAreaView>
   );

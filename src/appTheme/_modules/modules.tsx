@@ -552,6 +552,10 @@ export const stylesM = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  containerbtns: {
+    flexDirection: "row",
+    marginTop: 50,
+  },
   btnSend: {
     backgroundColor: "#00e37c",
     width: 120,
@@ -559,11 +563,19 @@ export const stylesM = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 80,
-    marginTop: 80,
+    marginLeft: 20,
   },
   textBtnSend: {
     fontSize: 20,
     fontWeight: "bold",
+  },
+  btnBack: {
+    backgroundColor: "#00e37c",
+    width: 120,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 80,
   },
   //end Send
 
@@ -611,37 +623,48 @@ export const stylesM = StyleSheet.create({
   },
   //end ReaderQR
 
-  //Indicator
+  //Indicators
+  scrollView: {
+    marginTop: 40,
+    marginHorizontal: 20,
+  },
   containerIndicator: {
     marginTop: 40,
     alignItems: "center",
   },
   txtSostenibilidad: {
-    fontSize: 20,
+    fontSize: 42,
+    fontWeight: "bold",
   },
   indicator: {
     resizeMode: "contain",
-    marginTop: -25,
-    height: 250,
-    width: 250,
+    marginTop: -40,
+    height: 350,
+    width: 350,
   },
   txtGraficaG: {
     fontSize: 20,
+    marginTop: -15,
+    fontWeight: "bold",
+  },
+  txtGraficaGp: {
+    fontSize: 20,
     marginTop: -25,
+    fontWeight: "bold",
   },
   indicatorTwo: {
     resizeMode: "contain",
-    marginTop: -50,
-    height: 400,
-    width: 400,
+    marginTop: -35,
+    height: 350,
+    width: 350,
   },
   indicatorThree: {
     resizeMode: "contain",
-    marginTop: -70,
-    height: 300,
-    width: 300,
+    marginTop: -30,
+    height: 350,
+    width: 350,
   },
-  //End Indicator
+  //End Indicators
 
   //History
   containerHistorial: {
@@ -741,6 +764,16 @@ export const stylesM = StyleSheet.create({
     marginHorizontal: 25,
     fontSize: 15,
   },
+  txtDatesNum7: {
+    marginTop: -50,
+    marginHorizontal: 25,
+    fontSize: 20,
+  },
+  txtDatesNum8: {
+    marginTop: -35,
+    marginHorizontal: 25,
+    fontSize: 20,
+  },
   txtTituloT: {
     fontSize: 17,
     fontWeight: "bold",
@@ -749,16 +782,15 @@ export const stylesM = StyleSheet.create({
   sectionTwo: {
     flexDirection: "column",
     alignItems: "center",
-    marginLeft: 15,
   },
   inputsVariabless: {
-    width: 314.5,
+    width: 295,
     height: 90,
-    margin: 10,
-    borderRadius: 20,
     paddingTop: 10,
     textAlign: "center",
     fontWeight: "bold",
+    borderRadius: 20,
+    marginTop: 10,
   },
 
   //End Variables

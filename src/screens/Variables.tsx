@@ -93,6 +93,20 @@ const Variables = () => {
               </View>
             </View>
           </View>
+          <View style={stylesM.sectionTwo}>
+            <Text style={[stylesM.inputsVariabless, stylesM.colorInputs]}>
+              REFORESTACIÓN
+            </Text>
+            <View>
+              <Text style={stylesM.txtDatesNum7}>10%</Text>
+            </View>
+            <Text style={[stylesM.inputsVariabless, stylesM.colorInputs]}>
+              BIO{"\n"}DIVERSIDAD
+            </Text>
+            <View>
+              <Text style={stylesM.txtDatesNum8}>5%</Text>
+            </View>
+          </View>
         </View>
       </View>
     </SafeAreaView>

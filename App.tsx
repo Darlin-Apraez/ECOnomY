@@ -126,11 +126,11 @@ export default function App() {
           component={DrawerApp}
           options={{ headerShown: false }}
         />
-        {/*<Stack.Screen
+        <Stack.Screen
           name="Receive"
           component={Receive}
           options={{ headerShown: false }}
-        /> */}
+        />
         <Stack.Screen
           name="Send"
           component={Send}

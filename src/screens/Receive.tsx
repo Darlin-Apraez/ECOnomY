@@ -65,20 +65,21 @@ const Receive = ({ navigation }: { navigation: any }) => {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity
-          style={stylesM.botonHistorial}
-          activeOpacity={0.3}
-          onPress={() => navigation.navigate("History")}
-        >
-          <Text>HISTORIAL</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={stylesM.botonReturnReceive}
-          activeOpacity={0.3}
-          onPress={() => navigation.goBack()}
-        >
-          <Text>REGRESAR</Text>
-        </TouchableOpacity>
+        <View style={stylesM.containerbtns}>
+          <TouchableOpacity
+            style={stylesM.btnBack}
+            onPress={() => navigation.goBack()}
+          >
+            <Text style={stylesM.textBtnSend}>REGRESAR</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={stylesM.btnSend}
+            activeOpacity={0.3}
+            onPress={() => navigation.navigate("History")}
+          >
+            <Text style={stylesM.textBtnSend}>HISTORIAL</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );

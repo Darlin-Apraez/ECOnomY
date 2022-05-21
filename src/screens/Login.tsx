@@ -32,7 +32,7 @@ const Login = ({ navigation }: { navigation: any }) => {
       console.log("Funciona bro");
 
       //usamos el fetch, señalamos el EndPoint o url donde nosotros enviamos la información
-      fetch("http://192.168.1.15/pruebas/login.php", {
+      fetch("http://192.168.1.14/pruebas/login.php", {
         method: "POST",
         headers: {
           Accept: "application/json",
