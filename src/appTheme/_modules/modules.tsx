@@ -8,6 +8,11 @@ import {
 import { RFValue } from "react-native-responsive-fontsize";
 
 const fontSizeQR = Platform.OS === "ios" ? 14 : 17;
+const txtSize = Platform.OS === "ios" ? 15 : 18;
+const marginEcoLogo = Platform.OS === "ios" ? 130 : 150;
+const txtSend = Platform.OS === "ios" ? 36 : 40;
+const txtTemperatura = Platform.OS === "ios" ? 12 : 15;
+
 const windowWidth = Dimensions.get("screen").width;
 const windowHeight = Dimensions.get("screen").height;
 
@@ -309,7 +314,7 @@ export const stylesM = StyleSheet.create({
     height: RFValue(100),
     width: RFValue(272),
     resizeMode: "contain",
-    marginTop: RFValue(150),
+    marginTop: RFValue(marginEcoLogo),
   },
 
   //end Balance
@@ -471,19 +476,20 @@ export const stylesM = StyleSheet.create({
 
   //Send
   containerboxSend: {
-    marginTop: 15,
-    marginLeft: -250,
+    marginTop: RFValue(15),
+    marginLeft: RFValue(-240),
     alignItems: "center",
     justifyContent: "center",
   },
   boxSend: {
-    height: 40,
+    height: RFValue(txtSend),
     width: 150,
     backgroundColor: "#c2ea5b",
     textAlign: "center",
-    textAlignVertical: "center",
+    // textAlignVertical: "center",
     fontSize: 20,
     fontWeight: "bold",
+    paddingTop: RFValue(7),
   },
   ContainerTitulo: {
     width: 300,
@@ -566,7 +572,7 @@ export const stylesM = StyleSheet.create({
     marginLeft: 20,
   },
   textBtnSend: {
-    fontSize: 20,
+    fontSize: RFValue(txtSize),
     fontWeight: "bold",
   },
   btnBack: {
@@ -627,6 +633,7 @@ export const stylesM = StyleSheet.create({
   scrollView: {
     marginTop: 40,
     marginHorizontal: 20,
+    display: "flex",
   },
   containerIndicator: {
     marginTop: 40,
@@ -640,7 +647,7 @@ export const stylesM = StyleSheet.create({
     resizeMode: "contain",
     marginTop: -40,
     height: 350,
-    width: 350,
+    width: RFValue(300),
   },
   txtGraficaG: {
     fontSize: 20,
@@ -656,7 +663,7 @@ export const stylesM = StyleSheet.create({
     resizeMode: "contain",
     marginTop: -35,
     height: 350,
-    width: 350,
+    width: RFValue(300),
   },
   indicatorThree: {
     resizeMode: "contain",
@@ -775,7 +782,12 @@ export const stylesM = StyleSheet.create({
     fontSize: 20,
   },
   txtTituloT: {
-    fontSize: 17,
+    fontSize: 16,
+    fontWeight: "bold",
+    paddingTop: 10,
+  },
+  txtTituloTemperatura: {
+    fontSize: RFValue(txtTemperatura),
     fontWeight: "bold",
     paddingTop: 10,
   },
