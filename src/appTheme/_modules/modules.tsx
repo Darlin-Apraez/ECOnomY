@@ -8,10 +8,11 @@ import {
 import { RFValue } from "react-native-responsive-fontsize";
 
 const fontSizeQR = Platform.OS === "ios" ? 14 : 17;
-const txtSize = Platform.OS === "ios" ? 15 : 18;
+const txtSize = Platform.OS === "ios" ? 13 : 15;
 const marginEcoLogo = Platform.OS === "ios" ? 130 : 150;
 const txtSend = Platform.OS === "ios" ? 36 : 40;
 const txtTemperatura = Platform.OS === "ios" ? 12 : 15;
+const scanQrContainer = Platform.OS === "ios" ?  185: 180;
 
 const windowWidth = Dimensions.get("screen").width;
 const windowHeight = Dimensions.get("screen").height;
@@ -425,39 +426,15 @@ export const stylesM = StyleSheet.create({
     height: RFValue(30),
     width: RFValue(25),
   },
-  botonCopy: {
-    height: 50,
-    width: 50,
-  },
-  botonHistorial: {
-    height: 40,
-    width: 150,
-    borderRadius: 80,
-    backgroundColor: "#c2ea5b",
-    alignItems: "center",
-    justifyContent: "center",
-    marginLeft: 280,
-    marginTop: 100,
-  },
-  botonReturnReceive: {
-    height: 40,
-    width: 150,
-    borderRadius: 80,
-    backgroundColor: "#c2ea5b",
-    alignItems: "center",
-    justifyContent: "center",
-    marginLeft: -280,
-    marginTop: -40,
-  },
   //end Receive
   //GenerateQR
   containerQR: {
     alignItems: "center",
-    marginTop: 40,
+    marginTop: RFValue(40),
   },
   boton: {
-    height: 50,
-    width: 80,
+    height: RFValue(45),
+    width: RFValue(75),
     borderRadius: 6,
     elevation: 3,
     shadowRadius: 6,
@@ -466,8 +443,8 @@ export const stylesM = StyleSheet.create({
     justifyContent: "center",
   },
   input: {
-    height: 40,
-    margin: 12,
+    height: RFValue(40),
+    margin: RFValue(12),
     borderWidth: 1,
     padding: 10,
   },
@@ -491,15 +468,6 @@ export const stylesM = StyleSheet.create({
     fontWeight: "bold",
     paddingTop: RFValue(7),
   },
-  ContainerTitulo: {
-    width: 300,
-    marginTop: 30,
-    marginLeft: -40,
-  },
-  textTitulo: {
-    fontSize: 15,
-    fontWeight: "bold",
-  },
   // checkbox: {
   //   alignSelf: "center",
   // },
@@ -521,38 +489,38 @@ export const stylesM = StyleSheet.create({
     marginTop: 40,
   },
   textInputSend: {
-    width: 280,
-    height: 40,
+    width: RFValue(260),
+    height: RFValue(40),
     borderColor: "#c2ea5b",
     borderWidth: 2,
     borderRadius: 80,
-    marginTop: 10,
-    padding: 10,
-    marginBottom: 20,
+    marginTop: RFValue(10),
+    padding: RFValue(10),
+    marginBottom: RFValue(20),
   },
   textActions: {
-    marginTop: 30,
+    marginTop: RFValue(30),
     fontWeight: "bold",
   },
   dropDown: {
-    width: 180,
-    height: 70,
-    marginTop: 25,
-    padding: 5,
+    width: RFValue(170),
+    height: RFValue(70),
+    marginTop: RFValue(25),
+    padding: RFValue(5),
     borderColor: "#c2ea5b",
     borderWidth: 2,
   },
   containerQRSend: {
-    marginTop: -83,
-    marginLeft: 195,
+    marginTop: RFValue(-83),
+    marginLeft: RFValue(scanQrContainer),
   },
   botonScanSend: {
     backgroundColor: "#c2ea5b",
-    height: 40,
-    width: 150,
+    height: RFValue(40),
+    width: RFValue(140),
     borderRadius: 80,
-    marginTop: 20,
-    marginLeft: 190,
+    marginTop: RFValue(20),
+    marginLeft: RFValue(170),
     elevation: 3,
     shadowRadius: 6,
     alignItems: "center",
@@ -560,16 +528,16 @@ export const stylesM = StyleSheet.create({
   },
   containerbtns: {
     flexDirection: "row",
-    marginTop: 50,
+    marginTop: RFValue(50),
   },
   btnSend: {
     backgroundColor: "#00e37c",
-    width: 120,
-    height: 50,
+    width: RFValue(115),
+    height: RFValue(50),
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 80,
-    marginLeft: 20,
+    marginLeft: RFValue(20),
   },
   textBtnSend: {
     fontSize: RFValue(txtSize),
@@ -577,8 +545,8 @@ export const stylesM = StyleSheet.create({
   },
   btnBack: {
     backgroundColor: "#00e37c",
-    width: 120,
-    height: 50,
+    width: RFValue(115),
+    height: RFValue(50),
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 80,
@@ -587,8 +555,8 @@ export const stylesM = StyleSheet.create({
 
   //ReaderQR
   container_scanner: {
-    width: 500,
-    height: 340,
+    width: RFValue(500),
+    height: RFValue(340),
     alignItems: "center",
     justifyContent: "center",
   },
@@ -631,70 +599,70 @@ export const stylesM = StyleSheet.create({
 
   //Indicators
   scrollView: {
-    marginTop: 40,
-    marginHorizontal: 20,
-    display: "flex",
+    marginTop: RFValue(40),
+    marginHorizontal: RFValue(20),
+    // display: "flex",
   },
   containerIndicator: {
-    marginTop: 40,
+    marginTop: RFValue(40),
     alignItems: "center",
   },
   txtSostenibilidad: {
-    fontSize: 42,
+    fontSize: RFValue(40),
     fontWeight: "bold",
   },
   indicator: {
     resizeMode: "contain",
-    marginTop: -40,
-    height: 350,
+    marginTop: RFValue(-40),
+    height: RFValue(330),
     width: RFValue(300),
   },
   txtGraficaG: {
-    fontSize: 20,
-    marginTop: -15,
+    fontSize: RFValue(20),
+    marginTop: RFValue(-15),
     fontWeight: "bold",
   },
   txtGraficaGp: {
-    fontSize: 20,
-    marginTop: -25,
+    fontSize: RFValue(20),
+    marginTop: RFValue(-25),
     fontWeight: "bold",
   },
   indicatorTwo: {
     resizeMode: "contain",
-    marginTop: -35,
-    height: 350,
+    marginTop: RFValue(-35),
+    height: RFValue(350),
     width: RFValue(300),
   },
   indicatorThree: {
     resizeMode: "contain",
-    marginTop: -30,
-    height: 350,
-    width: 350,
+    marginTop: RFValue(-30),
+    height: RFValue(350),
+    width: RFValue(350),
   },
   //End Indicators
 
   //History
   containerHistorial: {
-    marginTop: 45,
+    marginTop: RFValue(45),
     alignItems: "center",
   },
   txtHistorial: {
-    fontSize: 25,
+    fontSize: RFValue(25),
     fontWeight: "bold",
   },
   dropDownHistory: {
-    width: 250,
-    height: 70,
-    marginTop: 25,
-    padding: 5,
+    width: RFValue(250),
+    height: RFValue(70),
+    marginTop: RFValue(25),
+    padding: RFValue(5),
     borderColor: "#5cb032",
     borderWidth: 2,
   },
   textInputHistory: {
-    height: 350,
-    width: 350,
+    height: RFValue(350),
+    width: RFValue(300),
     backgroundColor: "#5cb032",
-    marginTop: 150,
+    marginTop: RFValue(150),
     borderRadius: 10,
   },
   //End History
@@ -704,105 +672,106 @@ export const stylesM = StyleSheet.create({
     backgroundColor: "#ffeb7b",
   },
   containerInputs: {
-    marginTop: 50,
+    marginTop: RFValue(50),
   },
   sectionOne: {
     flexDirection: "row",
     alignItems: "center",
   },
   txtTitulo: {
-    fontSize: 20,
+    fontSize: RFValue(15),
     fontWeight: "bold",
-    paddingTop: 10,
+    paddingTop: RFValue(10),
   },
   inputsVariables: {
-    width: 140,
-    height: 140,
-    margin: 10,
+    width: RFValue(135),
+    height: RFValue(125),
+    margin: RFValue(5),
     borderRadius: 20,
     alignItems: "center",
   },
   viewOne: {
-    marginTop: 20,
+    marginTop: RFValue(20),
     flexDirection: "row",
     textAlign: "center",
   },
   txtDates: {
-    marginHorizontal: 15,
-    fontSize: 15,
+    marginHorizontal: RFValue(15),
+    fontSize: RFValue(13),
   },
   txtDates2: {
-    marginHorizontal: 19.5,
-    fontSize: 15,
+    marginHorizontal: RFValue(19.5),
+    fontSize: RFValue(13),
   },
   txtDates3: {
-    marginHorizontal: 10,
-    fontSize: 15,
+    marginHorizontal: RFValue(10),
+    fontSize: RFValue(13),
   },
   viewTwo: {
     flexDirection: "row",
     textAlign: "center",
   },
   txtDatesNum: {
-    marginHorizontal: 20,
-    fontSize: 15,
+    marginHorizontal: RFValue(20),
+    fontSize: RFValue(13),
   },
   txtDatesNum1: {
     marginHorizontal: 17,
-    fontSize: 15,
+    fontSize: RFValue(13),
   },
   txtDatesNum2: {
     marginHorizontal: 15,
-    fontSize: 15,
+    fontSize: RFValue(13),
   },
   txtDatesNum3: {
     marginHorizontal: 21.2,
-    fontSize: 15,
+    fontSize: RFValue(13),
   },
   txtDatesNum4: {
-    marginHorizontal: 23.5,
-    fontSize: 15,
+    marginHorizontal: RFValue(23.5),
+    fontSize: RFValue(13),
   },
   txtDatesNum5: {
-    marginHorizontal: 15,
-    fontSize: 15,
+    marginHorizontal: RFValue(15),
+    fontSize: RFValue(13),
   },
   txtDatesNum6: {
-    marginHorizontal: 25,
-    fontSize: 15,
+    marginHorizontal: RFValue(25),
+    fontSize: RFValue(13),
   },
   txtDatesNum7: {
-    marginTop: -50,
-    marginHorizontal: 25,
-    fontSize: 20,
+    marginTop: RFValue(-50),
+    marginHorizontal: RFValue(25),
+    fontSize: RFValue(18),
   },
   txtDatesNum8: {
-    marginTop: -35,
-    marginHorizontal: 25,
-    fontSize: 20,
+    marginTop: RFValue(-35),
+    marginHorizontal: RFValue(25),
+    fontSize: RFValue(18),
   },
   txtTituloT: {
-    fontSize: 16,
+    fontSize: RFValue(16),
     fontWeight: "bold",
-    paddingTop: 10,
+    paddingTop: RFValue(10),
   },
+  //Temperatura
   txtTituloTemperatura: {
     fontSize: RFValue(txtTemperatura),
     fontWeight: "bold",
-    paddingTop: 10,
+    paddingTop: RFValue(10),
   },
   sectionTwo: {
     flexDirection: "column",
     alignItems: "center",
   },
   inputsVariabless: {
-    width: 295,
-    height: 90,
-    paddingTop: 10,
+    width: RFValue(295),
+    height: RFValue(90),
+    paddingTop: RFValue(10),
     textAlign: "center",
     fontWeight: "bold",
     borderRadius: 20,
-    marginTop: 10,
+    marginTop: RFValue(10),
   },
 
   //End Variables
