@@ -71,7 +71,7 @@ const Send = ({ navigation }: { navigation: any }) => {
         <TouchableOpacity
           style={stylesM.botonScanSend}
           activeOpacity={0.3}
-          onPress={() => navigation.navigate("ReaderQR")}
+          onPress={() => navigation.navigate("QrReader")}
         >
           <Text style={stylesM.textGenerate}>Escanear QR</Text>
         </TouchableOpacity>

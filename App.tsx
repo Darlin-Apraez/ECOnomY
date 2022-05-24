@@ -24,6 +24,7 @@ import Indicators from "./src/screens/Indicators";
 import GenerateQR from "./src/screens/GenerateQR";
 import ReaderQR from "./src/screens/ReaderQR";
 import Variables from "./src/screens/Variables";
+import QrReader from "./src/screens/QrReader";
 
 const Drawer = createDrawerNavigator();
 // const Tab = createBottomTabNavigator();
@@ -142,8 +143,8 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="ReaderQR"
-          component={ReaderQR}
+          name="QrReader"
+          component={QrReader}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
