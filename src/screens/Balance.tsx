@@ -92,7 +92,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
           style={stylesM.textInputBalance}
           // {...SearchUser}
         />
-        <Text style={stylesM.textBalance}>{envioECOpuntos}</Text>
+        <Text style={stylesM.textBalance}>0</Text>
         <Image
           source={require("./../../assets/img/ECOpunTo.png")}
           style={stylesM.ecoPunto}
