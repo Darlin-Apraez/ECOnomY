@@ -22,12 +22,15 @@ import {
 import QRCode from "react-native-qrcode-svg";
 
 const GenerateQR = ({ navigation }: { navigation: any }) => {
+  //const generateId = () => Math.random().toString(36).substr(2, 18);
+
   const firstNumber = 10000;
   const lastNumber = 99999;
 
   var Aleatorio = firstNumber + Math.floor(Math.random() * lastNumber);
+  //const Aleatorio = () => Math.random().toString(36).substr(2, 18);
   const str = Aleatorio.toString();
-  console.log(Aleatorio);
+  //console.log(Aleatorio);
 
   const CopyWallet = () => {
     Clipboard.setString(str);

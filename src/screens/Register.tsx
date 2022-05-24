@@ -12,26 +12,26 @@ import React, { useEffect } from "react";
 import { stylesM, stylesB } from "../appTheme/styles/styles";
 
 const Register = ({ navigation }: { navigation: any }) => {
-  // useEffect(() => {
-  //   const backAction = () => {
-  //     Alert.alert("Espera", "¿Seguro que quieres salir?", [
-  //       {
-  //         text: "Cancelar",
-  //         onPress: () => null,
-  //         style: "cancel",
-  //       },
-  //       { text: "Si", onPress: () => BackHandler.exitApp() },
-  //     ]);
-  //     return true;
-  //   };
+  useEffect(() => {
+    const backAction = () => {
+      Alert.alert("Espera", "¿Seguro que quieres salir?", [
+        {
+          text: "Cancelar",
+          onPress: () => null,
+          style: "cancel",
+        },
+        { text: "Si", onPress: () => BackHandler.exitApp() },
+      ]);
+      return true;
+    };
 
-  //   const backHandler = BackHandler.addEventListener(
-  //     "hardwareBackPress",
-  //     backAction
-  //   );
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
 
-  //   return () => backHandler.remove();
-  // }, []);
+    return () => backHandler.remove();
+  }, []);
 
   return (
     <SafeAreaView style={stylesB.body}>
