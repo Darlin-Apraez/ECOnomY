@@ -12,7 +12,7 @@ const txtSize = Platform.OS === "ios" ? 13 : 15;
 const marginEcoLogo = Platform.OS === "ios" ? 130 : 150;
 const txtSend = Platform.OS === "ios" ? 36 : 40;
 const txtTemperatura = Platform.OS === "ios" ? 12 : 15;
-const scanQrContainer = Platform.OS === "ios" ?  185: 180;
+const scanQrContainer = Platform.OS === "ios" ? 185 : 180;
 
 const windowWidth = Dimensions.get("screen").width;
 const windowHeight = Dimensions.get("screen").height;
@@ -128,18 +128,19 @@ export const stylesM = StyleSheet.create({
   //Boton verde general
   botonGreen: {
     backgroundColor: "#5CB032",
-    width: 105,
-    height: 50,
+    width: RFValue(100),
+    height: RFValue(47),
     borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
+    margin: RFValue(12),
   },
   //estilo general
   textAccount: {
     marginLeft: RFValue(8),
     marginTop: RFValue(18),
     color: "black",
-    fontSize: 15,
+    fontSize: RFValue(15),
     fontWeight: "300",
   },
   //********************** */
@@ -182,7 +183,7 @@ export const stylesM = StyleSheet.create({
     justifyContent: "center",
   },
   textButtonCreate: {
-    fontSize: 20,
+    fontSize: RFValue(18),
     textAlign: "center",
   },
   //End Register
@@ -195,6 +196,7 @@ export const stylesM = StyleSheet.create({
     marginTop: RFValue(27),
     justifyContent: "center",
     alignItems: "center",
+    flexDirection: "row",
   },
   botonGreenLogin: {
     backgroundColor: "#5CB032",
@@ -203,20 +205,13 @@ export const stylesM = StyleSheet.create({
     borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
+    margin: RFValue(13),
   },
   textBotonLogin: {
     fontWeight: "bold",
     textAlign: "center",
   },
   //End Login
-
-  btnRegister: {
-    width: 100,
-    height: 50,
-    backgroundColor: "green",
-    margin: 20,
-    borderRadius: 8,
-  },
 
   // screen createaccount
   containerInterno: {
@@ -242,24 +237,9 @@ export const stylesM = StyleSheet.create({
   containerCaRegister: {
     alignItems: "center",
     justifyContent: "center",
+    flexDirection: "row",
   },
   //End CreateAccount
-
-  txtButtonSend: {
-    backgroundColor: "#5CB032",
-    width: 105,
-    height: 50,
-    marginTop: 20,
-    marginLeft: 40,
-    borderRadius: 8,
-    padding: 13,
-    paddingLeft: 23,
-    right: -105,
-    top: 70,
-    fontWeight: "300",
-  },
-
-  //
 
   //Balance
   textInputBalance: {
@@ -419,6 +399,7 @@ export const stylesM = StyleSheet.create({
     borderRadius: 80,
     margin: RFValue(9),
     padding: RFValue(9),
+    textAlign: "center",
   },
   containerCopy: {
     marginLeft: RFValue(270),
@@ -460,7 +441,7 @@ export const stylesM = StyleSheet.create({
   },
   boxSend: {
     height: RFValue(txtSend),
-    width: 150,
+    width: RFValue(140),
     backgroundColor: "#c2ea5b",
     textAlign: "center",
     // textAlignVertical: "center",
@@ -471,22 +452,10 @@ export const stylesM = StyleSheet.create({
   // checkbox: {
   //   alignSelf: "center",
   // },
-  containerReceptor: {
-    alignItems: "center",
-    flexDirection: "row",
-    marginLeft: -65,
-  },
-  botonCheck: {
-    padding: 10,
-  },
-  imgAmigo: {
-    resizeMode: "contain",
-    height: 100,
-    width: 100,
-  },
+
   containerCant: {
-    marginLeft: -60,
-    marginTop: 40,
+    marginLeft: RFValue(-55),
+    marginTop: RFValue(37),
   },
   textInputSend: {
     width: RFValue(260),
@@ -554,47 +523,47 @@ export const stylesM = StyleSheet.create({
   //end Send
 
   //ReaderQR
-  container_scanner: {
-    width: RFValue(500),
-    height: RFValue(340),
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  BarCode: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  // container_scanner: {
+  //   width: RFValue(500),
+  //   height: RFValue(340),
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  // },
+  // BarCode: {
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  // },
 
-  colorqr: {
-    alignItems: "center",
-    justifyContent: "center",
-    paddingLeft: "5%",
-    paddingRight: "4%",
-  },
-  containerReScan: {
-    marginTop: 665,
-    alignItems: "center",
-    flexDirection: "row",
-  },
+  // colorqr: {
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  //   paddingLeft: "5%",
+  //   paddingRight: "4%",
+  // },
+  // containerReScan: {
+  //   marginTop: 665,
+  //   alignItems: "center",
+  //   flexDirection: "row",
+  // },
 
-  botonReScan: {
-    height: 50,
-    width: 150,
-    borderRadius: 6,
-    backgroundColor: "#c2ea5b",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  // botonReScan: {
+  //   height: 50,
+  //   width: 150,
+  //   borderRadius: 6,
+  //   backgroundColor: "#c2ea5b",
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  // },
 
-  botonScan: {
-    height: 50,
-    width: 80,
-    borderRadius: 6,
-    backgroundColor: "#c2ea5b",
-    alignItems: "center",
-    justifyContent: "center",
-    margin: 20,
-  },
+  // botonScan: {
+  //   height: 50,
+  //   width: 80,
+  //   borderRadius: 6,
+  //   backgroundColor: "#c2ea5b",
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  //   margin: 20,
+  // },
   //end ReaderQR
 
   //Indicators
@@ -716,15 +685,15 @@ export const stylesM = StyleSheet.create({
     fontSize: RFValue(13),
   },
   txtDatesNum1: {
-    marginHorizontal: 17,
+    marginHorizontal: RFValue(16),
     fontSize: RFValue(13),
   },
   txtDatesNum2: {
-    marginHorizontal: 15,
+    marginHorizontal: RFValue(14),
     fontSize: RFValue(13),
   },
   txtDatesNum3: {
-    marginHorizontal: 21.2,
+    marginHorizontal: RFValue(20),
     fontSize: RFValue(13),
   },
   txtDatesNum4: {

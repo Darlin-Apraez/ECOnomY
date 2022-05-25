@@ -53,8 +53,9 @@ const Receive = ({ navigation }: { navigation: any }) => {
           />
           <TextInput
             style={stylesM.textInputNumCuenta}
-            placeholder="useless placeholder"
+            placeholder="0"
             value={str}
+            editable={false}
           />
           <TouchableOpacity
             activeOpacity={0.8}

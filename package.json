@@ -21,6 +21,7 @@
     "expo-camera": "~12.1.2",
     "expo-linear-gradient": "~11.0.3",
     "expo-status-bar": "~1.2.0",
+    "expo-updates": "~0.11.7",
     "faker": "^6.6.6",
     "lodash": "^4.17.21",
     "lottie-react-native": "^5.0.1",

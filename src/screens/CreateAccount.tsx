@@ -111,6 +111,12 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
           <View style={stylesM.containerCaRegister}>
             <TouchableOpacity
               style={[stylesM.botonGreen, stylesO.botonGreen_alineacion]}
+              onPress={() => navigation.goBack()}
+            >
+              <Text style={stylesM.textBoton}>REGRESAR</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[stylesM.botonGreen, stylesO.botonGreen_alineacion]}
               onPress={validation}
             >
               <Text style={stylesM.textBoton}>REGISTRAR</Text>

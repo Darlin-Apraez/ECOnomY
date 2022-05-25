@@ -90,7 +90,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Splash"
           component={Splash}
           options={{ headerShown: false }}
@@ -109,7 +109,7 @@ export default function App() {
           name="CreateAccount"
           component={CreateAccount}
           options={{ headerShown: false }}
-        />
+        /> */}
 
         {/*<Stack.Screen
           name="Verification"
@@ -137,11 +137,11 @@ export default function App() {
           component={Send}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="GenerateQR"
           component={GenerateQR}
           options={{ headerShown: false }}
-        />
+        /> */}
         <Stack.Screen
           name="QrReader"
           component={QrReader}

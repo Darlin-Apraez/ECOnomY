@@ -94,6 +94,12 @@ const Login = ({ navigation }: { navigation: any }) => {
           <View style={stylesM.containerBotonLogin}>
             <TouchableOpacity
               style={[stylesM.botonGreenLogin]}
+              onPress={() => navigation.goBack()}
+            >
+              <Text style={stylesM.textBotonLogin}>REGRESAR</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[stylesM.botonGreenLogin]}
               onPress={registerUser}
             >
               <Text style={stylesM.textBotonLogin}>INGRESAR</Text>
