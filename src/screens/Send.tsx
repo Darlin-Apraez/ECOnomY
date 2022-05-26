@@ -44,16 +44,13 @@ const Send = ({ navigation }: { navigation: any }) => {
       "ECOpunto(s) enviado(s) " +
         "\nCantidad enviada: " +
         value +
-        "\nUsuario: " +
+        "\nCédula: " +
         cedula +
         "\nTipo de acción: " +
         doubled
     );
   };
   console.log(valor);
-
-  // const numbers = ["1.076.495.678"];
-  // const doubled = numbers.map((number) => number);
 
   return (
     <SafeAreaView style={stylesB.body}>
