@@ -13,6 +13,7 @@ const marginEcoLogo = Platform.OS === "ios" ? 130 : 150;
 const txtSend = Platform.OS === "ios" ? 36 : 40;
 const txtTemperatura = Platform.OS === "ios" ? 12 : 15;
 const scanQrContainer = Platform.OS === "ios" ? 185 : 180;
+const borderRadiusIos = Platform.OS === "ios" ? 25 : 80;
 
 const windowWidth = Dimensions.get("screen").width;
 const windowHeight = Dimensions.get("screen").height;
@@ -463,6 +464,16 @@ export const stylesM = StyleSheet.create({
     borderColor: "#c2ea5b",
     borderWidth: 2,
     borderRadius: 80,
+    marginTop: RFValue(10),
+    padding: RFValue(10),
+    marginBottom: RFValue(20),
+  },
+  textBoxSend: {
+    width: RFValue(260),
+    height: RFValue(40),
+    borderColor: "#c2ea5b",
+    borderWidth: 2,
+    borderRadius: borderRadiusIos,
     marginTop: RFValue(10),
     padding: RFValue(10),
     marginBottom: RFValue(20),

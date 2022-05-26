@@ -24,16 +24,20 @@ import {
 const Balance = ({ navigation }: { navigation: any }) => {
   const [registro_id, setregistro_id] = useState("");
   const [ECOpuntos, setECOpuntos] = useState("");
+  const [Balance, setBalance] = useState("");
 
-  // const VB = 100;
-  // const Balance = VB;
-  // const VE = 5;
-  // const RESULT = VB - VE;
+  const register = () => {
+    navigation.navigate("Send", {
+      VB: VB,
+      VE: VE,
+    });
+  };
 
-  function envioECOpuntos(VB = 5, VE = 2) {
-    return VB - VE;
-  }
-  console.log(envioECOpuntos);
+  const VB = 95;
+  //const Balance = VB;
+  const VE = "";
+  //const RESULT = VB - VE;
+  //console.log(envioECOpuntos);
 
   useEffect(() => {
     const backAction = () => {
@@ -57,7 +61,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
   }, []);
 
   // const SearchUser = () => {
-  //   // const ECOpuntos = useState;
+  //   const ECOpuntos = useState;
   //   const SearchAPIURL = "http://192.168.1.15/pruebas/consulta.php";
   //   const headers = {
   //     Accept: "application/json",
@@ -65,7 +69,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
   //   };
 
   //   fetch(SearchAPIURL, {
-  //     method: "POST",
+  //     method: "GET",
   //     headers: headers,
   //     body: JSON.stringify({
   //       ECOpuntos: ECOpuntos,
@@ -92,7 +96,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
           style={stylesM.textInputBalance}
           // {...SearchUser}
         />
-        <Text style={stylesM.textBalance}>0</Text>
+        <Text style={stylesM.textBalance}>{VB}</Text>
         <Image
           source={require("./../../assets/img/ECOpunTo.png")}
           style={stylesM.ecoPunto}
@@ -100,7 +104,8 @@ const Balance = ({ navigation }: { navigation: any }) => {
         <View style={stylesM.containerBotones}>
           <TouchableOpacity
             style={stylesM.botonSend}
-            onPress={() => navigation.navigate("Send")}
+            //onPress={() => navigation.navigate("Send")}
+            onPress={register}
           >
             <Text style={stylesM.textBoton}>ENVIAR</Text>
           </TouchableOpacity>

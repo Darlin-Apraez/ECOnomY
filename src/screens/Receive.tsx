@@ -23,11 +23,24 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 import QRCode from "react-native-qrcode-svg";
 
 const Receive = ({ navigation }: { navigation: any }) => {
-  const firstNumber = 10000;
-  const lastNumber = 99999;
-  var Aleatorio = firstNumber + Math.floor(Math.random() * lastNumber);
-  const str = Aleatorio.toString();
-  console.log(Aleatorio);
+  let x;
+  let y;
+
+  //let firstNumber = 10000;
+  x = 1000;
+  y = x++;
+  //y = x++;
+  // const aumento = ++firstNumber;
+  // const aumento = firstNumber++
+  //const lastNumber = 99999;
+  //var Aleatorio = firstNumber + Math.floor(Math.random() * lastNumber);
+  //const str = Aleatorio.toString();
+  //console.log(Aleatorio);
+
+  const numbers = "1076495678";
+  //const doubled = numbers.map((number) => number);
+  console.log(numbers);
+  const str = numbers.toString();
 
   const CopyWallet = () => {
     Clipboard.setString(str);
@@ -46,7 +59,7 @@ const Receive = ({ navigation }: { navigation: any }) => {
         </View>
         <View style={stylesM.containerQR}>
           <QRCode
-            value="https://humanenergysolutions.com/"
+            value={str}
             // logo={logoImg}
             // logoSize={100}
             size={250}

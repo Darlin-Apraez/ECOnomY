@@ -16,6 +16,7 @@ import {
   stylesS,
 } from "./../appTheme/styles/styles";
 import { Dropdown, MultiSelect } from "react-native-element-dropdown";
+import { useRoute } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Ionicons";
 import CheckBox from "@react-native-community/checkbox";
 
@@ -25,14 +26,34 @@ const actions = [
   { label: "03-Llevar tus propias bolsas" },
   { label: "04-Reembolso" },
 ];
-const VB = "";
-Number(VB);
-const Balance = VB;
-const VE = "";
-// const RESULT = VB - VE;
+
+const doubled = actions.map((text) => text);
 
 const Send = ({ navigation }: { navigation: any }) => {
   const [dropdown, setDropdown] = useState(null);
+  const route = useRoute();
+  const [value, onChangeText] = useState("");
+  const [cedula, setCedula] = useState("");
+
+  var VB = 95;
+  const VF = 100;
+  let VE = "";
+
+  const valor = () => {
+    alert(
+      "ECOpunto(s) enviado(s) " +
+        "\nCantidad enviada: " +
+        value +
+        "\nUsuario: " +
+        cedula +
+        "\nTipo de acción: " +
+        doubled
+    );
+  };
+  console.log(valor);
+
+  // const numbers = ["1.076.495.678"];
+  // const doubled = numbers.map((number) => number);
 
   return (
     <SafeAreaView style={stylesB.body}>
@@ -42,10 +63,25 @@ const Send = ({ navigation }: { navigation: any }) => {
           <Text style={stylesM.boxSend}>ENVIAR</Text>
         </View>
         <View style={stylesM.containerCant}>
+          <Text>BALANCE</Text>
+          <Text style={stylesM.textBoxSend}>{route.params.VB} </Text>
           <Text>CANTIDAD A ENVIAR</Text>
-          <TextInput style={stylesM.textInputSend} {...VE} />
-          <Text>USUARIO AL QUE ENVIA</Text>
-          <TextInput style={stylesM.textInputSend} />
+          <TextInput
+            style={stylesM.textInputSend}
+            keyboardType="numeric"
+            {...route.params.VE}
+            //key={VE}
+            onChangeText={(text) => onChangeText(text)}
+            value={value}
+          />
+          {/* <Text style={stylesM.textInputSend}>{route.params.VE}</Text> */}
+          <Text>CÉDULA A LA QUE ENVIA</Text>
+          <TextInput
+            style={stylesM.textInputSend}
+            keyboardType="numeric"
+            value={cedula}
+            onChangeText={(text) => setCedula(text)}
+          />
           <Text style={stylesM.textActions}>ACCIONES SOSTENIBLES</Text>
           <Dropdown
             data={actions}
@@ -54,7 +90,7 @@ const Send = ({ navigation }: { navigation: any }) => {
             labelField="label"
             valueField="value"
             label="Dropdown"
-            placeholder="Select item"
+            placeholder="Seleccionar acción"
             value={dropdown}
             onChange={(item) => {
               setDropdown(item.value);
@@ -82,8 +118,13 @@ const Send = ({ navigation }: { navigation: any }) => {
           >
             <Text style={stylesM.textBtnSend}>REGRESAR</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={stylesM.btnSend}>
-            <Text style={stylesM.textBtnSend}>ENVIAR</Text>
+          <TouchableOpacity style={stylesM.btnSend} onPress={valor}>
+            <Text
+              style={stylesM.textBtnSend}
+              //onPress={() => alert(RESULT + " ECOpuntos enviados")} enviado
+            >
+              ENVIAR
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
