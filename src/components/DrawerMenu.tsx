@@ -1,9 +1,11 @@
 import { View, Text, TouchableOpacity, Alert, BackHandler } from "react-native";
 import React, { useEffect } from "react";
+import { useRoute } from "@react-navigation/native";
 import { stylesM } from "../appTheme/_modules/modules";
 import { stylesO } from "../appTheme/_other/other";
 
 function DrawerMenu({ navigation }: { navigation: any }) {
+  const route = useRoute();
   // async function SignOut() {
   //   await signOut(auth)
   //     .then(() => {
@@ -56,6 +58,11 @@ function DrawerMenu({ navigation }: { navigation: any }) {
             VARIABLES
           </Text>
         </TouchableOpacity>
+        <View style={stylesM.contUserDrawer}>
+          <Text style={stylesM.userDrawer}>
+            Número cédula: {route.params.usuario}
+          </Text>
+        </View>
       </View>
       <View style={stylesM.containerLogout}>
         <TouchableOpacity

@@ -13,6 +13,7 @@ import {
   Image,
 } from "react-native";
 import React, { useEffect, useState } from "react";
+import { useRoute } from "@react-navigation/native";
 import {
   stylesB,
   stylesL,
@@ -25,12 +26,17 @@ const Balance = ({ navigation }: { navigation: any }) => {
   const [registro_id, setregistro_id] = useState("");
   const [ECOpuntos, setECOpuntos] = useState("");
   const [Balance, setBalance] = useState("");
+  const [usuario, setUsuario] = useState("");
 
   const register = () => {
     navigation.navigate("Send", {
       VB: VB,
       VE: VE,
     });
+  };
+
+  const recibirCedula = () => {
+    navigation.navigate("Receive", { usuario: usuario });
   };
 
   const VB = 95;
@@ -109,10 +115,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
           >
             <Text style={stylesM.textBoton}>ENVIAR</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={stylesM.botonSend2}
-            onPress={() => navigation.navigate("Receive")}
-          >
+          <TouchableOpacity style={stylesM.botonSend2} onPress={recibirCedula}>
             <Text style={stylesM.textBoton}>RECIBIR</Text>
           </TouchableOpacity>
         </View>

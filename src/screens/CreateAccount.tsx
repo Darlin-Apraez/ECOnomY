@@ -20,6 +20,8 @@ import {
 import { validateEmail } from "../utils/helpers";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
+let STORAGE_KEY = "@user_input";
+
 const CreateAccount = ({ navigation }: { navigation: any }) => {
   const [usuario, setUsuario] = useState("");
   const [contraseña, setContraseña] = useState("");
@@ -38,9 +40,44 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
   //   return isValid;
   // };
 
-  const validation = () => {
+  // const validation = () => {
+  //   if (usuario == "") {
+  //     alert("Es necesario el usuario");
+  //   } else if (contraseña == "") {
+  //     alert("Es necesaria la contraseña");
+  //   } else if (contraseña == "") {
+  //     alert("Es necesario confirmar la contraseña");
+  //   } else if (contraseña != confircontra) {
+  //     alert("Las contraseñas no coinciden");
+  //   } else {
+  //     //usamos el fetch, señalamos el EndPoint o url donde nosotros enviamos la información
+  //     navigation.navigate("DrawerApp");
+  //     fetch("http://192.168.1.14/pruebas/newregistro.php", {
+  //       method: "POST",
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Content-type": "application/json",
+  //       },
+  //       //stringify enviar serializados los campos que necesitemos
+  //       body: JSON.stringify({
+  //         usuario: usuario,
+  //         contraseña: contraseña,
+  //         confircontra: confircontra,
+  //       }),
+  //     })
+  //       .then((respuesta) => respuesta.text())
+  //       .then((responseJson) => {
+  //         alert(responseJson);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   }
+  // };
+
+  const validation = async () => {
     if (usuario == "") {
-      alert("Es necesario el usuario");
+      alert("Es necesario la cédula");
     } else if (contraseña == "") {
       alert("Es necesaria la contraseña");
     } else if (contraseña == "") {
@@ -48,28 +85,15 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
     } else if (contraseña != confircontra) {
       alert("Las contraseñas no coinciden");
     } else {
-      //usamos el fetch, señalamos el EndPoint o url donde nosotros enviamos la información
-      navigation.navigate("DrawerApp");
-      fetch("http://192.168.1.14/pruebas/newregistro.php", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-type": "application/json",
-        },
-        //stringify enviar serializados los campos que necesitemos
-        body: JSON.stringify({
-          usuario: usuario,
-          contraseña: contraseña,
-          confircontra: confircontra,
-        }),
-      })
-        .then((respuesta) => respuesta.text())
-        .then((responseJson) => {
-          alert(responseJson);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      try {
+        await AsyncStorage.setItem(STORAGE_KEY, usuario);
+        await AsyncStorage.setItem(STORAGE_KEY, contraseña);
+        await AsyncStorage.setItem(STORAGE_KEY, confircontra);
+        alert("Datos guardados satisfactoriamente");
+        navigation.navigate("DrawerApp", { usuario: usuario });
+      } catch (e) {
+        alert("Failed to save the data to the storage");
+      }
     }
   };
 
@@ -90,10 +114,11 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
               onChangeText={(Nombre) => setNombre(Nombre)}
             /> */}
 
-            <Text style={stylesM.textAccount}>USUARIO</Text>
+            <Text style={stylesM.textAccount}>CÉDULA</Text>
             <TextInput
               style={stylesM.inputAccount}
               onChangeText={(usuario) => setUsuario(usuario)}
+              keyboardType="numeric"
             />
 
             <Text style={stylesM.textAccount}>CONTRASEÑA</Text>

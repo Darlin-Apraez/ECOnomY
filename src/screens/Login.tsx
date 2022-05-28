@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   AsyncStorage,
 } from "react-native";
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import {
   stylesB,
   stylesL,
@@ -18,10 +18,12 @@ import {
 } from "./../appTheme/styles/styles";
 import { validateEmail } from "../utils/helpers";
 
+let STORAGE_KEY = "@user_input";
+
 const Login = ({ navigation }: { navigation: any }) => {
   const [usuario, setUsuario] = useState("");
   const [contraseña, setContraseña] = useState("");
-
+  const [input, setInput] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
 
   //validar datos
@@ -51,7 +53,7 @@ const Login = ({ navigation }: { navigation: any }) => {
           if (responseJson == "Ingreso exitoso") {
             //guardo de forma local el token
             AsyncStorage.setItem("token", "86");
-            navigation.navigate("DrawerApp");
+            navigation.navigate("DrawerApp", { usuario: usuario });
           }
         })
         .catch((error) => {
@@ -61,6 +63,27 @@ const Login = ({ navigation }: { navigation: any }) => {
 
     // Logeo();
   };
+
+  // const registerUser = () => {
+  //   if (usuario == "") {
+  //     alert("Usuario incorrecto / Completar campo");
+  //   } else {
+  //     console.log("Funciona bro");
+  //     AsyncStorage.getItem(STORAGE_KEY);
+  //     navigation.navigate("DrawerApp");
+  //   }
+
+  // };
+
+  // useEffect(() => {
+  //   registerUser();
+  //   // alert("Ingreso exitoso");
+  //   // navigation.navigate("DrawerApp");
+  // }, []);
+
+  // useEffect(() => {
+  //   registerUser();
+  // }, []);
 
   // const validateData = () => {
   //   setErrorEmail("");
@@ -79,7 +102,7 @@ const Login = ({ navigation }: { navigation: any }) => {
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
       <View style={stylesB.completo}>
         <View style={stylesM.containerGeneral}>
-          <Text style={stylesM.textAccount}>USUARIO</Text>
+          <Text style={stylesM.textAccount}>CÉDULA</Text>
           <TextInput
             style={stylesM.inputAccount}
             onChangeText={(usuario) => setUsuario(usuario)}

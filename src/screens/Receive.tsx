@@ -21,8 +21,11 @@ import {
 } from "./../appTheme/styles/styles";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import QRCode from "react-native-qrcode-svg";
+import { useRoute } from "@react-navigation/native";
 
 const Receive = ({ navigation }: { navigation: any }) => {
+  const route = useRoute();
+
   let x;
   let y;
 
@@ -37,7 +40,9 @@ const Receive = ({ navigation }: { navigation: any }) => {
   //const str = Aleatorio.toString();
   //console.log(Aleatorio);
 
-  const numbers = "1076495678";
+  const cedula = route.params.usuario;
+  const ced = cedula.toString();
+  let numbers = "route.params.usuario";
   //const doubled = numbers.map((number) => number);
   console.log(numbers);
   const str = numbers.toString();
@@ -59,7 +64,7 @@ const Receive = ({ navigation }: { navigation: any }) => {
         </View>
         <View style={stylesM.containerQR}>
           <QRCode
-            value={str}
+            value={cedula}
             // logo={logoImg}
             // logoSize={100}
             size={250}
@@ -70,6 +75,16 @@ const Receive = ({ navigation }: { navigation: any }) => {
             value={str}
             editable={false}
           />
+          <View style={stylesM.textInputNumCuenta}>
+            <Text
+              style={{
+                backgroundColor: "red",
+              }}
+            >
+              {route.params.usuario}
+            </Text>
+          </View>
+
           <TouchableOpacity
             activeOpacity={0.8}
             style={stylesM.boton}

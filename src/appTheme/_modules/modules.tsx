@@ -5,6 +5,7 @@ import {
   StatusBar,
   Appearance,
 } from "react-native";
+import { color } from "react-native-reanimated";
 import { RFValue } from "react-native-responsive-fontsize";
 
 const fontSizeQR = Platform.OS === "ios" ? 14 : 17;
@@ -324,6 +325,14 @@ export const stylesM = StyleSheet.create({
     borderRadius: 8,
     justifyContent: "center",
     alignItems: "center",
+  },
+  contUserDrawer: {
+    marginLeft: RFValue(22),
+  },
+  userDrawer: {
+    color: "black",
+    fontSize: RFValue(15),
+    fontWeight: "500",
   },
   logout: {
     color: "black",
