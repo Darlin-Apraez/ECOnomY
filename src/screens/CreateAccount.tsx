@@ -17,8 +17,10 @@ import {
   stylesO,
   stylesS,
 } from "./../appTheme/styles/styles";
+import { saveUser } from "../../api";
 import { validateEmail } from "../utils/helpers";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { readUser } from "../../api";
 
 let STORAGE_KEY = "@user_input";
 
@@ -74,7 +76,6 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
   //       });
   //   }
   // };
-
   const validation = async () => {
     if (usuario == "") {
       alert("Es necesario la cédula");
@@ -89,7 +90,9 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
         await AsyncStorage.setItem(STORAGE_KEY, usuario);
         await AsyncStorage.setItem(STORAGE_KEY, contraseña);
         await AsyncStorage.setItem(STORAGE_KEY, confircontra);
+        saveUser(usuario);
         alert("Datos guardados satisfactoriamente");
+        readUser();
         navigation.navigate("DrawerApp", { usuario: usuario });
       } catch (e) {
         alert("Failed to save the data to the storage");
@@ -108,12 +111,6 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
       >
         <View style={stylesM.containerInterno}>
           <View style={stylesM.wrapperCA}>
-            {/* <Text style={stylesM.textAccount}>NOMBRE</Text>
-            <TextInput
-              style={stylesM.inputAccount}
-              onChangeText={(Nombre) => setNombre(Nombre)}
-            /> */}
-
             <Text style={stylesM.textAccount}>CÉDULA</Text>
             <TextInput
               style={stylesM.inputAccount}

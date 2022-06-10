@@ -11,7 +11,7 @@ import {
   ToastAndroid,
   Alert,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import {
   stylesB,
   stylesL,
@@ -24,14 +24,10 @@ import QRCode from "react-native-qrcode-svg";
 import { useRoute } from "@react-navigation/native";
 
 const Receive = ({ navigation }: { navigation: any }) => {
+  const [usuario, setUsuario] = useState("");
   const route = useRoute();
 
-  let x;
-  let y;
-
   //let firstNumber = 10000;
-  x = 1000;
-  y = x++;
   //y = x++;
   // const aumento = ++firstNumber;
   // const aumento = firstNumber++
@@ -40,12 +36,12 @@ const Receive = ({ navigation }: { navigation: any }) => {
   //const str = Aleatorio.toString();
   //console.log(Aleatorio);
 
-  const cedula = route.params.usuario;
-  const ced = cedula.toString();
-  let numbers = "route.params.usuario";
+  //const cedula = route.params.usuario;
+  //const ced = cedula.toString();
+  let numbers = usuario;
   //const doubled = numbers.map((number) => number);
   console.log(numbers);
-  const str = numbers.toString();
+  const str = numbers;
 
   const CopyWallet = () => {
     Clipboard.setString(str);
@@ -64,7 +60,7 @@ const Receive = ({ navigation }: { navigation: any }) => {
         </View>
         <View style={stylesM.containerQR}>
           <QRCode
-            value={cedula}
+            //value={cedula}
             // logo={logoImg}
             // logoSize={100}
             size={250}
@@ -73,17 +69,18 @@ const Receive = ({ navigation }: { navigation: any }) => {
             style={stylesM.textInputNumCuenta}
             placeholder="0"
             value={str}
+            onChangeText={(usuario) => setUsuario(usuario)}
             editable={false}
           />
-          <View style={stylesM.textInputNumCuenta}>
+          {/* <View style={stylesM.textInputNumCuenta}>
             <Text
               style={{
-                backgroundColor: "red",
+                color: "black",
               }}
             >
               {route.params.usuario}
             </Text>
-          </View>
+          </View> */}
 
           <TouchableOpacity
             activeOpacity={0.8}

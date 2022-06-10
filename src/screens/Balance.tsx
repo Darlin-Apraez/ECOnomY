@@ -28,6 +28,8 @@ const Balance = ({ navigation }: { navigation: any }) => {
   const [Balance, setBalance] = useState("");
   const [usuario, setUsuario] = useState("");
 
+  const route = useRoute();
+
   const register = () => {
     navigation.navigate("Send", {
       VB: VB,
@@ -39,11 +41,12 @@ const Balance = ({ navigation }: { navigation: any }) => {
     navigation.navigate("Receive", { usuario: usuario });
   };
 
-  const VB = 95;
-  //const Balance = VB;
+  let firstNumber = 1;
+  const lastNumber = 100;
+  var Aleatorio = firstNumber + Math.floor(Math.random() * lastNumber);
+  const VB = Aleatorio.toString();
+
   const VE = "";
-  //const RESULT = VB - VE;
-  //console.log(envioECOpuntos);
 
   useEffect(() => {
     const backAction = () => {

@@ -25,6 +25,7 @@ import GenerateQR from "./src/screens/GenerateQR";
 import ReaderQR from "./src/screens/ReaderQR";
 import Variables from "./src/screens/Variables";
 import QrReader from "./src/screens/QrReader";
+import Analyzer from "./src/screens/Analyzer";
 
 const Drawer = createDrawerNavigator();
 // const Tab = createBottomTabNavigator();
@@ -90,6 +91,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        {/* <Stack.Screen
+          name="Analyzer"
+          component={Analyzer}
+          options={{ headerShown: false }}
+        /> */}
         <Stack.Screen
           name="Splash"
           component={Splash}

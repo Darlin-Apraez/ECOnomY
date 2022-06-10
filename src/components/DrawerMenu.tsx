@@ -1,10 +1,18 @@
-import { View, Text, TouchableOpacity, Alert, BackHandler } from "react-native";
-import React, { useEffect } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Alert,
+  BackHandler,
+  TextInput,
+} from "react-native";
+import React, { useEffect, useState } from "react";
 import { useRoute } from "@react-navigation/native";
 import { stylesM } from "../appTheme/_modules/modules";
 import { stylesO } from "../appTheme/_other/other";
 
 function DrawerMenu({ navigation }: { navigation: any }) {
+  const [usuario, setUsuario] = useState("");
   const route = useRoute();
   // async function SignOut() {
   //   await signOut(auth)
@@ -23,7 +31,7 @@ function DrawerMenu({ navigation }: { navigation: any }) {
     <View style={{ flex: 1 }}>
       <View style={stylesM.containerDrawer}>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Balance")}
+          onPress={() => navigation.navigate("Balance", { usuario: usuario })}
           style={stylesM.botonMenuDrawer}
         >
           <Text style={stylesM.textMenuDrawer}>BALANCE</Text>

@@ -28,4 +28,22 @@ async function saveUser(data) {
   }
 }
 
-export { savePassword, readPassword, saveUser };
+//Funcion leer nombre de usuario
+async function readUser() {
+  try {
+    console.log(await AsyncStorage.getItem("@storage_User"));
+  } catch (e) {
+    // saving error
+  }
+}
+
+const getData = async () => {
+  try {
+    const jsonValue = await AsyncStorage.getItem("@storage_User");
+    return jsonValue != null ? JSON.parse(jsonValue) : null;
+  } catch (e) {
+    // error reading value
+  }
+};
+
+export { savePassword, readPassword, saveUser, readUser, getData };

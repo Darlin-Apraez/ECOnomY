@@ -91,6 +91,10 @@ export const stylesM = StyleSheet.create({
     backgroundColor: "white",
   },
 
+  backgroundLema: {
+    backgroundColor: "#c3ea5b",
+  },
+
   radiusFour: {
     borderRadius: 4,
   },
@@ -255,7 +259,7 @@ export const stylesM = StyleSheet.create({
   },
 
   textBalance: {
-    fontSize: RFValue(92),
+    fontSize: RFValue(75),
     marginTop: RFValue(-290),
     fontWeight: "bold",
   },
@@ -268,7 +272,7 @@ export const stylesM = StyleSheet.create({
   containerBotones: {
     alignItems: "center",
     flexDirection: "row",
-    marginTop: RFValue(46),
+    marginTop: RFValue(55),
   },
 
   botonSend: {

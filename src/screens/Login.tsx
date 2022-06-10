@@ -16,86 +16,81 @@ import {
   stylesO,
   stylesS,
 } from "./../appTheme/styles/styles";
+
+//import ReactNativeBiometrics from "react-native-biometrics";
+//import * as Keychain from 'react-native-keychain';
 import { validateEmail } from "../utils/helpers";
+import { readUser } from "../../api";
 
 let STORAGE_KEY = "@user_input";
 
 const Login = ({ navigation }: { navigation: any }) => {
   const [usuario, setUsuario] = useState("");
+  // readUser().then((val) => {
+  //   setUsuario(val);
+  // });
+
   const [contraseña, setContraseña] = useState("");
   const [input, setInput] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
 
-  //validar datos
-  const registerUser = () => {
-    if (usuario == "") {
-      alert("Usuario incorrecto / Completar campo");
-    } else {
-      console.log("Funciona bro");
-
-      //usamos el fetch, señalamos el EndPoint o url donde nosotros enviamos la información
-      fetch("http://192.168.1.14/pruebas/login.php", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-type": "application/json",
-        },
-
-        //stringify enviar serializados los campos que necesitemos
-        body: JSON.stringify({
-          usuario: usuario,
-          contraseña: contraseña,
-        }),
-      })
-        .then((respuesta) => respuesta.json())
-        .then((responseJson) => {
-          alert(responseJson);
-          if (responseJson == "Ingreso exitoso") {
-            //guardo de forma local el token
-            AsyncStorage.setItem("token", "86");
-            navigation.navigate("DrawerApp", { usuario: usuario });
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-
-    // Logeo();
-  };
-
+  //validar datos con bd
   // const registerUser = () => {
   //   if (usuario == "") {
   //     alert("Usuario incorrecto / Completar campo");
   //   } else {
   //     console.log("Funciona bro");
-  //     AsyncStorage.getItem(STORAGE_KEY);
-  //     navigation.navigate("DrawerApp");
+
+  //     //usamos el fetch, señalamos el EndPoint o url donde nosotros enviamos la información
+  //     fetch("http://192.168.1.14/pruebas/login.php", {
+  //       method: "POST",
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Content-type": "application/json",
+  //       },
+
+  //       //stringify enviar serializados los campos que necesitemos
+  //       body: JSON.stringify({
+  //         usuario: usuario,
+  //         contraseña: contraseña,
+  //       }),
+  //     })
+  //       .then((respuesta) => respuesta.json())
+  //       .then((responseJson) => {
+  //         alert(responseJson);
+  //         if (responseJson == "Ingreso exitoso") {
+  //           //guardo de forma local el token
+  //           AsyncStorage.setItem("token", "86");
+  //           navigation.navigate("DrawerApp", { usuario: usuario });
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
   //   }
-
   // };
+  /////////////////
 
-  // useEffect(() => {
-  //   registerUser();
-  //   // alert("Ingreso exitoso");
-  //   // navigation.navigate("DrawerApp");
-  // }, []);
-
-  // useEffect(() => {
-  //   registerUser();
-  // }, []);
-
-  // const validateData = () => {
-  //   setErrorEmail("");
-  //   let isValid = true;
-
-  //   if (!validateEmail(Email)) {
-  //     setErrorEmail("Debes de ingresar un email válido");
-  //     alert("Debes ingresar un Email valido");
-  //     isValid = false;
-  //   }
-  //   return isValid;
-  // };
+  const validationLogin = async () => {
+    if (usuario == "") {
+      alert("Es necesaria la cédula");
+      readUser();
+    } else if (contraseña == "") {
+      alert("Es necesaria la contraseña");
+    } else {
+      alert("Ingreso exitoso");
+      navigation.navigate("DrawerApp", { usuario: usuario });
+      // try {
+      //   await AsyncStorage.getItem(usuario);
+      //   await AsyncStorage.getItem(contraseña);
+      //   AsyncStorage.setItem("token", "86");
+      //   alert("Ingreso exitoso");
+      //   navigation.navigate("DrawerApp", { usuario: usuario });
+      // } catch (e) {
+      //   alert("Failed to save the data to the storage");
+      // }
+    }
+  };
 
   return (
     <SafeAreaView style={stylesB.body}>
@@ -105,6 +100,7 @@ const Login = ({ navigation }: { navigation: any }) => {
           <Text style={stylesM.textAccount}>CÉDULA</Text>
           <TextInput
             style={stylesM.inputAccount}
+            keyboardType="numeric"
             onChangeText={(usuario) => setUsuario(usuario)}
           />
 
@@ -123,7 +119,7 @@ const Login = ({ navigation }: { navigation: any }) => {
             </TouchableOpacity>
             <TouchableOpacity
               style={[stylesM.botonGreenLogin]}
-              onPress={registerUser}
+              onPress={validationLogin}
             >
               <Text style={stylesM.textBotonLogin}>INGRESAR</Text>
             </TouchableOpacity>
