@@ -27,8 +27,11 @@ const Balance = ({ navigation }: { navigation: any }) => {
   const [ECOpuntos, setECOpuntos] = useState("");
   const [Balance, setBalance] = useState("");
   const [usuario, setUsuario] = useState("");
+  //const [value, onChangeText] = useState("");
+  const [cedula, setCedula] = useState("");
 
   const route = useRoute();
+  const value = "";
 
   const register = () => {
     navigation.navigate("Send", {
@@ -39,6 +42,10 @@ const Balance = ({ navigation }: { navigation: any }) => {
 
   const recibirCedula = () => {
     navigation.navigate("Receive", { usuario: usuario });
+  };
+
+  const reception = () => {
+    ({ cedula: cedula });
   };
 
   let firstNumber = 1;

@@ -17,6 +17,7 @@ import {
   Modal,
   Button,
   SafeAreaView,
+  StatusBar,
 } from "react-native";
 import { Camera } from "expo-camera";
 import { BarCodeScanner } from "expo-barcode-scanner";
@@ -40,6 +41,7 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
     const [text, setText] = useState("");
+    const [value, onChangeText] = useState("");
 
     //preguntando el permiso para camara
     const askForCameraPermission = () => {
@@ -76,6 +78,7 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     //si el permiso es nulo
     if (hasPermission === null) {
       return <Text>Permiso nulo</Text>;
+      copiadotxtcontaineruno;
     }
 
     //si el permiso es falso
@@ -85,7 +88,7 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     //boton volver
     function regresar() {
       setScanned(false);
-      navigation.goBack();
+      navigation.navigate("Balance", { value: value });
     }
 
     //si el permiso es verdadero
@@ -241,10 +244,12 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     //const [lottie, setLottie] = useState(<Lotierror />);
     const [mostrartitulo, setmostrartitulo] = useState("");
     const [text, setText] = useState("");
+    const [value, onChangeText] = useState("");
+    const [cedula, setCedula] = useState("");
 
     //boton volver
     function regresar() {
-      navigation.navigate("Send");
+      navigation.navigate("Balance", { value });
       setScanned(false);
     }
 
@@ -258,7 +263,7 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     if (hasPermission === null) {
       return (
         <View style={styles.cajaqra}>
-          <Text>No access nulla</Text>
+          <Text>Acceso nulo</Text>
         </View>
       );
     }
@@ -266,7 +271,7 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     if (hasPermission === false) {
       return (
         <LinearGradient
-          colors={["#38AA35", "#1F5326"]}
+          colors={["#38AA35", "#5cb032"]}
           style={stylesB.linear}
           start={{ x: 0, y: 1.6 }}
           end={{ x: 0, y: 0 }}
@@ -334,20 +339,20 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     if (scanned == true) {
       return (
         <LinearGradient
-          colors={["#38AA35", "#1F5326"]}
+          colors={["#38AA35", "#5cb032"]}
           style={stylesB.linear}
           start={{ x: 0, y: 1.6 }}
           end={{ x: 0, y: 0 }}
         >
           <SafeAreaView style={stylesB.body}>
-            <BarStatus />
+            <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
             <View style={[stylesB.completo, stylesL.Justify]}>
               <Animatable.View
                 animation={"fadeInDownBig"}
                 duration={1500}
                 style={[stylesL.JustifyAlign]}
               >
-                <View style={[stylesL.JustifyAlign]}>
+                <View style={[stylesL.JustifyAlign, styles.topScan]}>
                   <Text
                     style={[
                       stylesM.fontSizeTwentyEight,
@@ -369,7 +374,7 @@ const QrReader = ({ navigation }: { navigation: any }) => {
                 >
                   QR copiado en el portapapeles.
                 </Text>
-
+                <Text style={styles.copiadotxtAndro}>{text}</Text>
                 <View style={[stylesL.flexRow, styles.widthRectangle]}>
                   <View
                     style={[styles.boxBottomQr, stylesM.widthPercentageFive]}
@@ -377,7 +382,7 @@ const QrReader = ({ navigation }: { navigation: any }) => {
                     <TouchableOpacity
                       style={[
                         styles.boxBottomQr_txt,
-                        styles.backgroundYellowGreen,
+                        styles.backgroundWhite,
                         stylesM.radiusTwenty,
                         stylesL.JustifyAlign,
                       ]}
@@ -398,7 +403,7 @@ const QrReader = ({ navigation }: { navigation: any }) => {
                     <TouchableOpacity
                       style={[
                         styles.boxBottomQr_txt,
-                        styles.backgroundYellowGreen,
+                        styles.backgroundWhite,
                         stylesM.radiusTwenty,
                         stylesL.JustifyAlign,
                       ]}
@@ -421,7 +426,7 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     }
     return (
       <SafeAreaView style={stylesB.body}>
-        <BarStatus />
+        <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
         <TouchableOpacity
           activeOpacity={0.5}
           style={[stylesL.JustifyAlign, styles.goBack, styles.goBack__top]}
@@ -528,7 +533,7 @@ const styles = StyleSheet.create({
   cajafull: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "rgba(91, 41, 137, 1)",
+    backgroundColor: "rgba(92, 172, 50, 1)",
     justifyContent: "center",
   },
   ventanafull: {
@@ -561,7 +566,7 @@ const styles = StyleSheet.create({
     top: RFValue(-80),
   },
   copiadotxt: {
-    color: "#b9b8b8",
+    color: "white",
     fontSize: RFValue(16),
     textAlign: "center",
     top: RFValue(-70),
@@ -593,7 +598,7 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
   },
   textbtnVC: {
-    color: "#5b298a",
+    color: "black",
     fontWeight: "bold",
     fontSize: RFValue(11.5),
   },
@@ -621,6 +626,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     top: RFValue(-40),
   },
+  copiadotxtAndro: {
+    color: "#b9b8b8",
+    fontSize: RFValue(16),
+    textAlign: "center",
+    top: RFValue(-20),
+  },
   dcVCa: {
     padding: RFValue(15),
   },
@@ -636,6 +647,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: RFValue(11.5),
     zIndex: 999,
+  },
+  topScan: {
+    marginTop: RFValue(5),
   },
 
   //camara
@@ -718,6 +732,10 @@ const styles = StyleSheet.create({
 
   backgroundYellowGreen: {
     backgroundColor: "#ABCB59",
+  },
+
+  backgroundWhite: {
+    backgroundColor: "white",
   },
   //////////////////////////////////
 

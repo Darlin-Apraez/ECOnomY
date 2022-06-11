@@ -15,6 +15,7 @@ const txtSend = Platform.OS === "ios" ? 36 : 40;
 const txtTemperatura = Platform.OS === "ios" ? 12 : 15;
 const scanQrContainer = Platform.OS === "ios" ? 185 : 180;
 const borderRadiusIos = Platform.OS === "ios" ? 25 : 80;
+const topEnviar = Platform.OS === "ios" ? 40 : 10;
 
 const windowWidth = Dimensions.get("screen").width;
 const windowHeight = Dimensions.get("screen").height;
@@ -448,7 +449,7 @@ export const stylesM = StyleSheet.create({
 
   //Send
   containerboxSend: {
-    marginTop: RFValue(15),
+    marginTop: RFValue(topEnviar),
     marginLeft: RFValue(-240),
     alignItems: "center",
     justifyContent: "center",
@@ -504,16 +505,16 @@ export const stylesM = StyleSheet.create({
     borderWidth: 2,
   },
   containerQRSend: {
-    marginTop: RFValue(-83),
-    marginLeft: RFValue(scanQrContainer),
+    marginTop: RFValue(30),
+    //marginLeft: RFValue(scanQrContainer),
   },
   botonScanSend: {
     backgroundColor: "#c2ea5b",
     height: RFValue(40),
     width: RFValue(140),
     borderRadius: 80,
-    marginTop: RFValue(20),
-    marginLeft: RFValue(170),
+    marginTop: RFValue(40),
+    //marginLeft: RFValue(170),
     elevation: 3,
     shadowRadius: 6,
     alignItems: "center",
