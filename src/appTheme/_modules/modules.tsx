@@ -768,5 +768,29 @@ export const stylesM = StyleSheet.create({
     marginTop: RFValue(10),
   },
 
+  //QRSendPoint
+  containerTexto: {
+    padding: RFValue(15),
+  },
+  containerTextoDos: {
+    marginTop: RFValue(70),
+    paddingHorizontal: RFValue(10),
+  },
+  containerBtnQR: {
+    marginTop: RFValue(20),
+  },
+  btnQRSend: {
+    backgroundColor: "#00e37c",
+    width: RFValue(115),
+    height: RFValue(50),
+    borderRadius: 80,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  txtBtnQR: {
+    fontWeight: "700",
+  },
+  //End QRSendPoint
+
   //End Variables
 });

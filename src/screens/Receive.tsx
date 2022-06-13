@@ -90,6 +90,13 @@ const Receive = ({ navigation }: { navigation: any }) => {
             <Text>Copiar</Text>
           </TouchableOpacity>
         </View>
+        <TouchableOpacity
+          style={stylesM.botonScanSend}
+          activeOpacity={0.3}
+          onPress={() => navigation.navigate("QrReader")}
+        >
+          <Text style={stylesM.textGenerate}>Escanear QR</Text>
+        </TouchableOpacity>
 
         <View style={stylesM.containerbtns}>
           <TouchableOpacity

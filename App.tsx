@@ -26,6 +26,7 @@ import ReaderQR from "./src/screens/ReaderQR";
 import Variables from "./src/screens/Variables";
 import QrReader from "./src/screens/QrReader";
 import Analyzer from "./src/screens/Analyzer";
+import QRSendPoint from "./src/screens/QRSendPoint";
 
 const Drawer = createDrawerNavigator();
 // const Tab = createBottomTabNavigator();
@@ -141,6 +142,11 @@ export default function App() {
         <Stack.Screen
           name="Send"
           component={Send}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="QRSendPoint"
+          component={QRSendPoint}
           options={{ headerShown: false }}
         />
         {/* <Stack.Screen
