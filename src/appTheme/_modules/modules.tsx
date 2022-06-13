@@ -376,8 +376,8 @@ export const stylesM = StyleSheet.create({
     marginLeft: RFValue(-165),
   },
   imageQR: {
-    height: RFValue(91),
-    width: RFValue(91),
+    height: RFValue(150),
+    width: RFValue(150),
   },
   botonGenerate: {
     backgroundColor: "#c2ea5b",
@@ -434,9 +434,10 @@ export const stylesM = StyleSheet.create({
     borderRadius: 6,
     elevation: 3,
     shadowRadius: 6,
-    backgroundColor: "#5cb032",
+    backgroundColor: "#c2ea5b",
     alignItems: "center",
     justifyContent: "center",
+    marginTop: RFValue(20),
   },
   input: {
     height: RFValue(40),

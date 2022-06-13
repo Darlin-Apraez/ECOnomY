@@ -59,36 +59,26 @@ const Receive = ({ navigation }: { navigation: any }) => {
           <Text style={stylesM.boxReceive}>RECIBIR</Text>
         </View>
         <View style={stylesM.containerQR}>
-          <QRCode
-            //value={cedula}
-            // logo={logoImg}
-            // logoSize={100}
-            size={250}
+          <Image
+            source={require("./../../assets/img/QR-bordes.png")}
+            style={stylesM.imageQR}
           />
-          <TextInput
+
+          {/* <TextInput
             style={stylesM.textInputNumCuenta}
             placeholder="0"
             value={str}
             onChangeText={(usuario) => setUsuario(usuario)}
             editable={false}
-          />
-          {/* <View style={stylesM.textInputNumCuenta}>
-            <Text
-              style={{
-                color: "black",
-              }}
-            >
-              {route.params.usuario}
-            </Text>
-          </View> */}
+          /> */}
 
-          <TouchableOpacity
+          {/* <TouchableOpacity
             activeOpacity={0.8}
             style={stylesM.boton}
             onPress={() => CopyWallet()}
           >
             <Text>Copiar</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
         <TouchableOpacity
           style={stylesM.botonScanSend}

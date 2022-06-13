@@ -51,24 +51,31 @@ const Send = ({ navigation }: { navigation: any }) => {
     " " +
     "ECOpuntos";
   const valor = () => {
-    Alert.alert(
-      "Confirmación de envío",
-      "¿Esta seguro de los datos registrados para el envío?",
-      [
-        {
-          text: "Cancelar",
-          onPress: () => navigation.goBack(),
-          style: "cancel",
-        },
-        {
-          text: "OK",
-          onPress: () =>
-            navigation.navigate("QRSendPoint", {
-              datos: datos,
-            }),
-        },
-      ]
-    );
+    if (valorc === "") {
+      alert("Llenar campo cantidad");
+    } else if (cedula === "") {
+      alert("Llenar campo cédula");
+    } else {
+      Alert.alert(
+        "Confirmación de envío",
+        "¿Esta seguro de los datos registrados para el envío?",
+        [
+          {
+            text: "Cancelar",
+            onPress: () => navigation.goBack(),
+            style: "cancel",
+          },
+          {
+            text: "OK",
+            onPress: () =>
+              navigation.navigate("QRSendPoint", {
+                datos: datos,
+              }),
+          },
+        ]
+      );
+    }
+
     //   alert(
     //     "Confirma el envío de esta cantidad de ECOpuntos..." +
     //       "ECOpunto(s) enviado(s) " +
