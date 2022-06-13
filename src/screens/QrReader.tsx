@@ -28,6 +28,7 @@ import LottieView from "lottie-react-native";
 import Icon from "react-native-vector-icons/Entypo";
 import BarStatus from "../components/BarStatus";
 import { LinearGradient } from "expo-linear-gradient";
+import { Audio } from "expo-av";
 
 const windowWidth = Dimensions.get("screen").width;
 const windowHeight = Dimensions.get("screen").height;
@@ -42,6 +43,8 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     const [scanned, setScanned] = useState(false);
     const [text, setText] = useState("");
     const [value, onChangeText] = useState("");
+    //sonido
+    const [sound, setSound] = useState();
 
     //preguntando el permiso para camara
     const askForCameraPermission = () => {
@@ -85,9 +88,22 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     if (hasPermission === false) {
     }
 
+    //Función sonido
+    async function playSound() {
+      console.log("Loading Sound");
+      const { sound } = await Audio.Sound.createAsync(
+        require("./../../assets/audio/transaction.mp3"),
+        { shouldPlay: true }
+      );
+      setSound(sound);
+      console.log("Playing Sound");
+      await sound.playAsync();
+    }
+
     //boton volver
     function regresar() {
       setScanned(false);
+      playSound();
       navigation.navigate("Balance", { value: value });
     }
 
@@ -246,9 +262,24 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     const [text, setText] = useState("");
     const [value, onChangeText] = useState("");
     const [cedula, setCedula] = useState("");
+    //sonido
+    const [sound, setSound] = useState();
+
+    //Función sonido
+    async function playSound() {
+      console.log("Loading Sound");
+      const { sound } = await Audio.Sound.createAsync(
+        require("./../../assets/audio/transaction.mp3"),
+        { shouldPlay: true }
+      );
+      setSound(sound);
+      console.log("Playing Sound");
+      await sound.playAsync();
+    }
 
     //boton volver
     function regresar() {
+      playSound();
       navigation.navigate("Balance", { value });
       setScanned(false);
     }

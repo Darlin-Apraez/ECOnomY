@@ -22,16 +22,34 @@ import {
 } from "./../appTheme/styles/styles";
 import QRCode from "react-qr-code";
 import { useRoute } from "@react-navigation/native";
+import { Audio } from "expo-av";
 
 const QRSendPoint = ({ navigation }: { navigation: any }) => {
   const route = useRoute();
   const [valorc, onChangeText] = useState("");
   const [cedula, setCedula] = useState("");
   const [datos, setDatos] = useState("");
+  //sonido
+  const [sound, setSound] = useState();
   //   const datos =
   //     "El usuario: " + cedula + "\nCantidad de ECOpuntos enviados: " + valorc;
+  //Función sonido
+  async function playSound() {
+    console.log("Loading Sound");
+    const { sound } = await Audio.Sound.createAsync(
+      require("./../../assets/audio/transaction.mp3"),
+      { shouldPlay: true }
+    );
+    setSound(sound);
+    console.log("Playing Sound");
+    await sound.playAsync();
+  }
+
   const sendOnline = () => {
     alert("ENVIO EXITOSO");
+    {
+      playSound();
+    }
     navigation.navigate("Balance");
   };
 

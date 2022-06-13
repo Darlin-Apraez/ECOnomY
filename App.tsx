@@ -22,11 +22,12 @@ import History from "./src/screens/History";
 import Stats from "./src/screens/Stats";
 import Indicators from "./src/screens/Indicators";
 import GenerateQR from "./src/screens/GenerateQR";
-import ReaderQR from "./src/screens/ReaderQR";
+//import ReaderQR from "./src/screens/ReaderQR";
 import Variables from "./src/screens/Variables";
 import QrReader from "./src/screens/QrReader";
 import Analyzer from "./src/screens/Analyzer";
 import QRSendPoint from "./src/screens/QRSendPoint";
+import Sound from "./src/screens/Sound";
 
 const Drawer = createDrawerNavigator();
 // const Tab = createBottomTabNavigator();
@@ -149,16 +150,16 @@ export default function App() {
           component={QRSendPoint}
           options={{ headerShown: false }}
         />
-        {/* <Stack.Screen
-          name="GenerateQR"
-          component={GenerateQR}
-          options={{ headerShown: false }}
-        /> */}
         <Stack.Screen
           name="QrReader"
           component={QrReader}
           options={{ headerShown: false }}
         />
+        {/* <Stack.Screen
+          name="Sound"
+          component={Sound}
+          options={{ headerShown: false }}
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
