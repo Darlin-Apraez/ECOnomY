@@ -8,9 +8,9 @@ import {
   AsyncStorage,
   TextInput,
   TouchableOpacity,
-  ActivityIndicator,
-  FlatList,
   Image,
+  RefreshControl,
+  ScrollView,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useRoute } from "@react-navigation/native";
@@ -22,13 +22,27 @@ import {
   stylesS,
 } from "./../appTheme/styles/styles";
 
+const wait = (timeout) => {
+  return new Promise((resolve) => setTimeout(resolve, timeout));
+};
+
 const Balance = ({ navigation }: { navigation: any }) => {
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
+
   const [registro_id, setregistro_id] = useState("");
   const [ECOpuntos, setECOpuntos] = useState("");
   const [Balance, setBalance] = useState("");
   const [usuario, setUsuario] = useState("");
   //const [value, onChangeText] = useState("");
   const [cedula, setCedula] = useState("");
+  const [valorc, setValorc] = useState("");
+  const [datos, setDatos] = useState("");
+  //const [data, setData] = useState("");
 
   const route = useRoute();
   const value = "";
@@ -76,6 +90,14 @@ const Balance = ({ navigation }: { navigation: any }) => {
     return () => backHandler.remove();
   }, []);
 
+  const vlEntrada = String(valorc);
+  const vlEntradaDos = Number(vlEntrada);
+
+  //IMPORTANTE
+  //const { data } = route.params;
+
+  const VI = Number("");
+  const suma = Number(vlEntradaDos) + VI;
   // const SearchUser = () => {
   //   const ECOpuntos = useState;
   //   const SearchAPIURL = "http://192.168.1.15/pruebas/consulta.php";
@@ -104,6 +126,12 @@ const Balance = ({ navigation }: { navigation: any }) => {
     <SafeAreaView style={stylesB.body}>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
       <View style={stylesB.completo}>
+        {/* <ScrollView
+            contentContainerStyle={stylesM.scrollView}
+            refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }
+          > */}
         <TextInput
           // onChangeText={(ECOpuntos) => setECOpuntos(ECOpuntos)}
           // value={ECOpuntos.toString()}
@@ -112,7 +140,10 @@ const Balance = ({ navigation }: { navigation: any }) => {
           style={stylesM.textInputBalance}
           // {...SearchUser}
         />
-        <Text style={stylesM.textBalance}>{VB}</Text>
+        {/* esta entrada es cuando ya tiene un dato */}
+        {/* <Text style={stylesM.textBalance}>{data}</Text> */}
+        {/* esta entrada es cuando no hay dato */}
+        <Text style={stylesM.textBalance}>{suma}</Text>
         <Image
           source={require("./../../assets/img/ECOpunTo.png")}
           style={stylesM.ecoPunto}
@@ -133,6 +164,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
           source={require("./../../assets/img/ECOnomY.Name.png")}
           style={stylesM.logoECOnomY}
         />
+        {/* </ScrollView> */}
       </View>
     </SafeAreaView>
   );

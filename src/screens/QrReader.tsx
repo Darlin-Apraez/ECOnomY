@@ -29,6 +29,7 @@ import Icon from "react-native-vector-icons/Entypo";
 import BarStatus from "../components/BarStatus";
 import { LinearGradient } from "expo-linear-gradient";
 import { Audio } from "expo-av";
+import { useRoute } from "@react-navigation/native";
 
 const windowWidth = Dimensions.get("screen").width;
 const windowHeight = Dimensions.get("screen").height;
@@ -43,6 +44,9 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     const [scanned, setScanned] = useState(false);
     const [text, setText] = useState("");
     const [value, onChangeText] = useState("");
+    const [valorc, setValorc] = useState("");
+    const [datos, setDatos] = useState("");
+    const route = useRoute();
     //sonido
     const [sound, setSound] = useState();
 
@@ -76,6 +80,8 @@ const QrReader = ({ navigation }: { navigation: any }) => {
       setaprobado(true);
       //setLottie(<Lotieqr />);
       setanmt("fadeInDownBig");
+      navigation.navigate("Balance", { data: data });
+      console.log(data);
     };
 
     //si el permiso es nulo
@@ -262,6 +268,9 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     const [text, setText] = useState("");
     const [value, onChangeText] = useState("");
     const [cedula, setCedula] = useState("");
+    const route = useRoute();
+    const [valorc, setValorc] = useState("");
+    const [datos, setDatos] = useState("");
     //sonido
     const [sound, setSound] = useState();
 
@@ -280,7 +289,8 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     //boton volver
     function regresar() {
       playSound();
-      navigation.navigate("Balance", { value });
+      //navigation.navigate("Balance", { data: data });
+      navigation.navigate("Balance", { value: value, valorc: valorc });
       setScanned(false);
     }
 
@@ -455,6 +465,19 @@ const QrReader = ({ navigation }: { navigation: any }) => {
         </LinearGradient>
       );
     }
+    const handleBarCodeScanned = ({ data }) => {
+      setScanned(true);
+      setText(data);
+      Clipboard.setString(data);
+      //aqui va el envio de los props
+      setmostrartitulo("QR Scaneado");
+      setError("QR copiado en el portapapeles:");
+      setaprobado(true);
+      //setLottie(<Lotieqr />);
+      setanmt("fadeInDownBig");
+      navigation.navigate("Balance", { data: data });
+      console.log(data);
+    };
     return (
       <SafeAreaView style={stylesB.body}>
         <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
@@ -467,11 +490,19 @@ const QrReader = ({ navigation }: { navigation: any }) => {
         </TouchableOpacity>
         <Camera
           onBarCodeScanned={(...args) => {
+            scanned ? undefined : handleBarCodeScanned;
             const data = args[0].data;
             const result = JSON.stringify(data);
             Clipboard.setString(data);
             setScanned(true);
             setText(data);
+            //aqui va el envio de los props
+            //setmostrartitulo("QR Scaneado");
+            //setError("QR copiado en el portapapeles:");
+            //setaprobado(true);
+            ////setLottie(<Lotieqr />);
+            //setanmt("fadeInDownBig");
+            navigation.navigate("Balance", { data: data });
           }}
           barCodeScannerSettings={{
             barCodeTypes: ["qr"],

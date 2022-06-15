@@ -44,12 +44,13 @@ const Send = ({ navigation }: { navigation: any }) => {
   let VE = "";
 
   const datos =
-    "El usuario con cédula #: " +
-    cedula +
-    "\n te envía: " +
-    valorc +
-    " " +
-    "ECOpuntos";
+    // "El usuario con cédula #: " +
+    // cedula +
+    // "\n te envía: " +
+    // valorc +
+    // " " +
+    // "ECOpuntos";
+    valorc;
   const valor = () => {
     if (valorc === "") {
       alert("Llenar campo cantidad");
@@ -127,26 +128,6 @@ const Send = ({ navigation }: { navigation: any }) => {
             }}
           /> */}
         </View>
-        {/* <View style={stylesM.containerQRSend}>
-          {/* <QRCode
-            //value={cedula}
-            // logo={logoImg}
-            // logoSize={100}
-            size={150}
-            value={datos}
-          /> */}
-        {/*<Image
-            source={require("./../../assets/img/QR-bordes.png")}
-            style={stylesM.imageQR}
-          />
-        </View> */}
-        {/* <TouchableOpacity
-          style={stylesM.botonScanSend}
-          activeOpacity={0.3}
-          onPress={() => navigation.navigate("QrReader")}
-        >
-          <Text style={stylesM.textGenerate}>Escanear QR</Text>
-        </TouchableOpacity> */}
         <View style={stylesM.containerbtns}>
           <TouchableOpacity
             style={stylesM.btnBack}

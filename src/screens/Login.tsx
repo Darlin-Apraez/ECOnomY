@@ -20,15 +20,12 @@ import {
 //import ReactNativeBiometrics from "react-native-biometrics";
 //import * as Keychain from 'react-native-keychain';
 import { validateEmail } from "../utils/helpers";
-import { readUser } from "../../api";
+import { getData } from "../../api";
 
 let STORAGE_KEY = "@user_input";
 
 const Login = ({ navigation }: { navigation: any }) => {
   const [usuario, setUsuario] = useState("");
-  // readUser().then((val) => {
-  //   setUsuario(val);
-  // });
 
   const [contraseña, setContraseña] = useState("");
   const [input, setInput] = useState("");
@@ -74,12 +71,19 @@ const Login = ({ navigation }: { navigation: any }) => {
   const validationLogin = async () => {
     if (usuario == "") {
       alert("Es necesaria la cédula");
-      readUser();
     } else if (contraseña == "") {
       alert("Es necesaria la contraseña");
     } else {
-      alert("Ingreso exitoso");
-      navigation.navigate("DrawerApp", { usuario: usuario });
+      try {
+        await AsyncStorage.getItem(usuario);
+        await AsyncStorage.getItem(contraseña);
+        getData();
+        alert("Ingreso exitoso");
+        navigation.navigate("DrawerApp", { usuario: usuario });
+      } catch (error) {
+        alert("Failed to save the data to the storage");
+      }
+
       // try {
       //   await AsyncStorage.getItem(usuario);
       //   await AsyncStorage.getItem(contraseña);

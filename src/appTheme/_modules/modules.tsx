@@ -304,6 +304,11 @@ export const stylesM = StyleSheet.create({
     resizeMode: "contain",
     marginTop: RFValue(marginEcoLogo),
   },
+  scrollView: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
   //end Balance
 
