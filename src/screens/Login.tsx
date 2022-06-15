@@ -26,7 +26,6 @@ let STORAGE_KEY = "@user_input";
 
 const Login = ({ navigation }: { navigation: any }) => {
   const [usuario, setUsuario] = useState("");
-
   const [contraseña, setContraseña] = useState("");
   const [input, setInput] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
@@ -68,32 +67,55 @@ const Login = ({ navigation }: { navigation: any }) => {
   // };
   /////////////////
 
-  const validationLogin = async () => {
-    if (usuario == "") {
-      alert("Es necesaria la cédula");
-    } else if (contraseña == "") {
-      alert("Es necesaria la contraseña");
-    } else {
-      try {
-        await AsyncStorage.getItem(usuario);
-        await AsyncStorage.getItem(contraseña);
-        getData();
-        alert("Ingreso exitoso");
-        navigation.navigate("DrawerApp", { usuario: usuario });
-      } catch (error) {
-        alert("Failed to save the data to the storage");
-      }
+  const componentDid = () => {
+    AsyncStorage.getItem(usuario).then((value) => useState({ usuario: value }));
+    AsyncStorage.getItem(contraseña).then((value) =>
+      useState({ contraseña: value })
+    );
+  };
 
-      // try {
-      //   await AsyncStorage.getItem(usuario);
-      //   await AsyncStorage.getItem(contraseña);
-      //   AsyncStorage.setItem("token", "86");
-      //   alert("Ingreso exitoso");
-      //   navigation.navigate("DrawerApp", { usuario: usuario });
-      // } catch (e) {
-      //   alert("Failed to save the data to the storage");
-      // }
-    }
+  const validationLogin = async () => {
+    // const [inputUsername, setInputUsername] = useState("");
+    // const [inputPassword, setInputpassword] = useState("");
+    // const myUsername = usuario;
+    // const myPassword = contraseña;
+    // if (inputUsername == "" && inputPassword == "") {
+    //   alert("Es necesaria la cédula y la contraseña");
+    // } else if (inputUsername != myUsername && inputPassword != myPassword) {
+    //   alert("Cuenta no encontrada");
+    // } else if (inputUsername == myUsername && inputPassword == "") {
+    //   alert("Contraseña vacia");
+    // } else if (inputUsername == "" && inputPassword == myPassword) {
+    // } else if (inputUsername == myUsername && inputPassword == myPassword) {
+    //   navigation.navigate("DrawerApp", { usuario: usuario });
+    // } else {
+    //   alert("Failed to save the data to the storage");
+    // }
+    navigation.navigate("DrawerApp", { usuario: usuario });
+
+    // try {
+    //   await AsyncStorage.getItem(usuario).then((value) =>
+    //     useState({ usuario: value })
+    //   );
+    //   await AsyncStorage.getItem(contraseña).then((value) =>
+    //     useState({ contraseña: value })
+    //   );
+    //   getData();
+    //   alert("Ingreso exitoso");
+    //   navigation.navigate("DrawerApp", { usuario: usuario });
+    // } catch (error) {
+    //   alert("Failed to save the data to the storage");
+    // }
+
+    // try {
+    //   await AsyncStorage.getItem(usuario);
+    //   await AsyncStorage.getItem(contraseña);
+    //   AsyncStorage.setItem("token", "86");
+    //   alert("Ingreso exitoso");
+    //   navigation.navigate("DrawerApp", { usuario: usuario });
+    // } catch (e) {
+    //   alert("Failed to save the data to the storage");
+    // }
   };
 
   return (

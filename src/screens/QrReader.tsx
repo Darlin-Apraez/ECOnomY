@@ -80,7 +80,10 @@ const QrReader = ({ navigation }: { navigation: any }) => {
       setaprobado(true);
       //setLottie(<Lotieqr />);
       setanmt("fadeInDownBig");
-      navigation.navigate("Balance", { data: data });
+      setTimeout(() => {
+        navigation.navigate("Balance", { data: data });
+      }, 2500);
+
       console.log(data);
     };
 
@@ -465,19 +468,19 @@ const QrReader = ({ navigation }: { navigation: any }) => {
         </LinearGradient>
       );
     }
-    const handleBarCodeScanned = ({ data }) => {
-      setScanned(true);
-      setText(data);
-      Clipboard.setString(data);
-      //aqui va el envio de los props
-      setmostrartitulo("QR Scaneado");
-      setError("QR copiado en el portapapeles:");
-      setaprobado(true);
-      //setLottie(<Lotieqr />);
-      setanmt("fadeInDownBig");
-      navigation.navigate("Balance", { data: data });
-      console.log(data);
-    };
+    // const handleBarCodeScanned = ({ data }) => {
+    //   setScanned(true);
+    //   setText(data);
+    //   Clipboard.setString(data);
+    //   //aqui va el envio de los props
+    //   setmostrartitulo("QR Scaneado");
+    //   setError("QR copiado en el portapapeles:");
+    //   setaprobado(true);
+    //   //setLottie(<Lotieqr />);
+    //   setanmt("fadeInDownBig");
+    //   navigation.navigate("Balance", { data: data });
+    //   console.log(data);
+    // };
     return (
       <SafeAreaView style={stylesB.body}>
         <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
@@ -490,19 +493,21 @@ const QrReader = ({ navigation }: { navigation: any }) => {
         </TouchableOpacity>
         <Camera
           onBarCodeScanned={(...args) => {
-            scanned ? undefined : handleBarCodeScanned;
+            // scanned ? undefined : handleBarCodeScanned;
             const data = args[0].data;
             const result = JSON.stringify(data);
             Clipboard.setString(data);
             setScanned(true);
             setText(data);
             //aqui va el envio de los props
-            //setmostrartitulo("QR Scaneado");
-            //setError("QR copiado en el portapapeles:");
-            //setaprobado(true);
+            setmostrartitulo("QR Scaneado");
+            setError("QR copiado en el portapapeles:");
+            setaprobado(true);
             ////setLottie(<Lotieqr />);
-            //setanmt("fadeInDownBig");
-            navigation.navigate("Balance", { data: data });
+            setanmt("fadeInDownBig");
+            setTimeout(() => {
+              navigation.navigate("Balance", { data: data });
+            }, 2500);
           }}
           barCodeScannerSettings={{
             barCodeTypes: ["qr"],
