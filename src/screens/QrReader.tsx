@@ -80,9 +80,9 @@ const QrReader = ({ navigation }: { navigation: any }) => {
       setaprobado(true);
       //setLottie(<Lotieqr />);
       setanmt("fadeInDownBig");
-      setTimeout(() => {
-        navigation.navigate("Balance", { data: data });
-      }, 2500);
+      // setTimeout(() => {
+      //   navigation.navigate("TranExitosa", { data: data });
+      // }, 2500);
 
       console.log(data);
     };
@@ -112,8 +112,16 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     //boton volver
     function regresar() {
       setScanned(false);
-      playSound();
-      navigation.navigate("Balance", { value: value });
+      //playSound();
+      //navigation.navigate("TranExitosa", { value: value });
+    }
+
+    //const { data } = route.params;
+    function confirmar() {
+      setScanned(false);
+      // setTimeout(() => {
+      navigation.navigate("TranExitosa", { data: data });
+      // }, 1200);
     }
 
     //si el permiso es verdadero
@@ -159,7 +167,7 @@ const QrReader = ({ navigation }: { navigation: any }) => {
                         <TouchableOpacity
                           style={styles.btnVC}
                           activeOpacity={0.5}
-                          onPress={() => regresar()}
+                          onPress={() => confirmar()}
                         >
                           <Text style={styles.textbtnVC}>CONFIRMAR</Text>
                         </TouchableOpacity>
@@ -277,6 +285,8 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     //sonido
     const [sound, setSound] = useState();
 
+    let inData = route.params?.data;
+
     //Función sonido
     async function playSound() {
       console.log("Loading Sound");
@@ -291,10 +301,10 @@ const QrReader = ({ navigation }: { navigation: any }) => {
 
     //boton volver
     function regresar() {
-      playSound();
+      //playSound();
       //navigation.navigate("Balance", { data: data });
-      navigation.navigate("Balance", { value: value, valorc: valorc });
-      setScanned(false);
+      navigation.navigate("TranExitosa", { value: value, valorc: valorc });
+      //setScanned(false);
     }
 
     useEffect(() => {
@@ -381,92 +391,95 @@ const QrReader = ({ navigation }: { navigation: any }) => {
       );
     }
     if (scanned == true) {
-      return (
-        <LinearGradient
-          colors={["#38AA35", "#5cb032"]}
-          style={stylesB.linear}
-          start={{ x: 0, y: 1.6 }}
-          end={{ x: 0, y: 0 }}
-        >
-          <SafeAreaView style={stylesB.body}>
-            <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
-            <View style={[stylesB.completo, stylesL.Justify]}>
-              <Animatable.View
-                animation={"fadeInDownBig"}
-                duration={1500}
-                style={[stylesL.JustifyAlign]}
-              >
-                <View style={[stylesL.JustifyAlign, styles.topScan]}>
-                  <Text
-                    style={[
-                      stylesM.fontSizeTwentyEight,
-                      stylesM.textColorWhite,
-                      stylesM.textBold,
-                    ]}
-                  >
-                    QR Scaneado
-                  </Text>
-                </View>
+      setTimeout(() => {
+        navigation.navigate("TranExitosa", { inData: inData });
+      }, 2500);
+      // return (
+      //   <LinearGradient
+      //     colors={["#38AA35", "#5cb032"]}
+      //     style={stylesB.linear}
+      //     start={{ x: 0, y: 1.6 }}
+      //     end={{ x: 0, y: 0 }}
+      //   >
+      //     <SafeAreaView style={stylesB.body}>
+      //       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
+      //       <View style={[stylesB.completo, stylesL.Justify]}>
+      //         <Animatable.View
+      //           animation={"fadeInDownBig"}
+      //           duration={1500}
+      //           style={[stylesL.JustifyAlign]}
+      //         >
+      //           <View style={[stylesL.JustifyAlign, styles.topScan]}>
+      //             <Text
+      //               style={[
+      //                 stylesM.fontSizeTwentyEight,
+      //                 stylesM.textColorWhite,
+      //                 stylesM.textBold,
+      //               ]}
+      //             >
+      //               QR Scaneado
+      //             </Text>
+      //           </View>
 
-                <Text
-                  style={[
-                    styles.textKey,
-                    stylesM.textColorWhite,
-                    stylesL.textAlignCenter,
-                    stylesM.fontSizeEighteen,
-                  ]}
-                >
-                  QR copiado en el portapapeles.
-                </Text>
-                <Text style={styles.copiadotxtAndro}>{text}</Text>
-                <View style={[stylesL.flexRow, styles.widthRectangle]}>
-                  <View
-                    style={[styles.boxBottomQr, stylesM.widthPercentageFive]}
-                  >
-                    <TouchableOpacity
-                      style={[
-                        styles.boxBottomQr_txt,
-                        styles.backgroundWhite,
-                        stylesM.radiusTwenty,
-                        stylesL.JustifyAlign,
-                      ]}
-                      activeOpacity={0.8}
-                      onPress={() => [setScanned(false), setaprobado(false)]}
-                    >
-                      <Text
-                        style={[styles.textbtnVCa, styles.textColorDarkGreen]}
-                      >
-                        REESCANEAR
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
+      //           <Text
+      //             style={[
+      //               styles.textKey,
+      //               stylesM.textColorWhite,
+      //               stylesL.textAlignCenter,
+      //               stylesM.fontSizeEighteen,
+      //             ]}
+      //           >
+      //             QR copiado en el portapapeles.
+      //           </Text>
+      //           <Text style={styles.copiadotxtAndro}>{text}</Text>
+      //           <View style={[stylesL.flexRow, styles.widthRectangle]}>
+      //             <View
+      //               style={[styles.boxBottomQr, stylesM.widthPercentageFive]}
+      //             >
+      //               <TouchableOpacity
+      //                 style={[
+      //                   styles.boxBottomQr_txt,
+      //                   styles.backgroundWhite,
+      //                   stylesM.radiusTwenty,
+      //                   stylesL.JustifyAlign,
+      //                 ]}
+      //                 activeOpacity={0.8}
+      //                 onPress={() => [setScanned(false), setaprobado(false)]}
+      //               >
+      //                 <Text
+      //                   style={[styles.textbtnVCa, styles.textColorDarkGreen]}
+      //                 >
+      //                   REESCANEAR
+      //                 </Text>
+      //               </TouchableOpacity>
+      //             </View>
 
-                  <View
-                    style={[styles.boxBottomQr, stylesM.widthPercentageFive]}
-                  >
-                    <TouchableOpacity
-                      style={[
-                        styles.boxBottomQr_txt,
-                        styles.backgroundWhite,
-                        stylesM.radiusTwenty,
-                        stylesL.JustifyAlign,
-                      ]}
-                      activeOpacity={0.8}
-                      onPress={() => regresar()}
-                    >
-                      <Text
-                        style={[styles.textbtnVCa, styles.textColorDarkGreen]}
-                      >
-                        CONFIRMAR
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-              </Animatable.View>
-            </View>
-          </SafeAreaView>
-        </LinearGradient>
-      );
+      //             <View
+      //               style={[styles.boxBottomQr, stylesM.widthPercentageFive]}
+      //             >
+      //               <TouchableOpacity
+      //                 style={[
+      //                   styles.boxBottomQr_txt,
+      //                   styles.backgroundWhite,
+      //                   stylesM.radiusTwenty,
+      //                   stylesL.JustifyAlign,
+      //                 ]}
+      //                 activeOpacity={0.8}
+      //                 onPress={() => regresar()}
+      //               >
+      //                 <Text
+      //                   style={[styles.textbtnVCa, styles.textColorDarkGreen]}
+      //                 >
+      //                   CONFIRMAR
+      //                 </Text>
+      //               </TouchableOpacity>
+      //             </View>
+      //           </View>
+      //         </Animatable.View>
+      //       </View>
+      //     </SafeAreaView>
+      //   </LinearGradient>
+      // );
     }
     // const handleBarCodeScanned = ({ data }) => {
     //   setScanned(true);
@@ -506,7 +519,7 @@ const QrReader = ({ navigation }: { navigation: any }) => {
             ////setLottie(<Lotieqr />);
             setanmt("fadeInDownBig");
             setTimeout(() => {
-              navigation.navigate("Balance", { data: data });
+              navigation.navigate("TranExitosa", { data: data });
             }, 2500);
           }}
           barCodeScannerSettings={{

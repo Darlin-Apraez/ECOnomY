@@ -23,6 +23,7 @@ import {
 import QRCode from "react-qr-code";
 import { useRoute } from "@react-navigation/native";
 import { Audio } from "expo-av";
+import { LotieTranExitosa } from "./../components/lottie";
 
 const QRSendPoint = ({ navigation }: { navigation: any }) => {
   const route = useRoute();
@@ -46,11 +47,19 @@ const QRSendPoint = ({ navigation }: { navigation: any }) => {
   }
 
   const sendOnline = () => {
-    alert("ENVIO EXITOSO");
-    {
-      playSound();
-    }
-    navigation.navigate("Balance");
+    // alert("ENVIO EXITOSO");
+
+    // {
+    //   playSound();
+    // }
+    navigation.navigate("TranExitosa", { data: data });
+  };
+
+  const { data } = route.params;
+  const send = () => {
+    // alert("ENVIO EXITOSO");
+
+    navigation.navigate("Balance", { data: data });
   };
 
   return (
@@ -69,9 +78,14 @@ const QRSendPoint = ({ navigation }: { navigation: any }) => {
             // logo={logoImg}
             // logoSize={100}
             size={150}
-            value={route.params.datos}
+            value={route.params?.data}
             //getRef={cedula}
           />
+        </View>
+        <View>
+          <TouchableOpacity style={stylesM.btnQRConfirm} onPress={send}>
+            <Text>CONTINUAR</Text>
+          </TouchableOpacity>
         </View>
 
         <View style={stylesM.containerTextoDos}>

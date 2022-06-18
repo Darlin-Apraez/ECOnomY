@@ -39,23 +39,16 @@ const Send = ({ navigation }: { navigation: any }) => {
   const [valorc, onChangeText] = useState("");
   const [cedula, setCedula] = useState("");
 
-  var VB = 95;
-  const VF = 100;
-  let VE = "";
+  let inData = route.params?.data;
 
-  const datos =
-    // "El usuario con cédula #: " +
-    // cedula +
-    // "\n te envía: " +
-    // valorc +
-    // " " +
-    // "ECOpuntos";
-    valorc;
+  const datos = valorc;
   const valor = () => {
     if (valorc === "") {
       alert("Llenar campo cantidad");
     } else if (cedula === "") {
       alert("Llenar campo cédula");
+    } else if (valorc > inData) {
+      alert("el valor a enviar supera su balance");
     } else {
       Alert.alert(
         "Confirmación de envío",
@@ -98,6 +91,8 @@ const Send = ({ navigation }: { navigation: any }) => {
           <Text style={stylesM.boxSend}>ENVIAR</Text>
         </View>
         <View style={stylesM.containerCant}>
+          <Text>BALANCE</Text>
+          <Text style={stylesM.textInput}>{inData}</Text>
           <Text>CANTIDAD A ENVIAR</Text>
           <TextInput
             style={stylesM.textInputSend}

@@ -28,6 +28,9 @@ import QrReader from "./src/screens/QrReader";
 import Analyzer from "./src/screens/Analyzer";
 import QRSendPoint from "./src/screens/QRSendPoint";
 import Sound from "./src/screens/Sound";
+import SinInternet from "./src/screens/SinInternet";
+import TranExitosa from "./src/screens/TranExitosa";
+import TranFallida from "./src/screens/TranFallida";
 
 const Drawer = createDrawerNavigator();
 // const Tab = createBottomTabNavigator();
@@ -93,11 +96,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Analyzer"
           component={Analyzer}
           options={{ headerShown: false }}
-        /> */}
+        />
         <Stack.Screen
           name="Splash"
           component={Splash}
@@ -151,6 +154,16 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="TranFallida"
+          component={TranFallida}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TranExitosa"
+          component={TranExitosa}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="QrReader"
           component={QrReader}
           options={{ headerShown: false }}
@@ -160,6 +173,11 @@ export default function App() {
           component={Sound}
           options={{ headerShown: false }}
         /> */}
+        <Stack.Screen
+          name="SinInternet"
+          component={SinInternet}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

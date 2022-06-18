@@ -1,5 +1,5 @@
 import { View, Text, StatusBar, SafeAreaView, Image } from "react-native";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   stylesB,
   stylesL,
@@ -10,9 +10,11 @@ import {
 import BarStatus from "../components/BarStatus";
 import LottieView from "lottie-react-native";
 import * as Animatable from "react-native-animatable";
+import { useRoute } from "@react-navigation/native";
 
 const Splash = ({ navigation }: { navigation: any }) => {
   const animation = useRef(null);
+
   function navegar() {
     navigation.navigate("Register");
   }

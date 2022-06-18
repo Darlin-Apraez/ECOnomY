@@ -16,6 +16,7 @@ const txtTemperatura = Platform.OS === "ios" ? 12 : 15;
 const scanQrContainer = Platform.OS === "ios" ? 185 : 180;
 const borderRadiusIos = Platform.OS === "ios" ? 25 : 80;
 const topEnviar = Platform.OS === "ios" ? 40 : 10;
+const txtbalance = Platform.OS === "ios" ? 20 : 80;
 
 const windowWidth = Dimensions.get("screen").width;
 const windowHeight = Dimensions.get("screen").height;
@@ -431,7 +432,7 @@ export const stylesM = StyleSheet.create({
   //GenerateQR
   containerQR: {
     alignItems: "center",
-    marginTop: RFValue(40),
+    marginTop: RFValue(15),
   },
   boton: {
     height: RFValue(45),
@@ -477,6 +478,16 @@ export const stylesM = StyleSheet.create({
   containerCant: {
     marginLeft: RFValue(-55),
     marginTop: RFValue(37),
+  },
+  textInput: {
+    width: RFValue(260),
+    height: RFValue(40),
+    borderColor: "#c2ea5b",
+    borderWidth: 2,
+    borderRadius: RFValue(txtbalance),
+    marginTop: RFValue(10),
+    padding: RFValue(10),
+    marginBottom: RFValue(20),
   },
   textInputSend: {
     width: RFValue(260),
@@ -785,6 +796,15 @@ export const stylesM = StyleSheet.create({
   containerBtnQR: {
     marginTop: RFValue(20),
   },
+  btnQRConfirm: {
+    backgroundColor: "#00e37c",
+    width: RFValue(115),
+    height: RFValue(50),
+    borderRadius: 80,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: RFValue(20),
+  },
   btnQRSend: {
     backgroundColor: "#00e37c",
     width: RFValue(115),
@@ -797,6 +817,52 @@ export const stylesM = StyleSheet.create({
     fontWeight: "700",
   },
   //End QRSendPoint
+
+  //lottie
+  lottieinternet: {
+    width: RFValue(334),
+    height: RFValue(334),
+  },
+  lottieTranExitosa: {
+    width: RFValue(360),
+    height: RFValue(360),
+  },
+  lottieTranFallida: {
+    width: RFValue(250),
+    height: RFValue(250),
+    marginTop: RFValue(50),
+  },
+  lottieScanQR: {
+    width: RFValue(300),
+    height: RFValue(300),
+  },
+  //End lottie
+
+  //Sin internet
+  internet: {
+    marginTop: "30%",
+  },
+  txtconectar: {
+    color: "#5cb032",
+    fontSize: RFValue(27),
+    fontWeight: "700",
+    height: RFValue(120),
+    width: RFValue(249.6),
+    textAlign: "center",
+    marginTop: RFValue(-48),
+  },
+  txtfallida: {
+    color: "#d10f0f",
+    fontSize: RFValue(27),
+    fontWeight: "700",
+    height: RFValue(120),
+    width: RFValue(249.6),
+    textAlign: "center",
+    marginTop: RFValue(80),
+  },
+  //Fin Sin internet
+
+  //Transacción exitosa
 
   //End Variables
 });

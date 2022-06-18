@@ -22,6 +22,7 @@ import {
 import Icon from "react-native-vector-icons/FontAwesome5";
 import QRCode from "react-native-qrcode-svg";
 import { useRoute } from "@react-navigation/native";
+import { LotieScanQR } from "./../components/lottie";
 
 const Receive = ({ navigation }: { navigation: any }) => {
   const [usuario, setUsuario] = useState("");
@@ -59,10 +60,11 @@ const Receive = ({ navigation }: { navigation: any }) => {
           <Text style={stylesM.boxReceive}>RECIBIR</Text>
         </View>
         <View style={stylesM.containerQR}>
-          <Image
+          {/* <Image
             source={require("./../../assets/img/QR-bordes.png")}
             style={stylesM.imageQR}
-          />
+          /> */}
+          <LotieScanQR />
 
           {/* <TextInput
             style={stylesM.textInputNumCuenta}

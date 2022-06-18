@@ -90,14 +90,34 @@ const Balance = ({ navigation }: { navigation: any }) => {
     return () => backHandler.remove();
   }, []);
 
-  const vlEntrada = String(valorc);
-  const vlEntradaDos = Number(vlEntrada);
-
   //IMPORTANTE
   //const { data } = route.params;
 
-  const VI = Number("");
-  const suma = Number(vlEntradaDos) + VI;
+  let inData = route.params?.data;
+  let valorInicial = 0;
+
+  const valorDos = String(inData);
+  const valorTres = Number(valorDos);
+
+  const valorCuatro = Number(valorInicial);
+
+  const resta = Number(valorCuatro) - Number(valorTres);
+  const valFinal = Number(resta);
+
+  // saldoactual
+  // valorenviar
+  // enviar o recibir
+  // variable cedula
+  // variable accion sostenible
+  // resultado
+
+  // const validations = () => {
+  //   if (dataInicial == 0) {
+  //     alert("Fondos suficientes");
+  //   } else if (inData != valorRecibido) {
+  //   }
+  // };
+
   // const SearchUser = () => {
   //   const ECOpuntos = useState;
   //   const SearchAPIURL = "http://192.168.1.15/pruebas/consulta.php";
@@ -140,10 +160,9 @@ const Balance = ({ navigation }: { navigation: any }) => {
           style={stylesM.textInputBalance}
           // {...SearchUser}
         />
-        {/* esta entrada es cuando ya tiene un dato */}
-        {/* <Text style={stylesM.textBalance}>{data}</Text> */}
-        {/* esta entrada es cuando no hay dato */}
-        <Text style={stylesM.textBalance}>{suma}</Text>
+        <Text style={stylesM.textBalance}>{inData}</Text>
+        <Text>{valFinal}</Text>
+
         <Image
           source={require("./../../assets/img/ECOpunTo.png")}
           style={stylesM.ecoPunto}
