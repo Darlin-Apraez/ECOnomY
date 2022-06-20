@@ -31,6 +31,7 @@ import Sound from "./src/screens/Sound";
 import SinInternet from "./src/screens/SinInternet";
 import TranExitosa from "./src/screens/TranExitosa";
 import TranFallida from "./src/screens/TranFallida";
+import FondoInsufi from "./src/screens/FondoInsufi";
 
 const Drawer = createDrawerNavigator();
 // const Tab = createBottomTabNavigator();
@@ -122,17 +123,6 @@ export default function App() {
           options={{ headerShown: false }}
         />
 
-        {/*<Stack.Screen
-          name="Verification"
-          component={Verification}
-          options={{ headerShown: false }}
-        /> */}
-        {/* <Stack.Screen
-          name="Balance"
-          component={Balance}
-          options={{ headerShown: false }}
-        /> */}
-
         <Stack.Screen
           name="DrawerApp"
           component={DrawerApp}
@@ -168,14 +158,15 @@ export default function App() {
           component={QrReader}
           options={{ headerShown: false }}
         />
-        {/* <Stack.Screen
-          name="Sound"
-          component={Sound}
-          options={{ headerShown: false }}
-        /> */}
+
         <Stack.Screen
           name="SinInternet"
           component={SinInternet}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="FondoInsufi"
+          component={FondoInsufi}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

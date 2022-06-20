@@ -311,6 +311,14 @@ export const stylesM = StyleSheet.create({
     justifyContent: "center",
   },
 
+  boxEntry: {
+    width: RFValue(100),
+    height: RFValue(50),
+    backgroundColor: "white",
+    marginTop: RFValue(-20),
+    paddingLeft: 30,
+  },
+
   //end Balance
 
   //Drawer
@@ -833,6 +841,10 @@ export const stylesM = StyleSheet.create({
     marginTop: RFValue(50),
   },
   lottieScanQR: {
+    width: RFValue(300),
+    height: RFValue(300),
+  },
+  lottieFndInsuf: {
     width: RFValue(300),
     height: RFValue(300),
   },

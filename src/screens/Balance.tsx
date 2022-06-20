@@ -40,6 +40,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
   const [usuario, setUsuario] = useState("");
   //const [value, onChangeText] = useState("");
   const [cedula, setCedula] = useState("");
+  const [generacion, setGeneracion] = useState("");
   const [valorc, setValorc] = useState("");
   const [datos, setDatos] = useState("");
   //const [data, setData] = useState("");
@@ -56,10 +57,6 @@ const Balance = ({ navigation }: { navigation: any }) => {
 
   const recibirCedula = () => {
     navigation.navigate("Receive", { usuario: usuario });
-  };
-
-  const reception = () => {
-    ({ cedula: cedula });
   };
 
   let firstNumber = 1;
@@ -93,8 +90,15 @@ const Balance = ({ navigation }: { navigation: any }) => {
   //IMPORTANTE
   //const { data } = route.params;
 
+  //dato de entrada
   let inData = route.params?.data;
+
+  //valor vacio
   let valorInicial = 0;
+
+  //indata guardado en una variable
+
+  let number = generacion;
 
   const valorDos = String(inData);
   const valorTres = Number(valorDos);
@@ -102,14 +106,24 @@ const Balance = ({ navigation }: { navigation: any }) => {
   const valorCuatro = Number(valorInicial);
 
   const resta = Number(valorCuatro) - Number(valorTres);
-  const valFinal = Number(resta);
+  let suma = Number(valorInicial) + Number(valorTres);
+  suma = suma + valorInicial;
 
-  // saldoactual
-  // valorenviar
-  // enviar o recibir
-  // variable cedula
-  // variable accion sostenible
-  // resultado
+  const sumaDos = Number(suma) + Number(inData);
+  const valFinal = Number(resta);
+  const valoFinal = Number(suma) + Number(valorTres);
+
+  //recibir
+  // function enviarData() {
+  //   if (number != number) {
+  //     console.log("suma: ", suma);
+  //   } else if (number == 0) {
+  //     console.log("number: ", number);
+  //   } else if (number >= resta) {
+  //     console.log("resta: ", resta);
+  //   }
+  // }
+  // console.log(enviarData);
 
   // const validations = () => {
   //   if (dataInicial == 0) {
@@ -160,8 +174,18 @@ const Balance = ({ navigation }: { navigation: any }) => {
           style={stylesM.textInputBalance}
           // {...SearchUser}
         />
+        {/* <TextInput
+          style={stylesM.boxEntry}
+          onChangeText={(text) => setGeneracion(text)}
+          value={inData}
+          editable={true}
+          keyboardType="numeric"
+          maxLength={6}
+        /> */}
+
         <Text style={stylesM.textBalance}>{inData}</Text>
-        <Text>{valFinal}</Text>
+        <Text>{suma}</Text>
+        <Text>{sumaDos}</Text>
 
         <Image
           source={require("./../../assets/img/ECOpunTo.png")}

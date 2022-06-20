@@ -57,4 +57,22 @@ const LotieScanQR = () => {
   );
 };
 
-export { LotieInternet, LotieTranExitosa, LotieTranFallida, LotieScanQR };
+// const LotieFondoInsufi = () => {
+//   return (
+//     <LottieView
+//       style={stylesM.lottieFndInsuf}
+//       source={require("./../../assets/lottie/fndInsufi.json")}
+//       autoPlay={true}
+//       loop={true}
+//       speed={1}
+//     />
+//   );
+// };
+
+export {
+  LotieInternet,
+  LotieTranExitosa,
+  LotieTranFallida,
+  LotieScanQR,
+  //LotieFondoInsufi,
+};
