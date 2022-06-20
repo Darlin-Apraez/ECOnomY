@@ -31,6 +31,7 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
   const [sound, setSound] = useState();
   const route = useRoute();
   const { data } = route.params;
+  // let inData = route.params?.data;
 
   async function playSound() {
     console.log("Loading Sound");
@@ -49,7 +50,7 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
     {
       playSound();
     }
-    navigation.navigate("Balance", { data: data });
+    navigation.navigate("Balance", { data });
   };
   return (
     <SafeAreaView style={stylesB.body}>
