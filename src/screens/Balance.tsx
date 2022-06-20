@@ -52,6 +52,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
     navigation.navigate("Send", {
       VB: VB,
       VE: VE,
+      suma: suma,
     });
   };
 
@@ -90,6 +91,8 @@ const Balance = ({ navigation }: { navigation: any }) => {
   //IMPORTANTE
   //const { data } = route.params;
 
+  let restaData = route.params?.restaData;
+
   //dato de entrada
   let inData = route.params?.data;
 
@@ -106,12 +109,30 @@ const Balance = ({ navigation }: { navigation: any }) => {
   const valorCuatro = Number(valorInicial);
 
   const resta = Number(valorCuatro) - Number(valorTres);
-  let suma = Number(valorInicial) + Number(valorTres);
-  suma = suma + valorInicial;
+  // let suma = Number(valorInicial) + Number(valorTres);
+  // suma = suma + valorInicial;
 
-  const sumaDos = Number(suma) + Number(inData);
-  const valFinal = Number(resta);
-  const valoFinal = Number(suma) + Number(valorTres);
+  // const sumaDos = Number(suma) + Number(inData);
+  // const valFinal = Number(resta);
+  // const valoFinal = Number(suma) + Number(valorTres);
+
+  /// prueba
+
+  let n = 1;
+  let suma = 0;
+  let numr;
+
+  while (n <= 1) {
+    numr = inData;
+    //numr = prompt("introduzca numero:", "");
+
+    numr = Number(numr);
+    suma = suma + numr;
+    n = n + 1;
+  }
+  console.log("la suma de los numeros es: ", suma);
+
+  ///
 
   //recibir
   // function enviarData() {
@@ -183,9 +204,9 @@ const Balance = ({ navigation }: { navigation: any }) => {
           maxLength={6}
         /> */}
 
-        <Text style={stylesM.textBalance}>{inData}</Text>
-        <Text>{suma}</Text>
-        <Text>{sumaDos}</Text>
+        <Text style={stylesM.textBalance}>{suma}</Text>
+        <Text>{restaData}</Text>
+        {/* <Text>{sumaDos}</Text> */}
 
         <Image
           source={require("./../../assets/img/ECOpunTo.png")}

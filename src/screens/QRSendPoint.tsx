@@ -56,10 +56,12 @@ const QRSendPoint = ({ navigation }: { navigation: any }) => {
   };
 
   const { data } = route.params;
+  let inDatos = route.params?.datos;
+  let inSumas = route.params?.inSuma;
   const send = () => {
     // alert("ENVIO EXITOSO");
-    const acumular = data + data;
-    navigation.navigate("Balance", { data: data, acumular: acumular });
+    const restaData = Number(inSumas) - Number(inDatos);
+    navigation.navigate("Balance", { restaData: restaData });
   };
 
   return (
@@ -78,7 +80,7 @@ const QRSendPoint = ({ navigation }: { navigation: any }) => {
             // logo={logoImg}
             // logoSize={100}
             size={150}
-            value={route.params?.data}
+            value={inDatos}
             //getRef={cedula}
           />
         </View>
