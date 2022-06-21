@@ -58,10 +58,16 @@ const QRSendPoint = ({ navigation }: { navigation: any }) => {
   const { data } = route.params;
   let inDatos = route.params?.datos;
   let inSumas = route.params?.inSuma;
+  let acm = route.params?.acm;
   const send = () => {
     // alert("ENVIO EXITOSO");
     const restaData = Number(inSumas) - Number(inDatos);
-    navigation.navigate("Balance", { restaData: restaData });
+    const sumaData = Number(inSumas) + Number(inSumas);
+    navigation.navigate("Balance", {
+      restaData: restaData,
+      sumaData: sumaData,
+      acm: acm,
+    });
   };
 
   return (

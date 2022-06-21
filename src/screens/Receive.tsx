@@ -44,6 +44,9 @@ const Receive = ({ navigation }: { navigation: any }) => {
   console.log(numbers);
   const str = numbers;
 
+  let sumaData = route.params?.sumaData;
+  let acm = route.params?.acm;
+
   const CopyWallet = () => {
     Clipboard.setString(str);
     if (Platform.OS === "android") {
@@ -85,7 +88,9 @@ const Receive = ({ navigation }: { navigation: any }) => {
         <TouchableOpacity
           style={stylesM.botonScanSend}
           activeOpacity={0.3}
-          onPress={() => navigation.navigate("QrReader")}
+          onPress={() =>
+            navigation.navigate("QrReader", { sumaData: sumaData })
+          }
         >
           <Text style={stylesM.textGenerate}>Escanear QR</Text>
         </TouchableOpacity>

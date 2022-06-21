@@ -31,6 +31,7 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
   const [sound, setSound] = useState();
   const route = useRoute();
   const { data } = route.params;
+  let sumaData = route.params?.sumaData;
   // let inData = route.params?.data;
 
   async function playSound() {
@@ -50,7 +51,7 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
     {
       playSound();
     }
-    navigation.navigate("Balance", { data });
+    navigation.navigate("Balance", { data, sumaData });
   };
   return (
     <SafeAreaView style={stylesB.body}>

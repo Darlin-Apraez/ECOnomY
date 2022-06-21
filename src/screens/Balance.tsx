@@ -46,18 +46,20 @@ const Balance = ({ navigation }: { navigation: any }) => {
   //const [data, setData] = useState("");
 
   const route = useRoute();
-  const value = "";
+  const acumulador = "";
+  const acm = Number(acumulador);
 
   const register = () => {
     navigation.navigate("Send", {
       VB: VB,
       VE: VE,
       suma: suma,
+      datoVariable: datoVariable,
     });
   };
 
   const recibirCedula = () => {
-    navigation.navigate("Receive", { usuario: usuario });
+    navigation.navigate("Receive", { usuario: usuario, acm: acm });
   };
 
   let firstNumber = 1;
@@ -92,16 +94,13 @@ const Balance = ({ navigation }: { navigation: any }) => {
   //const { data } = route.params;
 
   let restaData = route.params?.restaData;
+  let sumaData = route.params?.sumaData;
 
   //dato de entrada
   let inData = route.params?.data;
 
   //valor vacio
   let valorInicial = 0;
-
-  //indata guardado en una variable
-
-  let number = generacion;
 
   const valorDos = String(inData);
   const valorTres = Number(valorDos);
@@ -117,6 +116,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
   // const valoFinal = Number(suma) + Number(valorTres);
 
   /// prueba
+  let inicia = 0;
 
   let n = 1;
   let suma = 0;
@@ -127,12 +127,10 @@ const Balance = ({ navigation }: { navigation: any }) => {
     //numr = prompt("introduzca numero:", "");
 
     numr = Number(numr);
-    suma = suma + numr;
-    n = n + 1;
+    suma = Number(suma) + Number(numr);
+    n = Number(n) + 1;
   }
   console.log("la suma de los numeros es: ", suma);
-
-  ///
 
   //recibir
   // function enviarData() {
@@ -177,6 +175,16 @@ const Balance = ({ navigation }: { navigation: any }) => {
   //     });
   // };
 
+  //funcion para retornar valor de resta
+  let datoInicial = inData ? suma : inicia;
+
+  let datoResta = suma ? suma : restaData;
+
+  let datoVariable = inData ? datoInicial : datoResta;
+  let datoVariables = inData ? suma : inicia;
+
+  //////////////////////////////////////////////////////
+
   return (
     <SafeAreaView style={stylesB.body}>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
@@ -204,8 +212,24 @@ const Balance = ({ navigation }: { navigation: any }) => {
           maxLength={6}
         /> */}
 
-        <Text style={stylesM.textBalance}>{suma}</Text>
-        <Text>{restaData}</Text>
+        <Text style={stylesM.textBalance}>{datoVariable}</Text>
+        <Text>este si: {datoInicial}</Text>
+        <Text>dato resta: {datoResta}</Text>
+
+        {/* <TouchableOpacity
+          onPress={() => {
+            suma ? suma : restaData;
+            alert("su nuevo balance es: " + datoResta);
+          }}
+        >
+          <Image
+            source={require("./../../assets/img/refresh.png")}
+            style={{ width: 50, height: 50 }}
+          />
+        </TouchableOpacity> */}
+        {/* <Text>Resta: {restaData}</Text> */}
+        {/* <Text>Suma: {sumaData}</Text> */}
+        {/* <Text>SumaAcumula: {acm}</Text> */}
         {/* <Text>{sumaDos}</Text> */}
 
         <Image

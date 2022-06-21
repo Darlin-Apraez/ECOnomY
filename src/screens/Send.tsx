@@ -40,6 +40,7 @@ const Send = ({ navigation }: { navigation: any }) => {
   const [cedula, setCedula] = useState("");
 
   let inSuma = route.params?.suma;
+  let datoVariable = route.params?.datoVariable;
   const cero = 0;
 
   const datos = valorc;
@@ -48,10 +49,8 @@ const Send = ({ navigation }: { navigation: any }) => {
       alert("Llenar campo cantidad");
     } else if (cedula === "") {
       alert("Llenar campo cédula");
-    } else if (valorc > inSuma) {
-      alert("El valor a enviar supera su balance");
-    } else if (inSuma === cero) {
-      alert("Fondos insuficientes");
+    } else if (valorc >= inSuma) {
+      alert("El valor a enviar supera su balance, Fondos insuficientes.");
     } else {
       Alert.alert(
         "Confirmación de envío",
@@ -68,6 +67,7 @@ const Send = ({ navigation }: { navigation: any }) => {
               navigation.navigate("QRSendPoint", {
                 datos: datos,
                 inSuma: inSuma,
+                datoVariable: datoVariable,
               }),
           },
         ]
@@ -96,7 +96,7 @@ const Send = ({ navigation }: { navigation: any }) => {
         </View>
         <View style={stylesM.containerCant}>
           <Text>BALANCE</Text>
-          <Text style={stylesM.textInput}>{inSuma}</Text>
+          <Text style={stylesM.textInput}>{datoVariable}</Text>
           <Text>CANTIDAD A ENVIAR</Text>
           <TextInput
             style={stylesM.textInputSend}

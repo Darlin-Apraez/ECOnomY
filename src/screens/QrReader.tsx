@@ -286,6 +286,8 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     const [sound, setSound] = useState();
 
     let inData = route.params?.data;
+    let sumaData = route.params?.sumaData;
+    let datoVariable = route.params?.datoVariable;
 
     //Función sonido
     async function playSound() {
@@ -299,11 +301,20 @@ const QrReader = ({ navigation }: { navigation: any }) => {
       await sound.playAsync();
     }
 
+    let inDatos = route.params?.datos;
+    let inSumas = route.params?.inSuma;
+    let acm = route.params?.acm;
     //boton volver
     function regresar() {
       //playSound();
       //navigation.navigate("Balance", { data: data });
-      navigation.navigate("Balance", { value: value, valorc: valorc });
+      const sumaData = Number(acm) + Number(inSumas);
+      navigation.navigate("Balance", {
+        value: value,
+        valorc: valorc,
+        sumaData: sumaData,
+        acm: acm,
+      });
       //setScanned(false);
     }
 
@@ -517,7 +528,11 @@ const QrReader = ({ navigation }: { navigation: any }) => {
             ////setLottie(<Lotieqr />);
             setanmt("fadeInDownBig");
             setTimeout(() => {
-              navigation.navigate("TranExitosa", { data: data });
+              navigation.navigate("TranExitosa", {
+                data: data,
+                sumaData: sumaData,
+                datoVariable: datoVariable,
+              });
             }, 100);
           }}
           barCodeScannerSettings={{
