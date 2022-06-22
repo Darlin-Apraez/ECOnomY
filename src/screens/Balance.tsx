@@ -180,8 +180,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
 
   let datoResta = suma ? suma : restaData;
 
-  let datoVariable = inData ? datoInicial : datoResta;
-  let datoVariables = inData ? suma : inicia;
+  let datoVariable = datoResta ? datoResta : datoInicial;
 
   //////////////////////////////////////////////////////
 
@@ -213,8 +212,6 @@ const Balance = ({ navigation }: { navigation: any }) => {
         /> */}
 
         <Text style={stylesM.textBalance}>{datoVariable}</Text>
-        <Text>este si: {datoInicial}</Text>
-        <Text>dato resta: {datoResta}</Text>
 
         {/* <TouchableOpacity
           onPress={() => {
