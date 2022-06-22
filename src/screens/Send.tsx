@@ -40,6 +40,7 @@ const Send = ({ navigation }: { navigation: any }) => {
   const [cedula, setCedula] = useState("");
 
   let inSuma = route.params?.suma;
+  let datoResta = route.params?.datoResta;
   let datoVariable = route.params?.datoVariable;
   const cero = 0;
 
@@ -49,7 +50,7 @@ const Send = ({ navigation }: { navigation: any }) => {
       alert("Llenar campo cantidad");
     } else if (cedula === "") {
       alert("Llenar campo cédula");
-    } else if (valorc >= inSuma) {
+    } else if (valorc >= inSuma && valorc >= datoVariable) {
       alert("El valor a enviar supera su balance, Fondos insuficientes.");
     } else {
       Alert.alert(
@@ -96,7 +97,7 @@ const Send = ({ navigation }: { navigation: any }) => {
         </View>
         <View style={stylesM.containerCant}>
           <Text>BALANCE</Text>
-          <Text style={stylesM.textInput}>{datoVariable}</Text>
+          <Text style={stylesM.textInput}>{datoResta}</Text>
           <Text>CANTIDAD A ENVIAR</Text>
           <TextInput
             style={stylesM.textInputSend}

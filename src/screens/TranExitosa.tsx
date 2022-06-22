@@ -45,13 +45,15 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
     await sound.playAsync();
   }
 
+  let restaData = route.params?.restaData;
+  let datoVariable = route.params?.datoVariable;
   const send = () => {
     // alert("ENVIO EXITOSO");
 
     {
       playSound();
     }
-    navigation.navigate("Balance", { data, sumaData });
+    navigation.navigate("Balance", { data, sumaData, datoVariable, restaData });
   };
   return (
     <SafeAreaView style={stylesB.body}>

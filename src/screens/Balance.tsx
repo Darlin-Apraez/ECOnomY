@@ -46,20 +46,19 @@ const Balance = ({ navigation }: { navigation: any }) => {
   //const [data, setData] = useState("");
 
   const route = useRoute();
-  const acumulador = "";
-  const acm = Number(acumulador);
 
   const register = () => {
     navigation.navigate("Send", {
       VB: VB,
       VE: VE,
       suma: suma,
+      datoResta: datoResta,
       datoVariable: datoVariable,
     });
   };
 
   const recibirCedula = () => {
-    navigation.navigate("Receive", { usuario: usuario, acm: acm });
+    navigation.navigate("Receive", { usuario: usuario });
   };
 
   let firstNumber = 1;
@@ -132,25 +131,6 @@ const Balance = ({ navigation }: { navigation: any }) => {
   }
   console.log("la suma de los numeros es: ", suma);
 
-  //recibir
-  // function enviarData() {
-  //   if (number != number) {
-  //     console.log("suma: ", suma);
-  //   } else if (number == 0) {
-  //     console.log("number: ", number);
-  //   } else if (number >= resta) {
-  //     console.log("resta: ", resta);
-  //   }
-  // }
-  // console.log(enviarData);
-
-  // const validations = () => {
-  //   if (dataInicial == 0) {
-  //     alert("Fondos suficientes");
-  //   } else if (inData != valorRecibido) {
-  //   }
-  // };
-
   // const SearchUser = () => {
   //   const ECOpuntos = useState;
   //   const SearchAPIURL = "http://192.168.1.15/pruebas/consulta.php";
@@ -182,6 +162,8 @@ const Balance = ({ navigation }: { navigation: any }) => {
 
   let datoVariable = datoResta ? datoResta : datoInicial;
 
+  let datosVariable = route.params?.datoVariable;
+
   //////////////////////////////////////////////////////
 
   return (
@@ -212,6 +194,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
         /> */}
 
         <Text style={stylesM.textBalance}>{datoVariable}</Text>
+        <Text>{datosVariable}</Text>
 
         {/* <TouchableOpacity
           onPress={() => {
