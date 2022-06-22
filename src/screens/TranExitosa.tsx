@@ -46,14 +46,21 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
   }
 
   let restaData = route.params?.restaData;
-  let datoVariable = route.params?.datoVariable;
+  let datosVariable = route.params?.datosVariable;
+  let restaData2 = route.params?.restaData2;
   const send = () => {
     // alert("ENVIO EXITOSO");
 
     {
       playSound();
     }
-    navigation.navigate("Balance", { data, sumaData, datoVariable, restaData });
+    navigation.navigate("Balance", {
+      data,
+      sumaData,
+      datosVariable,
+      restaData,
+      restaData2,
+    });
   };
   return (
     <SafeAreaView style={stylesB.body}>

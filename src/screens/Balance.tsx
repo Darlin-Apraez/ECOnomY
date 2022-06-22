@@ -53,7 +53,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
       VE: VE,
       suma: suma,
       datoResta: datoResta,
-      datoVariable: datoVariable,
+      datosVariable: datosVariable,
     });
   };
 
@@ -93,6 +93,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
   //const { data } = route.params;
 
   let restaData = route.params?.restaData;
+  let restaData2 = route.params?.restaData2;
   let sumaData = route.params?.sumaData;
 
   //dato de entrada
@@ -162,7 +163,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
 
   let datoVariable = datoResta ? datoResta : datoInicial;
 
-  let datosVariable = route.params?.datoVariable;
+  let datosVariable = restaData2 ? restaData2 : datoInicial;
 
   //////////////////////////////////////////////////////
 
@@ -193,8 +194,9 @@ const Balance = ({ navigation }: { navigation: any }) => {
           maxLength={6}
         /> */}
 
-        <Text style={stylesM.textBalance}>{datoVariable}</Text>
-        <Text>{datosVariable}</Text>
+        {/* <Text style={stylesM.textBalance}>{datoVariable}</Text> */}
+        <Text style={stylesM.textBalance}>{datosVariable}</Text>
+        {/* <Text>{datosVariable}</Text> */}
 
         {/* <TouchableOpacity
           onPress={() => {
