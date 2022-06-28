@@ -78,7 +78,7 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
   // };
   const validation = async () => {
     if (usuario == "") {
-      alert("Es necesario la cédula");
+      alert("Es necesario la identificación");
     } else if (contraseña == "") {
       alert("Es necesaria la contraseña");
     } else if (contraseña == "") {
@@ -111,7 +111,7 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
       >
         <View style={stylesM.containerInterno}>
           <View style={stylesM.wrapperCA}>
-            <Text style={stylesM.textAccount}>CÉDULA</Text>
+            <Text style={stylesM.textAccount}>IDENTIFICACIÓN</Text>
             <TextInput
               style={stylesM.inputAccount}
               onChangeText={(usuario) => setUsuario(usuario)}

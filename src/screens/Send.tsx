@@ -50,11 +50,13 @@ const Send = ({ navigation }: { navigation: any }) => {
     if (valorc === "") {
       alert("Llenar campo cantidad");
     } else if (cedula === "") {
-      alert("Llenar campo cédula");
-    } else if (valorc > datosVariable) {
+      alert("Llenar campo identificación");
+    } else if (datos > datosVariable) {
       alert("El valor a enviar supera su balance, Fondos insuficientes.");
-    } else if (valorc >= zero) {
+    } else if (datosVariable == zero) {
       alert("Su balance es cero");
+    } else if (datos == zero) {
+      alert("La cantidad mínima de envío es 1");
     } else {
       Alert.alert(
         "Confirmación de envío",
@@ -108,7 +110,7 @@ const Send = ({ navigation }: { navigation: any }) => {
             onChangeText={(text) => onChangeText(text)}
             value={valorc}
           />
-          <Text>CÉDULA A LA QUE ENVIA</Text>
+          <Text>IDENTIFICACIÓN A LA QUE ENVIA</Text>
           <TextInput
             style={stylesM.textInputSend}
             keyboardType="numeric"

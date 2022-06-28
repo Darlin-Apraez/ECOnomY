@@ -33,6 +33,8 @@ import TranExitosa from "./src/screens/TranExitosa";
 import TranFallida from "./src/screens/TranFallida";
 import FondoInsufi from "./src/screens/FondoInsufi";
 
+import React, { useEffect, useState } from "react";
+
 const Drawer = createDrawerNavigator();
 // const Tab = createBottomTabNavigator();
 

@@ -123,7 +123,7 @@ const Login = ({ navigation }: { navigation: any }) => {
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
       <View style={stylesB.completo}>
         <View style={stylesM.containerGeneral}>
-          <Text style={stylesM.textAccount}>CÉDULA</Text>
+          <Text style={stylesM.textAccount}>IDENTIFICACIÓN</Text>
           <TextInput
             style={stylesM.inputAccount}
             keyboardType="numeric"
