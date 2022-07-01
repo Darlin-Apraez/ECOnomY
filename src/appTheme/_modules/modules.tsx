@@ -876,5 +876,14 @@ export const stylesM = StyleSheet.create({
 
   //Transacción exitosa
 
+  //Ecoafiliados
+  containerMap: {
+    marginTop: RFValue(30),
+  },
+  map: {
+    width: Dimensions.get("screen").width,
+    height: Dimensions.get("screen").height,
+  },
+  //End Ecoafiliados
   //End Variables
 });

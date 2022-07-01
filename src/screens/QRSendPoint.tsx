@@ -69,6 +69,7 @@ const QRSendPoint = ({ navigation }: { navigation: any }) => {
       sumaData: sumaData,
       datosVariable: datosVariable,
       restaData2: restaData2,
+      inDatos: inDatos,
     });
   };
 
@@ -88,7 +89,7 @@ const QRSendPoint = ({ navigation }: { navigation: any }) => {
             // logo={logoImg}
             // logoSize={100}
             size={150}
-            value={datosVariable}
+            value={inDatos}
             //getRef={cedula}
           />
         </View>

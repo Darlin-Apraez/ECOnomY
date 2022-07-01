@@ -60,7 +60,7 @@ const Send = ({ navigation }: { navigation: any }) => {
     } else {
       Alert.alert(
         "Confirmación de envío",
-        "¿Esta seguro de los datos registrados para el envío?",
+        "¿Está seguro de los datos registrados para el envío?",
         [
           {
             text: "Cancelar",

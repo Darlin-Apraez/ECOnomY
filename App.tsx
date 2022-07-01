@@ -32,6 +32,7 @@ import SinInternet from "./src/screens/SinInternet";
 import TranExitosa from "./src/screens/TranExitosa";
 import TranFallida from "./src/screens/TranFallida";
 import FondoInsufi from "./src/screens/FondoInsufi";
+import Ecoafiliados from "./src/screens/Ecoafiliados";
 
 import React, { useEffect, useState } from "react";
 
@@ -83,6 +84,16 @@ function DrawerApp() {
       <Drawer.Screen
         name="Variables"
         component={Variables}
+        options={{
+          swipeEnabled: false,
+          headerTransparent: true,
+          headerTitle: "",
+          headerTintColor: "grey",
+        }}
+      />
+      <Drawer.Screen
+        name="Ecoafiliados"
+        component={Ecoafiliados}
         options={{
           swipeEnabled: false,
           headerTransparent: true,

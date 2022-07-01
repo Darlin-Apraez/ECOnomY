@@ -30,7 +30,7 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
   //sonido
   const [sound, setSound] = useState();
   const route = useRoute();
-  const { data } = route.params;
+  let data = route.params?.data;
   let sumaData = route.params?.sumaData;
   // let inData = route.params?.data;
 
@@ -48,6 +48,7 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
   let restaData = route.params?.restaData;
   let datosVariable = route.params?.datosVariable;
   let restaData2 = route.params?.restaData2;
+  let inDatos = route.params?.inDatos;
   const send = () => {
     // alert("ENVIO EXITOSO");
 
@@ -58,8 +59,10 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
       data,
       sumaData,
       datosVariable,
+      variante: datosVariable,
       restaData,
       restaData2,
+      inDatos,
     });
   };
   return (

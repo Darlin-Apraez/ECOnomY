@@ -66,6 +66,16 @@ function DrawerMenu({ navigation }: { navigation: any }) {
             VARIABLES
           </Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Ecoafiliados")}
+          style={stylesM.botonMenuDrawer}
+        >
+          <Text
+            style={[stylesM.textMenuDrawer, stylesO.textMenuDrawer_centerThree]}
+          >
+            ECOAFILIADOS
+          </Text>
+        </TouchableOpacity>
         <View style={stylesM.contUserDrawer}>
           <Text style={stylesM.userDrawer}>
             Número cédula: {route.params.usuario}

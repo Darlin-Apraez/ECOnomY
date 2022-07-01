@@ -21,6 +21,8 @@ import {
   stylesO,
   stylesS,
 } from "./../appTheme/styles/styles";
+import md5 from "md5";
+import utf8 from "utf8";
 
 const wait = (timeout) => {
   return new Promise((resolve) => setTimeout(resolve, timeout));
@@ -48,25 +50,34 @@ const Balance = ({ navigation }: { navigation: any }) => {
   const route = useRoute();
 
   const register = () => {
+    console.log(md5("12345"));
+
     navigation.navigate("Send", {
       VB: VB,
       VE: VE,
       suma: suma,
       datoResta: datoResta,
       datosVariable: datosVariable,
+      inDatos: inDatos,
     });
   };
 
   const recibirCedula = () => {
-    navigation.navigate("Receive", { usuario: usuario });
+    navigation.navigate("Receive", {
+      usuario: usuario,
+      datosVariable: datosVariable,
+      suma: suma,
+      inDatos: inDatos,
+    });
   };
 
   let firstNumber = 1;
   const lastNumber = 100;
   var Aleatorio = firstNumber + Math.floor(Math.random() * lastNumber);
-  const VB = Aleatorio.toString();
+  const codificacion = Aleatorio.toString();
 
   const VE = "";
+  console.log("codificacion: " + codificacion);
 
   useEffect(() => {
     const backAction = () => {
@@ -116,6 +127,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
   // const valoFinal = Number(suma) + Number(valorTres);
 
   /// prueba
+  let dtVar = route.params?.datosVariable;
   let inicia = 0;
 
   let n = 1;
@@ -131,6 +143,55 @@ const Balance = ({ navigation }: { navigation: any }) => {
     n = Number(n) + 1;
   }
   console.log("la suma de los numeros es: ", suma);
+
+  //funcion para retornar valor de resta
+  let datoInicial = inData ? suma : inicia;
+
+  let datoResta = suma ? suma : restaData;
+
+  let datoVariable = datoResta ? datoResta : datoInicial;
+
+  let datosVariable = restaData2 ? restaData2 : datoInicial;
+
+  //////////////////////////////////////////////////////
+  let inDatos = route.params?.inDatos;
+  //prueba suma
+  let variante = route.params?.variante;
+
+  let sumaVar = Number(datosVariable) + Number(0);
+  let resulSuma = Number(sumaVar) + Number(inDatos);
+  let dtsVar = resulSuma ? resulSuma : datoInicial;
+
+  let inicial;
+  inicial = 0;
+
+  let a = Number(inicial) + Number(datoVariable);
+
+  let sum = a + dtsVar;
+
+  let result = a ? a : datoInicial;
+
+  // console.log("dtsVar: " + dtsVar);
+  // console.log("dtVar: " + dtVar);
+  // console.log("result: " + result);
+
+  let numero0 = 0;
+  let numero1 = 0;
+  variante = datoInicial;
+
+  //datosVariable = numero0 + datosVariable;
+  const numero5 = Number(inData) + Number(inicial);
+  //numero1 = datosVariable + datoInicial;
+
+  let numero3 = numero1;
+
+  console.log("numero0: " + numero0);
+  console.log("numero1: " + numero1);
+  console.log("numero3: " + numero3);
+  console.log("datosVariable: " + datosVariable);
+  console.log("variante: " + variante);
+
+  ///
 
   // const SearchUser = () => {
   //   const ECOpuntos = useState;
@@ -156,16 +217,31 @@ const Balance = ({ navigation }: { navigation: any }) => {
   //     });
   // };
 
-  //funcion para retornar valor de resta
-  let datoInicial = inData ? suma : inicia;
+  //reverse md5
+  var ReverseMd5 = require("reverse-md5");
+  // var rev = ReverseMd5({
+  //   lettersUpper: false,
+  //   lettersLower: true,
+  //   numbers: true,
+  //   special: false,
+  //   whitespace: true,
+  //   //maxLen: 12,
+  // });
+  // rev(datosVariable);
+  // console.log(rev);
+  //md5
+  //32 caracteres
+  // var md = md5(datosVariable);
+  // console.log(md);
 
-  let datoResta = suma ? suma : restaData;
+  //utf8
+  // const utf8 = require("utf8");
 
-  let datoVariable = datoResta ? datoResta : datoInicial;
+  // var utf = utf8.encode(datosVariable);
 
-  let datosVariable = restaData2 ? restaData2 : datoInicial;
+  // utf8.encode("\uD800\uDC01");
 
-  //////////////////////////////////////////////////////
+  // utf8.decode("\xF0\x90\x80\x81");
 
   return (
     <SafeAreaView style={stylesB.body}>
@@ -196,8 +272,10 @@ const Balance = ({ navigation }: { navigation: any }) => {
 
         {/* <Text style={stylesM.textBalance}>{datoVariable}</Text> */}
         <Text style={stylesM.textBalance}>{datosVariable}</Text>
-        {/* <Text>{datosVariable}</Text> */}
-
+        <Text>dtsVar: {dtsVar}</Text>
+        <Text>a: {a}</Text>
+        <Text>numeroAja: {numero5}</Text>
+        {/* <Text>rev: {rev}</Text> */}
         {/* <TouchableOpacity
           onPress={() => {
             suma ? suma : restaData;
