@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { RFValue } from "react-native-responsive-fontsize";
 
 export const stylesO = StyleSheet.create({
   colorp: {
@@ -24,4 +25,19 @@ export const stylesO = StyleSheet.create({
   },
 
   //end DrawerMenu
+
+  //AccionesSost
+  btnTop: {
+    position: "absolute",
+    marginTop: RFValue(215),
+  },
+
+  btnTop2: {
+    marginTop: RFValue(-30),
+  },
+
+  btnTop3: {
+    marginTop: RFValue(-30),
+  },
+  //End AccionesSost
 });

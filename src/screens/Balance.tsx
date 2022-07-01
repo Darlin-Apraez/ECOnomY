@@ -50,11 +50,9 @@ const Balance = ({ navigation }: { navigation: any }) => {
   const route = useRoute();
 
   const register = () => {
-    console.log(md5("12345"));
+    // console.log(md5("12345"));
 
     navigation.navigate("Send", {
-      VB: VB,
-      VE: VE,
       suma: suma,
       datoResta: datoResta,
       datosVariable: datosVariable,
@@ -70,14 +68,6 @@ const Balance = ({ navigation }: { navigation: any }) => {
       inDatos: inDatos,
     });
   };
-
-  let firstNumber = 1;
-  const lastNumber = 100;
-  var Aleatorio = firstNumber + Math.floor(Math.random() * lastNumber);
-  const codificacion = Aleatorio.toString();
-
-  const VE = "";
-  console.log("codificacion: " + codificacion);
 
   useEffect(() => {
     const backAction = () => {
@@ -272,9 +262,9 @@ const Balance = ({ navigation }: { navigation: any }) => {
 
         {/* <Text style={stylesM.textBalance}>{datoVariable}</Text> */}
         <Text style={stylesM.textBalance}>{datosVariable}</Text>
-        <Text>dtsVar: {dtsVar}</Text>
+        {/* <Text>dtsVar: {dtsVar}</Text>
         <Text>a: {a}</Text>
-        <Text>numeroAja: {numero5}</Text>
+        <Text>numeroAja: {numero5}</Text> */}
         {/* <Text>rev: {rev}</Text> */}
         {/* <TouchableOpacity
           onPress={() => {

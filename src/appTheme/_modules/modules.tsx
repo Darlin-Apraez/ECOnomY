@@ -570,6 +570,12 @@ export const stylesM = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 80,
   },
+
+  btnPlus: {
+    position: "absolute",
+    marginTop: RFValue(300),
+    marginLeft: RFValue(270),
+  },
   //end Send
 
   //ReaderQR
@@ -885,5 +891,72 @@ export const stylesM = StyleSheet.create({
     height: Dimensions.get("screen").height,
   },
   //End Ecoafiliados
+
+  //Acciones sos
+  return: {
+    marginLeft: RFValue(-300),
+  },
+  containerAcciones: {
+    flexDirection: "column",
+  },
+
+  containerSiembra: {
+    marginTop: RFValue(10),
+
+    //marginLeft: RFValue(-90),
+  },
+  siembra: {
+    resizeMode: "contain",
+    width: RFValue(800),
+    height: RFValue(170),
+  },
+
+  containerLimpieza: {
+    marginTop: RFValue(15),
+  },
+
+  limpieza: {
+    resizeMode: "contain",
+    width: RFValue(800),
+    height: RFValue(170),
+  },
+
+  containerReciclaje: {
+    marginTop: RFValue(15),
+  },
+
+  reciclaje: {
+    resizeMode: "contain",
+    width: RFValue(800),
+    height: RFValue(170),
+  },
+
+  btnAñadir: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#5cb032",
+    borderRadius: 6,
+    elevation: 3,
+    shadowRadius: 6,
+    width: RFValue(150),
+    //height: RFValue(20),
+  },
+
+  txtActions: {
+    fontSize: RFValue(15),
+    fontWeight: "700",
+  },
+  txtActionsTop: {
+    marginTop: RFValue(0),
+  },
+
+  txtActionsTop2: {
+    marginTop: RFValue(15),
+  },
+
+  txtActionsTop3: {
+    marginTop: RFValue(25),
+  },
+  //End Acciones sos
   //End Variables
 });

@@ -21,7 +21,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import QRCode from "react-qr-code";
 import { Dropdown, MultiSelect } from "react-native-element-dropdown";
 import { useRoute } from "@react-navigation/native";
-import Icon from "react-native-vector-icons/Ionicons";
+import Icon from "react-native-vector-icons/Entypo";
 import CheckBox from "@react-native-community/checkbox";
 
 // const actions = [
@@ -38,12 +38,21 @@ const Send = ({ navigation }: { navigation: any }) => {
   const route = useRoute();
   const [valorc, onChangeText] = useState("");
   const [cedula, setCedula] = useState("");
+  const [accsos, setAccsos] = useState("");
 
   let inSuma = route.params?.suma;
   let datoResta = route.params?.datoResta;
   let datosVariable = route.params?.datosVariable;
+
   const cero = 0;
   const zero = String(cero);
+
+  //primer número random para incluir en codificación
+  let firstNumber = 100;
+  const lastNumber = 1000;
+  var Aleatorio = firstNumber + Math.floor(Math.random() * lastNumber);
+  const codificacion = Aleatorio.toString();
+  console.log("codificacion: " + codificacion);
 
   const datos = valorc;
   const valor = () => {
@@ -93,6 +102,20 @@ const Send = ({ navigation }: { navigation: any }) => {
     // console.log(valor);
   };
 
+  //número de acción sostenible
+  //acción 1: siembra de arboles
+  const acc1 = route.params?.acc1;
+  //acción2: limpieza de playas o parques
+  const acc2 = route.params?.acc2;
+  //acción 3: reciclaje
+  const acc3 = route.params?.acc3;
+
+  let acciones = acc1 || acc2 || acc3;
+
+  const op1 = codificacion + "-" + datos + "-" + cedula + "-" + acciones;
+
+  console.log("op1: " + op1);
+
   return (
     <KeyboardAwareScrollView style={stylesB.body}>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
@@ -117,8 +140,31 @@ const Send = ({ navigation }: { navigation: any }) => {
             value={cedula}
             onChangeText={(text) => setCedula(text)}
           />
-          {/* <Text style={stylesM.textActions}>ACCIONES SOSTENIBLES</Text>
-          <Dropdown
+          <Text>ACCIÓN SOSTENIBLE</Text>
+          {/* <TextInput
+            style={stylesM.textInputSend}
+            keyboardType="numeric"
+            value={acciones}
+            editable={false}
+            onChangeText={(text) => setAccsos(text)}
+          />*/}
+          <Text style={stylesM.textInput}>{acciones}</Text>
+          <View style={stylesM.btnPlus}>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("AccionesSost", {
+                  datos: datos,
+                  inSuma: inSuma,
+                  datosVariable: datosVariable,
+                })
+              }
+            >
+              <Icon name="circle-with-plus" size={30} color="#5cb032" />
+            </TouchableOpacity>
+          </View>
+
+          {/* <Text style={stylesM.textActions}>ACCIONES SOSTENIBLES</Text>*/}
+          {/* <Dropdown
             data={actions}
             style={stylesM.dropDown}
             searchPlaceholder="Search"

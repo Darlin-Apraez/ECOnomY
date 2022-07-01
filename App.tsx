@@ -33,6 +33,7 @@ import TranExitosa from "./src/screens/TranExitosa";
 import TranFallida from "./src/screens/TranFallida";
 import FondoInsufi from "./src/screens/FondoInsufi";
 import Ecoafiliados from "./src/screens/Ecoafiliados";
+import AccionesSost from "./src/screens/AccionesSost";
 
 import React, { useEffect, useState } from "react";
 
@@ -139,6 +140,11 @@ export default function App() {
         <Stack.Screen
           name="DrawerApp"
           component={DrawerApp}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="AccionesSost"
+          component={AccionesSost}
           options={{ headerShown: false }}
         />
         <Stack.Screen
