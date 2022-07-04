@@ -93,7 +93,10 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
         saveUser(usuario);
         alert("Datos guardados satisfactoriamente");
         readUser();
-        navigation.navigate("DrawerApp", { usuario: usuario });
+        navigation.navigate("DrawerApp", {
+          usuario: usuario,
+          contraseña: contraseña,
+        });
       } catch (e) {
         alert("Failed to save the data to the storage");
       }

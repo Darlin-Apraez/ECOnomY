@@ -91,10 +91,14 @@ const Login = ({ navigation }: { navigation: any }) => {
     // } else {
     //   alert("Failed to save the data to the storage");
     // }
-    navigation.navigate("DrawerApp", { usuario: usuario });
+    navigation.navigate("DrawerApp", {
+      usuario: usuario,
+      contraseña: contraseña,
+    });
     setTimeout(() => {
       navigation.navigate("Balance", {
         usuario,
+        contraseña,
       });
     });
 

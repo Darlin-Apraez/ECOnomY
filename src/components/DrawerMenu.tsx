@@ -27,6 +27,7 @@ function DrawerMenu({ navigation }: { navigation: any }) {
   //     });
   // }
   let usuario = route.params?.usuario;
+  let contraseña = route.params?.contraseña;
   let datosVariable = route.params?.datosVariable;
   let restaData2 = route.params?.restaData2;
   let inDatos = route.params?.inDatos;
@@ -50,6 +51,7 @@ function DrawerMenu({ navigation }: { navigation: any }) {
           onPress={() =>
             navigation.navigate("Balance", {
               usuario: usuario,
+
               datosVariable: datosVariable,
               restaData2: restaData2,
               inDatos: inDatos,
@@ -61,26 +63,23 @@ function DrawerMenu({ navigation }: { navigation: any }) {
         >
           <Text style={stylesM.textMenuDrawer}>BALANCE</Text>
         </TouchableOpacity>
+
         <TouchableOpacity
-          onPress={() => navigation.navigate("History")}
+          onPress={() =>
+            navigation.navigate("Perfil", {
+              usuario: usuario,
+              contraseña: contraseña,
+            })
+          }
           style={stylesM.botonMenuDrawer}
         >
           <Text
             style={[stylesM.textMenuDrawer, stylesO.textMenuDrawer_centerOne]}
           >
-            HISTORIAL
+            PERFIL
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Indicators")}
-          style={stylesM.botonMenuDrawer}
-        >
-          <Text
-            style={[stylesM.textMenuDrawer, stylesO.textMenuDrawer_centerTwo]}
-          >
-            INDICADORES
-          </Text>
-        </TouchableOpacity>
+
         <TouchableOpacity
           onPress={() => navigation.navigate("Variables")}
           style={stylesM.botonMenuDrawer}
@@ -88,7 +87,7 @@ function DrawerMenu({ navigation }: { navigation: any }) {
           <Text
             style={[stylesM.textMenuDrawer, stylesO.textMenuDrawer_centerThree]}
           >
-            VARIABLES
+            SOSTENIBILIDAD
           </Text>
         </TouchableOpacity>
         <TouchableOpacity

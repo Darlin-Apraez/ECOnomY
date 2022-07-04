@@ -36,6 +36,9 @@ import Ecoafiliados from "./src/screens/Ecoafiliados";
 import AccionesSost from "./src/screens/AccionesSost";
 
 import React, { useEffect, useState } from "react";
+import Perfil from "./src/screens/Perfil";
+import EditarDatos from "./src/screens/EditarDatos";
+import EditIdentificación from "./src/screens/EditIdentificación";
 
 const Drawer = createDrawerNavigator();
 // const Tab = createBottomTabNavigator();
@@ -63,6 +66,39 @@ function DrawerApp() {
           headerTintColor: "grey",
         }}
       />
+      <Drawer.Screen
+        name="Perfil"
+        component={Perfil}
+        options={{
+          swipeEnabled: false,
+          headerTransparent: true,
+          headerTitle: "",
+          headerTintColor: "grey",
+        }}
+      />
+      <Drawer.Screen
+        name="EditarDatos"
+        component={EditarDatos}
+        options={{
+          swipeEnabled: false,
+          headerTransparent: true,
+          headerTitle: "",
+          headerTintColor: "grey",
+          headerShown: false,
+        }}
+      />
+      <Drawer.Screen
+        name="EditIdentificación"
+        component={EditIdentificación}
+        options={{
+          swipeEnabled: false,
+          headerTransparent: true,
+          headerTitle: "",
+          headerTintColor: "grey",
+          headerShown: false,
+        }}
+      />
+
       <Drawer.Screen
         name="Send"
         component={Send}

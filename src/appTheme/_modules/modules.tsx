@@ -958,5 +958,36 @@ export const stylesM = StyleSheet.create({
     marginTop: RFValue(25),
   },
   //End Acciones sos
+
+  //EditarDatos
+  flexDire: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    alignContent: "center",
+  },
+  InputEditDatos: {
+    width: RFValue(200),
+    height: RFValue(40),
+    borderColor: "#c2ea5b",
+    borderWidth: 2,
+    borderRadius: 80,
+    marginTop: RFValue(10),
+    padding: RFValue(10),
+    marginBottom: RFValue(20),
+  },
+  LeftInput: {
+    marginLeft: RFValue(20),
+  },
+  editData: {
+    width: RFValue(25),
+    height: RFValue(25),
+    marginLeft: RFValue(10),
+  },
+  //End EditarDatos
+
+  //EditIdentificacion
+
+  //End EditIdentificación
   //End Variables
 });
