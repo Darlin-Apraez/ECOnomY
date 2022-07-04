@@ -39,7 +39,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
   const [registro_id, setregistro_id] = useState("");
   const [ECOpuntos, setECOpuntos] = useState("");
   const [Balance, setBalance] = useState("");
-  const [usuario, setUsuario] = useState("");
+  // const [usuario, setUsuario] = useState("");
   //const [value, onChangeText] = useState("");
   const [cedula, setCedula] = useState("");
   const [generacion, setGeneracion] = useState("");
@@ -48,6 +48,8 @@ const Balance = ({ navigation }: { navigation: any }) => {
   //const [data, setData] = useState("");
 
   const route = useRoute();
+
+  let usuario = route.params?.usuario;
 
   const register = () => {
     // console.log(md5("12345"));
@@ -173,7 +175,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
   const numero5 = Number(inData) + Number(inicial);
   //numero1 = datosVariable + datoInicial;
 
-  let numero3 = numero1;
+  let numero3 = Number(datosVariable) + Number(inDatos);
 
   console.log("numero0: " + numero0);
   console.log("numero1: " + numero1);
@@ -237,6 +239,9 @@ const Balance = ({ navigation }: { navigation: any }) => {
     <SafeAreaView style={stylesB.body}>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
       <View style={stylesB.completo}>
+        {/* <TouchableOpacity onPress={() => navigation.navigate("DrawerApp")}>
+          <Text>menu</Text>
+        </TouchableOpacity> */}
         {/* <ScrollView
             contentContainerStyle={stylesM.scrollView}
             refreshControl={
@@ -262,6 +267,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
 
         {/* <Text style={stylesM.textBalance}>{datoVariable}</Text> */}
         <Text style={stylesM.textBalance}>{datosVariable}</Text>
+        <Text>{usuario}</Text>
         {/* <Text>dtsVar: {dtsVar}</Text>
         <Text>a: {a}</Text>
         <Text>numeroAja: {numero5}</Text> */}

@@ -38,6 +38,7 @@ const Send = ({ navigation }: { navigation: any }) => {
   const route = useRoute();
   const [valorc, onChangeText] = useState("");
   const [cedula, setCedula] = useState("");
+  const [usuario, setUsuario] = useState("");
   const [accsos, setAccsos] = useState("");
 
   let inSuma = route.params?.suma;
@@ -112,7 +113,8 @@ const Send = ({ navigation }: { navigation: any }) => {
 
   let acciones = acc1 || acc2 || acc3;
 
-  const op1 = codificacion + "-" + datos + "-" + cedula + "-" + acciones;
+  const op1 = codificacion + "-" + datos + "-" + acciones + "-" + cedula;
+  const op2 = usuario + "-" + datos + "-" + cedula + "-" + acciones;
 
   console.log("op1: " + op1);
 

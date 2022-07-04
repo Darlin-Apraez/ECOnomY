@@ -55,7 +55,7 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
     {
       playSound();
     }
-    navigation.navigate("Balance", {
+    navigation.navigate("DrawerApp", {
       data,
       sumaData,
       datosVariable,
@@ -64,7 +64,17 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
       restaData2,
       inDatos,
     });
+    setTimeout(() => {
+      navigation.navigate("Balance", {
+        data,
+        datosVariable,
+        variante: datosVariable,
+        restaData2,
+        inDatos,
+      });
+    });
   };
+
   return (
     <SafeAreaView style={stylesB.body}>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />

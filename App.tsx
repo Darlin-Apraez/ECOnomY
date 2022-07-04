@@ -43,6 +43,7 @@ const Drawer = createDrawerNavigator();
 function DrawerApp() {
   return (
     <Drawer.Navigator
+      initialRouteName="Balance"
       drawerContent={DrawerMenu}
       screenOptions={{
         drawerStyle: {
@@ -62,6 +63,59 @@ function DrawerApp() {
           headerTintColor: "grey",
         }}
       />
+      <Drawer.Screen
+        name="Send"
+        component={Send}
+        options={{
+          swipeEnabled: false,
+          headerTransparent: true,
+          headerTitle: "",
+          headerTintColor: "grey",
+          headerShown: false,
+        }}
+      />
+      <Drawer.Screen
+        name="AccionesSost"
+        component={AccionesSost}
+        options={{
+          swipeEnabled: false,
+          headerTransparent: true,
+          headerTitle: "",
+          headerTintColor: "grey",
+          headerShown: false,
+        }}
+      />
+      {/* <Drawer.Screen
+        name="QRSendPoint"
+        component={QRSendPoint}
+        options={{
+          swipeEnabled: false,
+          headerTransparent: true,
+          headerTitle: "",
+          headerTintColor: "grey",
+        }}
+      /> */}
+
+      {/* <Drawer.Screen
+        name="Receive"
+        component={Receive}
+        options={{
+          swipeEnabled: false,
+          headerTransparent: true,
+          headerTitle: "",
+          headerTintColor: "grey",
+        }}
+      /> */}
+      {/* <Drawer.Screen
+        name="QrReader"
+        component={QrReader}
+        options={{
+          swipeEnabled: false,
+          headerTransparent: true,
+          headerTitle: "",
+          headerTintColor: "grey",
+        }}
+      /> */}
       <Drawer.Screen
         name="History"
         component={History}
@@ -100,6 +154,17 @@ function DrawerApp() {
           headerTransparent: true,
           headerTitle: "",
           headerTintColor: "grey",
+        }}
+      />
+      <Drawer.Screen
+        name="TranExitosa"
+        component={TranExitosa}
+        options={{
+          swipeEnabled: false,
+          headerTransparent: true,
+          headerTitle: "",
+          headerTintColor: "grey",
+          headerShown: false,
         }}
       />
     </Drawer.Navigator>
@@ -142,11 +207,16 @@ export default function App() {
           component={DrawerApp}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="AccionesSost"
           component={AccionesSost}
           options={{ headerShown: false }}
-        />
+        /> */}
+        {/* <Stack.Screen
+          name="Balance"
+          component={Balance}
+          options={{ headerShown: false }}
+        /> */}
         <Stack.Screen
           name="Receive"
           component={Receive}
@@ -167,11 +237,11 @@ export default function App() {
           component={TranFallida}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="TranExitosa"
           component={TranExitosa}
           options={{ headerShown: false }}
-        />
+        /> */}
         <Stack.Screen
           name="QrReader"
           component={QrReader}
