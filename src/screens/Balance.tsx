@@ -50,6 +50,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
   const route = useRoute();
 
   let usuario = route.params?.usuario;
+  let op2 = route.params?.op2;
 
   const register = () => {
     // console.log(md5("12345"));
@@ -59,6 +60,8 @@ const Balance = ({ navigation }: { navigation: any }) => {
       datoResta: datoResta,
       datosVariable: datosVariable,
       inDatos: inDatos,
+      usuario: usuario,
+      op2: op2,
     });
   };
 
@@ -68,6 +71,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
       datosVariable: datosVariable,
       suma: suma,
       inDatos: inDatos,
+      op2: op2,
     });
   };
 
@@ -177,11 +181,12 @@ const Balance = ({ navigation }: { navigation: any }) => {
 
   let numero3 = Number(datosVariable) + Number(inDatos);
 
-  console.log("numero0: " + numero0);
-  console.log("numero1: " + numero1);
-  console.log("numero3: " + numero3);
-  console.log("datosVariable: " + datosVariable);
-  console.log("variante: " + variante);
+  // console.log("numero0: " + numero0);
+  // console.log("numero1: " + numero1);
+  // console.log("numero3: " + numero3);
+  // console.log("datosVariable: " + datosVariable);
+  // console.log("variante: " + variante);
+  console.log("op2: " + op2);
 
   ///
 
@@ -210,7 +215,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
   // };
 
   //reverse md5
-  var ReverseMd5 = require("reverse-md5");
+  //var ReverseMd5 = require("reverse-md5");
   // var rev = ReverseMd5({
   //   lettersUpper: false,
   //   lettersLower: true,
@@ -267,7 +272,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
 
         {/* <Text style={stylesM.textBalance}>{datoVariable}</Text> */}
         <Text style={stylesM.textBalance}>{datosVariable}</Text>
-        <Text>{usuario}</Text>
+        {/* <Text>{usuario}</Text> */}
         {/* <Text>dtsVar: {dtsVar}</Text>
         <Text>a: {a}</Text>
         <Text>numeroAja: {numero5}</Text> */}

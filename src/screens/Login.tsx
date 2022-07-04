@@ -92,6 +92,11 @@ const Login = ({ navigation }: { navigation: any }) => {
     //   alert("Failed to save the data to the storage");
     // }
     navigation.navigate("DrawerApp", { usuario: usuario });
+    setTimeout(() => {
+      navigation.navigate("Balance", {
+        usuario,
+      });
+    });
 
     // try {
     //   await AsyncStorage.getItem(usuario).then((value) =>

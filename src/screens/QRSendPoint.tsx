@@ -59,6 +59,9 @@ const QRSendPoint = ({ navigation }: { navigation: any }) => {
   let inDatos = route.params?.datos;
   let inSumas = route.params?.inSuma;
   let datosVariable = route.params?.datosVariable;
+  let usuario = route.params?.usuario;
+  let op2 = route.params?.op2;
+
   const send = () => {
     // alert("ENVIO EXITOSO");
     const restaData = Number(inSumas) - Number(inDatos);
@@ -70,6 +73,8 @@ const QRSendPoint = ({ navigation }: { navigation: any }) => {
       datosVariable: datosVariable,
       restaData2: restaData2,
       inDatos: inDatos,
+      usuario: usuario,
+      op2: op2,
     });
   };
 

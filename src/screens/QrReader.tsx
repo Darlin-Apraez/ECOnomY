@@ -289,6 +289,7 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     let sumaData = route.params?.sumaData;
     let datoVariable = route.params?.datoVariable;
     let datosVariable = route.params?.datosVariable;
+    let usuario = route.params?.usuario;
 
     //Función sonido
     async function playSound() {
@@ -305,6 +306,7 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     let inDatos = route.params?.datos;
     let inSumas = route.params?.inSuma;
     let acm = route.params?.acm;
+    let op2 = route.params?.op2;
     //boton volver
     function regresar() {
       //playSound();
@@ -316,6 +318,8 @@ const QrReader = ({ navigation }: { navigation: any }) => {
         sumaData: sumaData,
         acm: acm,
         datosVariable: datosVariable,
+        usuario: usuario,
+        op2: op2,
       });
       //setScanned(false);
     }
@@ -535,6 +539,8 @@ const QrReader = ({ navigation }: { navigation: any }) => {
                 sumaData: sumaData,
                 datoVariable: datoVariable,
                 datosVariable: datosVariable,
+                usuario: usuario,
+                op2: op2,
               });
             }, 100);
           }}

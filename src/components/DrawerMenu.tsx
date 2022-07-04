@@ -31,6 +31,7 @@ function DrawerMenu({ navigation }: { navigation: any }) {
   let restaData2 = route.params?.restaData2;
   let inDatos = route.params?.inDatos;
   let data = route.params?.data;
+  let op2 = route.params?.op2;
 
   // setTimeout(() => {
   //   navigation.navigate("Balance", {
@@ -53,6 +54,7 @@ function DrawerMenu({ navigation }: { navigation: any }) {
               restaData2: restaData2,
               inDatos: inDatos,
               data: data,
+              op2: op2,
             })
           }
           style={stylesM.botonMenuDrawer}

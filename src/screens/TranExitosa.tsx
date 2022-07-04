@@ -29,6 +29,7 @@ import { useRoute } from "@react-navigation/native";
 const TranExitosa = ({ navigation }: { navigation: any }) => {
   //sonido
   const [sound, setSound] = useState();
+  const [cedula, setCedula] = useState("");
   const route = useRoute();
   let data = route.params?.data;
   let sumaData = route.params?.sumaData;
@@ -49,6 +50,9 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
   let datosVariable = route.params?.datosVariable;
   let restaData2 = route.params?.restaData2;
   let inDatos = route.params?.inDatos;
+  let usuario = route.params?.usuario;
+  let op2 = route.params?.op2;
+
   const send = () => {
     // alert("ENVIO EXITOSO");
 
@@ -63,6 +67,8 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
       restaData,
       restaData2,
       inDatos,
+      usuario,
+      op2,
     });
     setTimeout(() => {
       navigation.navigate("Balance", {
@@ -71,9 +77,23 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
         variante: datosVariable,
         restaData2,
         inDatos,
+        usuario,
+        op2,
       });
     });
   };
+
+  //número de acción sostenible
+  //acción 1: siembra de arboles
+  // const acc1 = route.params?.acc1;
+  // //acción2: limpieza de playas o parques
+  // const acc2 = route.params?.acc2;
+  // //acción 3: reciclaje
+  // const acc3 = route.params?.acc3;
+
+  // let acciones = acc1 || acc2 || acc3;
+
+  // const op2 = usuario + "-" + inDatos + "-" + cedula + "-" + acciones;
 
   return (
     <SafeAreaView style={stylesB.body}>

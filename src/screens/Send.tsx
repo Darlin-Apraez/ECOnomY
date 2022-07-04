@@ -38,9 +38,10 @@ const Send = ({ navigation }: { navigation: any }) => {
   const route = useRoute();
   const [valorc, onChangeText] = useState("");
   const [cedula, setCedula] = useState("");
-  const [usuario, setUsuario] = useState("");
+  // const [usuario, setUsuario] = useState("");
   const [accsos, setAccsos] = useState("");
 
+  let usuario = route.params?.usuario;
   let inSuma = route.params?.suma;
   let datoResta = route.params?.datoResta;
   let datosVariable = route.params?.datosVariable;
@@ -84,6 +85,7 @@ const Send = ({ navigation }: { navigation: any }) => {
                 datos: datos,
                 inSuma: inSuma,
                 datosVariable: datosVariable,
+                op2: op2,
               }),
           },
         ]
@@ -116,7 +118,7 @@ const Send = ({ navigation }: { navigation: any }) => {
   const op1 = codificacion + "-" + datos + "-" + acciones + "-" + cedula;
   const op2 = usuario + "-" + datos + "-" + cedula + "-" + acciones;
 
-  console.log("op1: " + op1);
+  console.log("op2: " + op2);
 
   return (
     <KeyboardAwareScrollView style={stylesB.body}>
@@ -158,6 +160,7 @@ const Send = ({ navigation }: { navigation: any }) => {
                   datos: datos,
                   inSuma: inSuma,
                   datosVariable: datosVariable,
+                  usuario: usuario,
                 })
               }
             >

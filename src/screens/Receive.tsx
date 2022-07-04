@@ -25,7 +25,7 @@ import { useRoute } from "@react-navigation/native";
 import { LotieScanQR } from "./../components/lottie";
 
 const Receive = ({ navigation }: { navigation: any }) => {
-  const [usuario, setUsuario] = useState("");
+  // const [usuario, setUsuario] = useState("");
   const route = useRoute();
 
   //let firstNumber = 10000;
@@ -39,22 +39,24 @@ const Receive = ({ navigation }: { navigation: any }) => {
 
   //const cedula = route.params.usuario;
   //const ced = cedula.toString();
-  let numbers = usuario;
+  let usuario = route.params?.usuario;
+  // let numbers = usuario;
   //const doubled = numbers.map((number) => number);
-  console.log(numbers);
-  const str = numbers;
+  // console.log(numbers);
+  // const str = numbers;
 
   let sumaData = route.params?.sumaData;
   let acm = route.params?.acm;
+  let op2 = route.params?.op2;
 
-  const CopyWallet = () => {
-    Clipboard.setString(str);
-    if (Platform.OS === "android") {
-      ToastAndroid.show("Dirección copiada", ToastAndroid.SHORT);
-    } else {
-      Alert.alert("Dirección copiada");
-    }
-  };
+  // const CopyWallet = () => {
+  //   Clipboard.setString(str);
+  //   if (Platform.OS === "android") {
+  //     ToastAndroid.show("Dirección copiada", ToastAndroid.SHORT);
+  //   } else {
+  //     Alert.alert("Dirección copiada");
+  //   }
+  // };
   return (
     <SafeAreaView style={stylesB.body}>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
@@ -89,7 +91,11 @@ const Receive = ({ navigation }: { navigation: any }) => {
           style={stylesM.botonScanSend}
           activeOpacity={0.3}
           onPress={() =>
-            navigation.navigate("QrReader", { sumaData: sumaData })
+            navigation.navigate("QrReader", {
+              sumaData: sumaData,
+              usuario: usuario,
+              op2: op2,
+            })
           }
         >
           <Text style={stylesM.textGenerate}>Escanear QR</Text>
