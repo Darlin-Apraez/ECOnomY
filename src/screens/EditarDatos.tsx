@@ -13,6 +13,7 @@ import {
   Linking,
   TouchableOpacity,
   SafeAreaView,
+  AsyncStorage,
 } from "react-native";
 import React, { useState } from "react";
 import {
@@ -25,6 +26,8 @@ import {
 import { Route, useRoute } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Entypo";
 
+let STORAGE_KEY = "@user_input";
+
 const EditarDatos = ({ navigation }: { navigation: any }) => {
   const [contra, setContra] = useState("");
   const [ubicacion, setUbicacion] = useState("");
@@ -36,14 +39,16 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
   let nuevoUsuario = route.params?.nuevoUsuario;
   //origen modificación identificación
   let modification = route.params?.modification;
+  let datosVariable = route.params?.datosVariable;
+  let nuevaContra = route.params?.nuevaContra;
+  let modifiContra = route.params?.modifiContra;
+  let changeContra = route.params?.changeContra;
 
-  let newIdentification = usuario ? usuario : modification;
-  const [user, setUser] = useState(newIdentification);
+  const [user, setUser] = useState("");
+  let newIdentification = modification ? modification : usuario;
+  let newContraseña = modifiContra ? modifiContra : contraseña;
 
-  function nuevaIdentificacion() {
-    if (usuario == usuario) {
-    }
-  }
+  AsyncStorage.setItem(STORAGE_KEY, newIdentification);
 
   return (
     <SafeAreaView style={stylesB.body}>
@@ -63,7 +68,7 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
         </TouchableOpacity> */}
 
         {/* identificación */}
-        <View style={stylesL.JustifyAlign}>
+        <View style={[stylesL.JustifyAlign, stylesM.topForm]}>
           <Text>Identificación</Text>
           <View style={[stylesL.JustifyAlign, stylesM.flexDire]}>
             <TextInput
@@ -108,12 +113,17 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
               ]}
               keyboardType="numeric"
               onChangeText={(text) => setContra(text)}
-              value={contraseña}
+              value={newContraseña}
               editable={false}
             />
             <TouchableOpacity
               activeOpacity={0.3}
-              onPress={() => navigation.navigate("Balance", {})}
+              onPress={() =>
+                navigation.navigate("EditContraseña", {
+                  contraseña: contraseña,
+                  modifiContra: modifiContra,
+                })
+              }
             >
               <Image
                 source={require("./../../assets/img/Edit.png")}
@@ -179,13 +189,13 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
 
         <TouchableOpacity
           style={stylesM.botonScanSend}
-          onPress={
-            () =>
-              navigation.navigate("Balance", {
-                modification: modification,
-                nuevoUsuario: nuevoUsuario,
-              })
-            //alert("Datos almacenados")
+          onPress={() =>
+            // navigation.navigate("Balance", {
+            //   modification: modification,
+            //   nuevoUsuario: nuevoUsuario,
+            //   datosVariable: datosVariable,
+            // })
+            alert("Datos almacenados")
           }
         >
           <Text>Guardar datos</Text>

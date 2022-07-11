@@ -39,6 +39,7 @@ import React, { useEffect, useState } from "react";
 import Perfil from "./src/screens/Perfil";
 import EditarDatos from "./src/screens/EditarDatos";
 import EditIdentificación from "./src/screens/EditIdentificación";
+import EditContraseña from "./src/screens/EditContraseña";
 
 const Drawer = createDrawerNavigator();
 // const Tab = createBottomTabNavigator();
@@ -66,7 +67,7 @@ function DrawerApp() {
           headerTintColor: "grey",
         }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="Perfil"
         component={Perfil}
         options={{
@@ -76,8 +77,8 @@ function DrawerApp() {
           headerTintColor: "grey",
           //headerShown: false,
         }}
-      />
-      {/* <Drawer.Screen
+      /> */}
+      <Drawer.Screen
         name="EditarDatos"
         component={EditarDatos}
         options={{
@@ -98,7 +99,18 @@ function DrawerApp() {
           headerTintColor: "grey",
           headerShown: false,
         }}
-      /> */}
+      />
+      <Drawer.Screen
+        name="EditContraseña"
+        component={EditContraseña}
+        options={{
+          swipeEnabled: false,
+          headerTransparent: true,
+          headerTitle: "",
+          headerTintColor: "grey",
+          headerShown: false,
+        }}
+      />
 
       <Drawer.Screen
         name="Send"
@@ -246,6 +258,12 @@ export default function App() {
         />
 
         <Stack.Screen
+          name="Perfil"
+          component={Perfil}
+          options={{ headerShown: false }}
+        />
+
+        {/* <Stack.Screen
           name="EditarDatos"
           component={EditarDatos}
           options={{ headerShown: false }}
@@ -255,6 +273,11 @@ export default function App() {
           component={EditIdentificación}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="EditContraseña"
+          component={EditContraseña}
+          options={{ headerShown: false }}
+        /> */}
 
         {/* <Stack.Screen
           name="AccionesSost"

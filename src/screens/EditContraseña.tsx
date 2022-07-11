@@ -24,34 +24,31 @@ import {
 } from "./../appTheme/styles/styles";
 import { useRoute } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Entypo";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { saveUser } from "../../api";
 
-let STORAGE_KEY = "@user_input";
-
-const EditIdentificación = ({ navigation }: { navigation: any }) => {
-  const [userOld, setUserOld] = useState("");
-  const [userNew, setUserNew] = useState("");
-
+const EditContraseña = ({ navigation }: { navigation: any }) => {
   const route = useRoute();
   let usuario = route.params?.usuario;
   let contraseña = route.params?.contraseña;
-  //dato modificado identificación
-  let modification = userNew;
+  let newIdentification = route.params?.newIdentification;
+  let nuevaContra = route.params?.nuevaContra;
 
-  let changeUser = usuario ? usuario : modification;
+  const [contraOld, setContraOld] = useState("");
+  const [contraNew, setContraNew] = useState("");
+  let modifiContra = contraNew;
 
-  AsyncStorage.setItem(STORAGE_KEY, modification);
+  let changeContra = contraseña ? contraseña : modifiContra;
 
   function changeData() {
-    if (userNew == "") {
+    if (contraNew == "") {
       alert("Campo Identificación Nueva vacío");
     } else {
-      saveUser(userNew);
+      saveUser(contraNew);
       navigation.navigate("EditarDatos", {
-        nuevoUsuario: userNew,
+        nuevaContra: contraNew,
         contraseña: contraseña,
-        modification: modification,
+        modifiContra: modifiContra,
+        changeContra: changeContra,
       });
     }
   }
@@ -72,21 +69,20 @@ const EditIdentificación = ({ navigation }: { navigation: any }) => {
           <Icon name="chevron-left" size={50} color="#5cb032" />
         </TouchableOpacity>
         <View style={[stylesL.JustifyAlign]}>
-          <Text>Identificación Anterior</Text>
+          <Text>Contraseña Anterior</Text>
           <TextInput
             style={[stylesM.InputEditDatos, stylesL.JustifyAlign]}
             keyboardType="numeric"
-            onChangeText={(text) => setUserOld(text)}
-            value={changeUser}
+            onChangeText={(text) => setContraOld(text)}
+            value={changeContra}
             editable={false}
           />
 
-          <Text>Identificación Nueva</Text>
+          <Text>Contraseña Nueva</Text>
           <TextInput
             style={[stylesM.InputEditDatos, stylesL.JustifyAlign]}
-            keyboardType="numeric"
-            onChangeText={(text) => setUserNew(text)}
-            value={userNew}
+            onChangeText={(text) => setContraNew(text)}
+            value={contraNew}
           />
         </View>
         <TouchableOpacity
@@ -100,4 +96,4 @@ const EditIdentificación = ({ navigation }: { navigation: any }) => {
   );
 };
 
-export default EditIdentificación;
+export default EditContraseña;

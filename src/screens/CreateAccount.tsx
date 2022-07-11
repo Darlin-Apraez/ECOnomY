@@ -22,7 +22,7 @@ import { validateEmail } from "../utils/helpers";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { readUser } from "../../api";
 
-let STORAGE_KEY = "@user_input";
+let STORAGE_KEY = "database_form";
 
 const CreateAccount = ({ navigation }: { navigation: any }) => {
   const [usuario, setUsuario] = useState("");
@@ -100,6 +100,12 @@ const CreateAccount = ({ navigation }: { navigation: any }) => {
       } catch (e) {
         alert("Failed to save the data to the storage");
       }
+      setTimeout(() => {
+        navigation.navigate("Balance", {
+          usuario,
+          contraseña,
+        });
+      });
     }
   };
 

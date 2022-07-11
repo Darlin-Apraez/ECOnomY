@@ -887,8 +887,8 @@ export const stylesM = StyleSheet.create({
     marginTop: RFValue(30),
   },
   map: {
-    width: Dimensions.get("screen").width,
-    height: Dimensions.get("screen").height,
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height,
   },
   //End Ecoafiliados
 
@@ -960,6 +960,9 @@ export const stylesM = StyleSheet.create({
   //End Acciones sos
 
   //EditarDatos
+  topForm: {
+    marginTop: RFValue(50),
+  },
   flexDire: {
     flexDirection: "row",
     justifyContent: "center",
