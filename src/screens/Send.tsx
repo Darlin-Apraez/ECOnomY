@@ -45,6 +45,12 @@ const Send = ({ navigation }: { navigation: any }) => {
   let inSuma = route.params?.suma;
   let datoResta = route.params?.datoResta;
   let datosVariable = route.params?.datosVariable;
+  //dato modificado identificación
+  let modification = route.params?.modification;
+
+  let inUser = modification ? modification : usuario;
+
+  let newIdentification = route.params?.newIdentification;
 
   const cero = 0;
   const zero = String(cero);
@@ -55,6 +61,10 @@ const Send = ({ navigation }: { navigation: any }) => {
   var Aleatorio = firstNumber + Math.floor(Math.random() * lastNumber);
   const codificacion = Aleatorio.toString();
   console.log("codificacion: " + codificacion);
+
+  //Seteo de campos despues de cada transacción
+  const [campouno, setCampoUno] = useState("");
+  const [campodos, setCampoDos] = useState("");
 
   const datos = valorc;
   const valor = () => {
@@ -86,6 +96,7 @@ const Send = ({ navigation }: { navigation: any }) => {
                 inSuma: inSuma,
                 datosVariable: datosVariable,
                 op2: op2,
+                newIdentification: newIdentification,
               }),
           },
         ]
@@ -115,10 +126,12 @@ const Send = ({ navigation }: { navigation: any }) => {
 
   let acciones = acc1 || acc2 || acc3;
 
-  const op1 = codificacion + "-" + datos + "-" + acciones + "-" + cedula;
-  const op2 = usuario + "-" + datos + "-" + cedula + "-" + acciones;
+  // const op1 = codificacion + "-" + datos + "-" + acciones + "-" + cedula;
+  //op2: # del que envia + cantidad que se envia + código de acción sostenible + # del que recibe
+  const op2 = inUser + "-" + datos + "-" + acciones + "-" + cedula;
 
   console.log("op2: " + op2);
+  console.log("inUser: " + inUser);
 
   return (
     <KeyboardAwareScrollView style={stylesB.body}>
@@ -134,25 +147,28 @@ const Send = ({ navigation }: { navigation: any }) => {
           <TextInput
             style={stylesM.textInputSend}
             keyboardType="numeric"
-            onChangeText={(text) => onChangeText(text)}
+            onChangeText={onChangeText}
             value={valorc}
+            placeholder="Ingresar cantidad a enviar"
           />
-          <Text>IDENTIFICACIÓN A LA QUE ENVIA</Text>
+          <Text>IDENTIFICACIÓN A LA QUE ENVÍA</Text>
           <TextInput
             style={stylesM.textInputSend}
             keyboardType="numeric"
             value={cedula}
-            onChangeText={(text) => setCedula(text)}
+            onChangeText={setCedula}
+            placeholder="Ingresar identificación a la que envía"
           />
           <Text>ACCIÓN SOSTENIBLE</Text>
-          {/* <TextInput
+          <TextInput
             style={stylesM.textInputSend}
             keyboardType="numeric"
             value={acciones}
             editable={false}
             onChangeText={(text) => setAccsos(text)}
-          />*/}
-          <Text style={stylesM.textInput}>{acciones}</Text>
+            placeholder="Presionar el botón de más (+)"
+          />
+          {/* <Text style={stylesM.textInput}>{acciones}</Text> */}
           <View style={stylesM.btnPlus}>
             <TouchableOpacity
               onPress={() =>
@@ -161,6 +177,7 @@ const Send = ({ navigation }: { navigation: any }) => {
                   inSuma: inSuma,
                   datosVariable: datosVariable,
                   usuario: usuario,
+                  modification: modification,
                 })
               }
             >

@@ -33,6 +33,10 @@ function DrawerMenu({ navigation }: { navigation: any }) {
   let inDatos = route.params?.inDatos;
   let data = route.params?.data;
   let op2 = route.params?.op2;
+  //dato modificado identificación
+  let modification = route.params?.modification;
+  let nuevoUsuario = route.params?.nuevoUsuario;
+  let newIdentification = route.params?.newIdentification;
 
   // setTimeout(() => {
   //   navigation.navigate("Balance", {
@@ -51,12 +55,13 @@ function DrawerMenu({ navigation }: { navigation: any }) {
           onPress={() =>
             navigation.navigate("Balance", {
               usuario: usuario,
-
               datosVariable: datosVariable,
               restaData2: restaData2,
               inDatos: inDatos,
               data: data,
               op2: op2,
+              modification: modification,
+              nuevoUsuario: nuevoUsuario,
             })
           }
           style={stylesM.botonMenuDrawer}
@@ -69,6 +74,11 @@ function DrawerMenu({ navigation }: { navigation: any }) {
             navigation.navigate("Perfil", {
               usuario: usuario,
               contraseña: contraseña,
+              modification: modification,
+              datosVariable: datosVariable,
+              data: data,
+              nuevoUsuario: nuevoUsuario,
+              newIdentification: newIdentification,
             })
           }
           style={stylesM.botonMenuDrawer}
@@ -100,9 +110,9 @@ function DrawerMenu({ navigation }: { navigation: any }) {
             ECOAFILIADOS
           </Text>
         </TouchableOpacity>
-        <View style={stylesM.contUserDrawer}>
+        {/* <View style={stylesM.contUserDrawer}>
           <Text style={stylesM.userDrawer}>Número cédula: {usuario}</Text>
-        </View>
+        </View> */}
       </View>
       <View style={stylesM.containerLogout}>
         <TouchableOpacity

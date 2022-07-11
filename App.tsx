@@ -46,7 +46,7 @@ const Drawer = createDrawerNavigator();
 function DrawerApp() {
   return (
     <Drawer.Navigator
-      initialRouteName="Balance"
+      //initialRouteName="Balance"
       drawerContent={DrawerMenu}
       screenOptions={{
         drawerStyle: {
@@ -74,9 +74,10 @@ function DrawerApp() {
           headerTransparent: true,
           headerTitle: "",
           headerTintColor: "grey",
+          //headerShown: false,
         }}
       />
-      <Drawer.Screen
+      {/* <Drawer.Screen
         name="EditarDatos"
         component={EditarDatos}
         options={{
@@ -84,7 +85,7 @@ function DrawerApp() {
           headerTransparent: true,
           headerTitle: "",
           headerTintColor: "grey",
-          headerShown: false,
+          //headerShown: false,
         }}
       />
       <Drawer.Screen
@@ -97,7 +98,7 @@ function DrawerApp() {
           headerTintColor: "grey",
           headerShown: false,
         }}
-      />
+      /> */}
 
       <Drawer.Screen
         name="Send"
@@ -243,6 +244,18 @@ export default function App() {
           component={DrawerApp}
           options={{ headerShown: false }}
         />
+
+        <Stack.Screen
+          name="EditarDatos"
+          component={EditarDatos}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="EditIdentificación"
+          component={EditIdentificación}
+          options={{ headerShown: false }}
+        />
+
         {/* <Stack.Screen
           name="AccionesSost"
           component={AccionesSost}

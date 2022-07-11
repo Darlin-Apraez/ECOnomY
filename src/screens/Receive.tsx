@@ -39,15 +39,17 @@ const Receive = ({ navigation }: { navigation: any }) => {
 
   //const cedula = route.params.usuario;
   //const ced = cedula.toString();
-  let usuario = route.params?.usuario;
+
   // let numbers = usuario;
   //const doubled = numbers.map((number) => number);
   // console.log(numbers);
   // const str = numbers;
-
+  let usuario = route.params?.usuario;
   let sumaData = route.params?.sumaData;
   let acm = route.params?.acm;
   let op2 = route.params?.op2;
+  //dato modificado identificación
+  let modification = route.params?.modification;
 
   // const CopyWallet = () => {
   //   Clipboard.setString(str);
@@ -95,6 +97,7 @@ const Receive = ({ navigation }: { navigation: any }) => {
               sumaData: sumaData,
               usuario: usuario,
               op2: op2,
+              modification: modification,
             })
           }
         >

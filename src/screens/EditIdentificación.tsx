@@ -23,44 +23,72 @@ import {
   stylesS,
 } from "./../appTheme/styles/styles";
 import { useRoute } from "@react-navigation/native";
+import Icon from "react-native-vector-icons/Entypo";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { saveUser } from "../../api";
 
-const EditIdentificación = () => {
+const EditIdentificación = ({ navigation }: { navigation: any }) => {
   const [userOld, setUserOld] = useState("");
   const [userNew, setUserNew] = useState("");
 
   const route = useRoute();
   let usuario = route.params?.usuario;
+  let contraseña = route.params?.contraseña;
+  //dato modificado identificación
+  let modification = userNew;
+
+  function changeData() {
+    if (userNew == "") {
+      alert("Campo Identificación Nueva vacío");
+    } else {
+      saveUser(userNew);
+      navigation.navigate("EditarDatos", {
+        nuevoUsuario: userNew,
+        contraseña: contraseña,
+        modification: modification,
+      });
+    }
+  }
 
   return (
     <SafeAreaView style={stylesB.body}>
       <StatusBar backgroundColor={"black"} barStyle={"light-content"} />
       <View style={stylesB.completo}>
+        <TouchableOpacity
+          style={stylesM.return}
+          onPress={() =>
+            navigation.navigate("EditarDatos", {
+              usuario: usuario,
+              contraseña: contraseña,
+            })
+          }
+        >
+          <Icon name="chevron-left" size={50} color="#5cb032" />
+        </TouchableOpacity>
         <View style={[stylesL.JustifyAlign]}>
-          <Text>Identificación anterior</Text>
+          <Text>Identificación Anterior</Text>
           <TextInput
-            style={[
-              stylesM.InputEditDatos,
-              stylesL.JustifyAlign,
-              stylesM.LeftInput,
-            ]}
+            style={[stylesM.InputEditDatos, stylesL.JustifyAlign]}
             keyboardType="numeric"
             onChangeText={(text) => setUserOld(text)}
             value={usuario}
+            editable={false}
           />
 
           <Text>Identificación Nueva</Text>
           <TextInput
-            style={[
-              stylesM.InputEditDatos,
-              stylesL.JustifyAlign,
-              stylesM.LeftInput,
-            ]}
+            style={[stylesM.InputEditDatos, stylesL.JustifyAlign]}
             keyboardType="numeric"
             onChangeText={(text) => setUserNew(text)}
             value={userNew}
-            editable={false}
           />
         </View>
+        <TouchableOpacity
+          style={stylesM.botonScanSend}
+          onPress={() => changeData()}
+        >
+          <Text>Modificar Datos</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

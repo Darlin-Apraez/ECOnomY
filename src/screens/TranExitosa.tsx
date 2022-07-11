@@ -33,6 +33,7 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
   const route = useRoute();
   let data = route.params?.data;
   let sumaData = route.params?.sumaData;
+
   // let inData = route.params?.data;
 
   async function playSound() {
@@ -52,6 +53,9 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
   let inDatos = route.params?.inDatos;
   let usuario = route.params?.usuario;
   let op2 = route.params?.op2;
+  //dato modificado identificación
+  let modification = route.params?.modification;
+  let newIdentification = route.params?.newIdentification;
 
   const send = () => {
     // alert("ENVIO EXITOSO");
@@ -69,6 +73,8 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
       inDatos,
       usuario,
       op2,
+      modification,
+      newIdentification,
     });
     setTimeout(() => {
       navigation.navigate("Balance", {
@@ -79,6 +85,8 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
         inDatos,
         usuario,
         op2,
+        modification,
+        newIdentification,
       });
     });
   };

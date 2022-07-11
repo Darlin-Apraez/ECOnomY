@@ -16,6 +16,7 @@ import {
   stylesO,
   stylesS,
 } from "./../appTheme/styles/styles";
+import { useRoute } from "@react-navigation/native";
 
 //import ReactNativeBiometrics from "react-native-biometrics";
 //import * as Keychain from 'react-native-keychain';
@@ -29,6 +30,9 @@ const Login = ({ navigation }: { navigation: any }) => {
   const [contraseña, setContraseña] = useState("");
   const [input, setInput] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
+
+  const route = useRoute();
+  let modification = route.params?.modification;
 
   //validar datos con bd
   // const registerUser = () => {
@@ -94,11 +98,13 @@ const Login = ({ navigation }: { navigation: any }) => {
     navigation.navigate("DrawerApp", {
       usuario: usuario,
       contraseña: contraseña,
+      modification: modification,
     });
     setTimeout(() => {
       navigation.navigate("Balance", {
         usuario,
         contraseña,
+        modification: modification,
       });
     });
 

@@ -51,6 +51,9 @@ const Balance = ({ navigation }: { navigation: any }) => {
 
   let usuario = route.params?.usuario;
   let op2 = route.params?.op2;
+  let modification = route.params?.modification;
+  let nuevoUsuario = route.params?.nuevoUsuario;
+  let newIdentification = route.params?.newIdentification;
 
   const register = () => {
     // console.log(md5("12345"));
@@ -62,6 +65,8 @@ const Balance = ({ navigation }: { navigation: any }) => {
       inDatos: inDatos,
       usuario: usuario,
       op2: op2,
+      modification: modification,
+      newIdentification: newIdentification,
     });
   };
 
@@ -72,6 +77,8 @@ const Balance = ({ navigation }: { navigation: any }) => {
       suma: suma,
       inDatos: inDatos,
       op2: op2,
+      modification: modification,
+      newIdentification: newIdentification,
     });
   };
 
@@ -213,32 +220,6 @@ const Balance = ({ navigation }: { navigation: any }) => {
   //       alert("Error" + error);
   //     });
   // };
-
-  //reverse md5
-  //var ReverseMd5 = require("reverse-md5");
-  // var rev = ReverseMd5({
-  //   lettersUpper: false,
-  //   lettersLower: true,
-  //   numbers: true,
-  //   special: false,
-  //   whitespace: true,
-  //   //maxLen: 12,
-  // });
-  // rev(datosVariable);
-  // console.log(rev);
-  //md5
-  //32 caracteres
-  // var md = md5(datosVariable);
-  // console.log(md);
-
-  //utf8
-  // const utf8 = require("utf8");
-
-  // var utf = utf8.encode(datosVariable);
-
-  // utf8.encode("\uD800\uDC01");
-
-  // utf8.decode("\xF0\x90\x80\x81");
 
   return (
     <SafeAreaView style={stylesB.body}>

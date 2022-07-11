@@ -52,7 +52,8 @@ const QRSendPoint = ({ navigation }: { navigation: any }) => {
     // {
     //   playSound();
     // }
-    navigation.navigate("TranExitosa", { data: data });
+    //navigation.navigate("TranExitosa", { data: data });
+    alert("Modo online temporalmente desactivado");
   };
 
   const { data } = route.params;
@@ -61,6 +62,8 @@ const QRSendPoint = ({ navigation }: { navigation: any }) => {
   let datosVariable = route.params?.datosVariable;
   let usuario = route.params?.usuario;
   let op2 = route.params?.op2;
+  let modification = route.params?.modification;
+  let newIdentification = route.params?.newIdentification;
 
   const send = () => {
     // alert("ENVIO EXITOSO");
@@ -75,6 +78,8 @@ const QRSendPoint = ({ navigation }: { navigation: any }) => {
       inDatos: inDatos,
       usuario: usuario,
       op2: op2,
+      modification: modification,
+      newIdentification: newIdentification,
     });
   };
 
