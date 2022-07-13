@@ -50,10 +50,14 @@ const Balance = ({ navigation }: { navigation: any }) => {
   const route = useRoute();
 
   let usuario = route.params?.usuario;
+  let contraseña = route.params?.contraseña;
   let op2 = route.params?.op2;
   let modification = route.params?.modification;
   let nuevoUsuario = route.params?.nuevoUsuario;
   let newIdentification = route.params?.newIdentification;
+  let changeUser = route.params?.changeUser;
+  let contChageUser = route.params?.contChageUser;
+  let changeContra = route.params?.changeContra;
 
   const register = () => {
     // console.log(md5("12345"));
@@ -67,6 +71,9 @@ const Balance = ({ navigation }: { navigation: any }) => {
       op2: op2,
       modification: modification,
       newIdentification: newIdentification,
+      changeUser: changeUser,
+      contChageUser: contChageUser,
+      changeContra: changeContra,
     });
   };
 
@@ -79,6 +86,8 @@ const Balance = ({ navigation }: { navigation: any }) => {
       op2: op2,
       modification: modification,
       newIdentification: newIdentification,
+      changeUser: changeUser,
+      changeContra: changeContra,
     });
   };
 
@@ -122,12 +131,6 @@ const Balance = ({ navigation }: { navigation: any }) => {
   const valorCuatro = Number(valorInicial);
 
   const resta = Number(valorCuatro) - Number(valorTres);
-  // let suma = Number(valorInicial) + Number(valorTres);
-  // suma = suma + valorInicial;
-
-  // const sumaDos = Number(suma) + Number(inData);
-  // const valFinal = Number(resta);
-  // const valoFinal = Number(suma) + Number(valorTres);
 
   /// prueba
   let dtVar = route.params?.datosVariable;
@@ -174,25 +177,8 @@ const Balance = ({ navigation }: { navigation: any }) => {
 
   let result = a ? a : datoInicial;
 
-  // console.log("dtsVar: " + dtsVar);
-  // console.log("dtVar: " + dtVar);
-  // console.log("result: " + result);
-
-  let numero0 = 0;
-  let numero1 = 0;
   variante = datoInicial;
 
-  //datosVariable = numero0 + datosVariable;
-  const numero5 = Number(inData) + Number(inicial);
-  //numero1 = datosVariable + datoInicial;
-
-  let numero3 = Number(datosVariable) + Number(inDatos);
-
-  // console.log("numero0: " + numero0);
-  // console.log("numero1: " + numero1);
-  // console.log("numero3: " + numero3);
-  // console.log("datosVariable: " + datosVariable);
-  // console.log("variante: " + variante);
   console.log("op2: " + op2);
 
   ///

@@ -33,6 +33,7 @@ const AccionesSost = ({ navigation }: { navigation: any }) => {
   let usuario = route.params?.usuario;
   //dato modificado identificación
   let modification = route.params?.modification;
+  let newIdentification = route.params?.newIdentification;
 
   const [accsos, setAccsos] = useState("");
   let acti;
@@ -89,6 +90,7 @@ const AccionesSost = ({ navigation }: { navigation: any }) => {
                 datosVariable: datosVariable,
                 usuario: usuario,
                 modification: modification,
+                newIdentification: newIdentification,
               })
             }
           >
@@ -117,6 +119,7 @@ const AccionesSost = ({ navigation }: { navigation: any }) => {
                 datosVariable: datosVariable,
                 usuario: usuario,
                 modification: modification,
+                newIdentification: newIdentification,
               })
             }
           >
@@ -145,6 +148,7 @@ const AccionesSost = ({ navigation }: { navigation: any }) => {
                 datosVariable: datosVariable,
                 usuario: usuario,
                 modification: modification,
+                newIdentification: newIdentification,
               })
             }
           >

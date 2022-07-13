@@ -294,11 +294,11 @@ export default function App() {
           component={Receive}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Send"
           component={Send}
           options={{ headerShown: false }}
-        />
+        /> */}
         <Stack.Screen
           name="QRSendPoint"
           component={QRSendPoint}

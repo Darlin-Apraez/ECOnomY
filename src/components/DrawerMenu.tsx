@@ -12,22 +12,11 @@ import { stylesM } from "../appTheme/_modules/modules";
 import { stylesO } from "../appTheme/_other/other";
 
 function DrawerMenu({ navigation }: { navigation: any }) {
-  // const [usuario, setUsuario] = useState("");
   const route = useRoute();
-  // async function SignOut() {
-  //   await signOut(auth)
-  //     .then(() => {
-  //       alert("Sesíon cerrada exitosamente");
-  //       navigation.navigate("Home");
-  //     })
-  //     .catch((error) => {
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //       console.log(errorMessage);
-  //     });
-  // }
+
   let usuario = route.params?.usuario;
   let contraseña = route.params?.contraseña;
+
   let datosVariable = route.params?.datosVariable;
   let restaData2 = route.params?.restaData2;
   let inDatos = route.params?.inDatos;
@@ -37,16 +26,9 @@ function DrawerMenu({ navigation }: { navigation: any }) {
   let modification = route.params?.modification;
   let nuevoUsuario = route.params?.nuevoUsuario;
   let newIdentification = route.params?.newIdentification;
-
-  // setTimeout(() => {
-  //   navigation.navigate("Balance", {
-  //     data,
-  //     datosVariable,
-  //     variante: datosVariable,
-  //     restaData2,
-  //     inDatos,
-  //   });
-  // }, 2500);
+  //prueba 2
+  let changeUser = route.params?.changeUser;
+  let changeContra = route.params?.changeContra;
 
   return (
     <View style={{ flex: 1 }}>
@@ -55,6 +37,7 @@ function DrawerMenu({ navigation }: { navigation: any }) {
           onPress={() =>
             navigation.navigate("Balance", {
               usuario: usuario,
+              contraseña: contraseña,
               datosVariable: datosVariable,
               restaData2: restaData2,
               inDatos: inDatos,
@@ -62,6 +45,8 @@ function DrawerMenu({ navigation }: { navigation: any }) {
               op2: op2,
               modification: modification,
               nuevoUsuario: nuevoUsuario,
+              changeUser: changeUser,
+              changeContra: changeContra,
             })
           }
           style={stylesM.botonMenuDrawer}
@@ -79,6 +64,8 @@ function DrawerMenu({ navigation }: { navigation: any }) {
               data: data,
               nuevoUsuario: nuevoUsuario,
               newIdentification: newIdentification,
+              changeUser: changeUser,
+              changeContra: changeContra,
             })
           }
           style={stylesM.botonMenuDrawer}

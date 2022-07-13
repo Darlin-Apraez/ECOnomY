@@ -47,10 +47,12 @@ const Send = ({ navigation }: { navigation: any }) => {
   let datosVariable = route.params?.datosVariable;
   //dato modificado identificación
   let modification = route.params?.modification;
-
-  let inUser = modification ? modification : usuario;
-
   let newIdentification = route.params?.newIdentification;
+
+  let changeUser = route.params?.changeUser;
+  let inUser = newIdentification ? newIdentification : usuario;
+  let contChageUser = route.params?.contChageUser;
+  let changeContra = route.params?.changeContra;
 
   const cero = 0;
   const zero = String(cero);
@@ -97,6 +99,10 @@ const Send = ({ navigation }: { navigation: any }) => {
                 datosVariable: datosVariable,
                 op2: op2,
                 newIdentification: newIdentification,
+                inUser: inUser,
+                changeUser: changeUser,
+                contChageUser: contChageUser,
+                changeContra: changeContra,
               }),
           },
         ]
@@ -178,6 +184,7 @@ const Send = ({ navigation }: { navigation: any }) => {
                   datosVariable: datosVariable,
                   usuario: usuario,
                   modification: modification,
+                  newIdentification: newIdentification,
                 })
               }
             >

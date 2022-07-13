@@ -64,6 +64,8 @@ const QRSendPoint = ({ navigation }: { navigation: any }) => {
   let op2 = route.params?.op2;
   let modification = route.params?.modification;
   let newIdentification = route.params?.newIdentification;
+  let changeUser = route.params?.changeUser;
+  let changeContra = route.params?.changeContra;
 
   const send = () => {
     // alert("ENVIO EXITOSO");
@@ -80,6 +82,8 @@ const QRSendPoint = ({ navigation }: { navigation: any }) => {
       op2: op2,
       modification: modification,
       newIdentification: newIdentification,
+      changeUser: changeUser,
+      changeContra: changeContra,
     });
   };
 

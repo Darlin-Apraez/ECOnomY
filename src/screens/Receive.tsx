@@ -50,6 +50,8 @@ const Receive = ({ navigation }: { navigation: any }) => {
   let op2 = route.params?.op2;
   //dato modificado identificación
   let modification = route.params?.modification;
+  let changeUser = route.params?.changeUser;
+  let changeContra = route.params?.changeContra;
 
   // const CopyWallet = () => {
   //   Clipboard.setString(str);
@@ -98,6 +100,8 @@ const Receive = ({ navigation }: { navigation: any }) => {
               usuario: usuario,
               op2: op2,
               modification: modification,
+              changeUser: changeUser,
+              changeContra: changeContra,
             })
           }
         >

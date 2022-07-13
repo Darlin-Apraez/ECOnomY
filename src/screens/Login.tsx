@@ -102,8 +102,8 @@ const Login = ({ navigation }: { navigation: any }) => {
     });
     setTimeout(() => {
       navigation.navigate("Balance", {
-        usuario,
-        contraseña,
+        usuario: usuario,
+        contraseña: contraseña,
         modification: modification,
       });
     });

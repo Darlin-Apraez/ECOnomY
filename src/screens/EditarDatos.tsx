@@ -42,13 +42,33 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
   let datosVariable = route.params?.datosVariable;
   let nuevaContra = route.params?.nuevaContra;
   let modifiContra = route.params?.modifiContra;
-  let changeContra = route.params?.changeContra;
+
+  let changeUser = modification ? modification : usuario;
+  let changeContra = modifiContra ? modifiContra : contraseña;
 
   const [user, setUser] = useState("");
-  let newIdentification = modification ? modification : usuario;
-  let newContraseña = modifiContra ? modifiContra : contraseña;
+  let newIdentification = modification;
+  let newContraseña = changeContra ? changeContra : contraseña;
+
+  let changeUser2 = newIdentification ? newIdentification : changeUser;
+  console.log("change: " + changeUser);
 
   AsyncStorage.setItem(STORAGE_KEY, newIdentification);
+
+  const storeData = async () => {
+    try {
+      await AsyncStorage.setItem(STORAGE_KEY, newIdentification);
+      alert("Datos modificados correctamente");
+      navigation.navigate("Balance", {
+        newIdentification,
+        changeUser,
+        changeContra,
+      });
+    } catch (error) {
+      // Error saving data
+      alert("Error al cambiar los datos");
+    }
+  };
 
   return (
     <SafeAreaView style={stylesB.body}>
@@ -79,7 +99,7 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
               ]}
               keyboardType="numeric"
               onChangeText={(text) => setUser(text)}
-              value={newIdentification}
+              value={changeUser}
               editable={false}
             />
             <TouchableOpacity
@@ -90,6 +110,8 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
                   contraseña: contraseña,
                   modification: modification,
                   nuevoUsuario: nuevoUsuario,
+                  changeUser: changeUser,
+                  changeContra: changeContra,
                 })
               }
             >
@@ -113,15 +135,18 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
               ]}
               keyboardType="numeric"
               onChangeText={(text) => setContra(text)}
-              value={newContraseña}
+              value={changeContra}
               editable={false}
             />
             <TouchableOpacity
               activeOpacity={0.3}
               onPress={() =>
                 navigation.navigate("EditContraseña", {
+                  usuario: usuario,
                   contraseña: contraseña,
                   modifiContra: modifiContra,
+                  changeContra: changeContra,
+                  changeUser: changeUser,
                 })
               }
             >
@@ -150,7 +175,7 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
             />
             <TouchableOpacity
               activeOpacity={0.3}
-              onPress={() => navigation.navigate("Balance", {})}
+              onPress={() => alert("En proximas versiones")}
             >
               <Image
                 source={require("./../../assets/img/Edit.png")}
@@ -177,7 +202,7 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
             />
             <TouchableOpacity
               activeOpacity={0.3}
-              onPress={() => navigation.navigate("Balance", {})}
+              onPress={() => alert("En proximas versiones")}
             >
               <Image
                 source={require("./../../assets/img/Edit.png")}
@@ -195,7 +220,7 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
             //   nuevoUsuario: nuevoUsuario,
             //   datosVariable: datosVariable,
             // })
-            alert("Datos almacenados")
+            storeData()
           }
         >
           <Text>Guardar datos</Text>

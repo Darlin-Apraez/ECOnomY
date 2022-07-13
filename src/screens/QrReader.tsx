@@ -292,6 +292,8 @@ const QrReader = ({ navigation }: { navigation: any }) => {
     let usuario = route.params?.usuario;
     //dato modificado identificación
     let modification = route.params?.modification;
+    let changeUser = route.params?.changeUser;
+    let changeContra = route.params?.changeContra;
 
     //Función sonido
     async function playSound() {
@@ -323,6 +325,8 @@ const QrReader = ({ navigation }: { navigation: any }) => {
         usuario: usuario,
         op2: op2,
         modification: modification,
+        changeUser: changeUser,
+        changeContra: changeContra,
       });
       //setScanned(false);
     }
@@ -545,6 +549,8 @@ const QrReader = ({ navigation }: { navigation: any }) => {
                 usuario: usuario,
                 op2: op2,
                 modification: modification,
+                changeUser: changeUser,
+                changeContra: changeContra,
               });
             }, 100);
           }}

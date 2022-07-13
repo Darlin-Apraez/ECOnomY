@@ -13,6 +13,7 @@ import {
   Linking,
   TouchableOpacity,
   SafeAreaView,
+  AsyncStorage,
 } from "react-native";
 import React, { useState } from "react";
 import {
@@ -26,6 +27,8 @@ import { useRoute } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Entypo";
 import { saveUser } from "../../api";
 
+let STORAGE_KEY = "@user_input";
+
 const EditContraseña = ({ navigation }: { navigation: any }) => {
   const route = useRoute();
   let usuario = route.params?.usuario;
@@ -37,18 +40,23 @@ const EditContraseña = ({ navigation }: { navigation: any }) => {
   const [contraNew, setContraNew] = useState("");
   let modifiContra = contraNew;
 
-  let changeContra = contraseña ? contraseña : modifiContra;
+  let changeUser = route.params?.changeUser;
+  let changeContra = route.params?.changeContra;
+  console.log("changeContra: " + changeContra);
+
+  AsyncStorage.setItem(STORAGE_KEY, modifiContra);
 
   function changeData() {
     if (contraNew == "") {
-      alert("Campo Identificación Nueva vacío");
+      alert("Campo Contraseña Nueva vacío");
     } else {
       saveUser(contraNew);
       navigation.navigate("EditarDatos", {
-        nuevaContra: contraNew,
+        usuario: usuario,
         contraseña: contraseña,
-        modifiContra: modifiContra,
+        modifiContra: contraNew,
         changeContra: changeContra,
+        changeUser: changeUser,
       });
     }
   }
@@ -63,6 +71,9 @@ const EditContraseña = ({ navigation }: { navigation: any }) => {
             navigation.navigate("EditarDatos", {
               usuario: usuario,
               contraseña: contraseña,
+              modifiContra: modifiContra,
+              changeContra: changeContra,
+              changeUser: changeUser,
             })
           }
         >

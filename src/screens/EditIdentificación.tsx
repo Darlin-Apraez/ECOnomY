@@ -39,7 +39,8 @@ const EditIdentificación = ({ navigation }: { navigation: any }) => {
   //dato modificado identificación
   let modification = userNew;
 
-  let changeUser = usuario ? usuario : modification;
+  let changeUser = route.params?.changeUser;
+  let changeContra = route.params?.changeContra;
 
   AsyncStorage.setItem(STORAGE_KEY, modification);
 
@@ -47,11 +48,13 @@ const EditIdentificación = ({ navigation }: { navigation: any }) => {
     if (userNew == "") {
       alert("Campo Identificación Nueva vacío");
     } else {
-      saveUser(userNew);
+      //saveUser(userNew);
       navigation.navigate("EditarDatos", {
-        nuevoUsuario: userNew,
+        //nuevoUsuario: userNew,
         contraseña: contraseña,
-        modification: modification,
+        modification: userNew,
+        changeUser: changeUser,
+        changeContra: changeContra,
       });
     }
   }
@@ -66,6 +69,9 @@ const EditIdentificación = ({ navigation }: { navigation: any }) => {
             navigation.navigate("EditarDatos", {
               usuario: usuario,
               contraseña: contraseña,
+              changeUser: changeUser,
+              modification: modification,
+              changeContra: changeContra,
             })
           }
         >

@@ -56,6 +56,8 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
   //dato modificado identificación
   let modification = route.params?.modification;
   let newIdentification = route.params?.newIdentification;
+  let changeUser = route.params?.changeUser;
+  let changeContra = route.params?.changeContra;
 
   const send = () => {
     // alert("ENVIO EXITOSO");
@@ -75,6 +77,8 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
       op2,
       modification,
       newIdentification,
+      changeUser,
+      changeContra,
     });
     setTimeout(() => {
       navigation.navigate("Balance", {
@@ -87,6 +91,8 @@ const TranExitosa = ({ navigation }: { navigation: any }) => {
         op2,
         modification,
         newIdentification,
+        changeUser,
+        changeContra,
       });
     });
   };
