@@ -52,12 +52,13 @@ const Balance = ({ navigation }: { navigation: any }) => {
   let usuario = route.params?.usuario;
   let contraseña = route.params?.contraseña;
   let op2 = route.params?.op2;
-  let modification = route.params?.modification;
   let nuevoUsuario = route.params?.nuevoUsuario;
   let newIdentification = route.params?.newIdentification;
   let changeUser = route.params?.changeUser;
   let contChageUser = route.params?.contChageUser;
   let changeContra = route.params?.changeContra;
+  let modification = route.params?.modification;
+  let modifiContra = route.params?.modifiContra;
   let modifiCel = route.params?.modifiCel;
 
   const register = () => {

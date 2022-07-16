@@ -36,6 +36,12 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
   const route = useRoute();
   let usuario = route.params?.usuario;
   let contraseña = route.params?.contraseña;
+
+  let data = route.params?.data;
+  let restaData2 = route.params?.restaData2;
+  let inDatos = route.params?.inDatos;
+  let op2 = route.params?.op2;
+  let newIdentification = route.params?.newIdentification;
   //origen modificación identificación
   let modification = route.params?.modification;
   let datosVariable = route.params?.datosVariable;
@@ -58,11 +64,31 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
       await AsyncStorage.setItem(STORAGE_KEY, changeUser);
       alert("Datos modificados correctamente");
       navigation.navigate("Balance", {
-        changeUser,
-        modification,
-        changeContra,
-        modifiContra,
-        modifiCel,
+        usuario: usuario,
+        contraseña: contraseña,
+        modification: modification,
+        modifiContra: modifiContra,
+        changeUser: changeUser,
+        changeContra: changeContra,
+        modifiCel: modifiCel,
+      });
+      setTimeout(() => {
+        navigation.navigate("DrawerApp", {
+          data,
+          datosVariable,
+          variante: datosVariable,
+          restaData2,
+          inDatos,
+          usuario,
+          contraseña,
+          op2,
+          modification,
+          newIdentification,
+          modifiContra,
+          changeUser,
+          changeContra,
+          modifiCel,
+        });
       });
     } catch (error) {
       // Error saving data

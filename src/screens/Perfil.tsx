@@ -31,21 +31,26 @@ const Perfil = ({ navigation }: { navigation: any }) => {
   const route = useRoute();
   let usuario = route.params?.usuario;
   let contraseña = route.params?.contraseña;
-  let modification = route.params?.modification;
+
   let datosVariable = route.params?.datosVariable;
   let data = route.params?.data;
   let nuevoUsuario = route.params?.nuevoUsuario;
   let newIdentification = route.params?.newIdentification;
+
+  let changeUser = route.params?.changeUser;
   let changeContra = route.params?.changeContra;
+
+  let modification = route.params?.modification;
+  let modifiContra = route.params?.modifiContra;
   let modifiCel = route.params?.modifiCel;
 
-  let changeUser = usuario ? usuario : newIdentification;
+  // let changeUser = usuario ? usuario : newIdentification;
   console.log("changeUser: " + changeUser);
 
-  let changeUser2 = usuario ? usuario : changeUser;
-  console.log("change2: " + changeUser2);
+  // let changeUser2 = usuario ? usuario : changeUser;
+  // console.log("change2: " + changeUser2);
 
-  console.log("changeContra: " + changeContra);
+  // console.log("changeContra: " + changeContra);
 
   return (
     <SafeAreaView style={stylesB.body}>
@@ -73,11 +78,12 @@ const Perfil = ({ navigation }: { navigation: any }) => {
               usuario: usuario,
               contraseña: contraseña,
               datosVariable: datosVariable,
-              modification: modification,
               nuevoUsuario: nuevoUsuario,
               newIdentification: newIdentification,
               changeUser: changeUser,
               changeContra: changeContra,
+              modification: modification,
+              modifiContra: modifiContra,
               modifiCel: modifiCel,
             })
           }

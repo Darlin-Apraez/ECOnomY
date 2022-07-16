@@ -27,9 +27,12 @@ function DrawerMenu({ navigation }: { navigation: any }) {
   let inDatos = route.params?.inDatos;
   let data = route.params?.data;
   let op2 = route.params?.op2;
-  let modifiCel = route.params?.modifiCel;
+
   //dato modificado identificación
   let modification = route.params?.modification;
+  let modifiContra = route.params?.modifiContra;
+  let modifiCel = route.params?.modifiCel;
+
   let nuevoUsuario = route.params?.nuevoUsuario;
   let newIdentification = route.params?.newIdentification;
   //prueba 2
@@ -49,11 +52,12 @@ function DrawerMenu({ navigation }: { navigation: any }) {
               inDatos: inDatos,
               data: data,
               op2: op2,
-              modification: modification,
               nuevoUsuario: nuevoUsuario,
+              modification: modification,
+              modifiContra: modifiContra,
+              modifiCel: modifiCel,
               changeUser: changeUser,
               changeContra: changeContra,
-              modifiCel: modifiCel,
             })
           }
           style={stylesM.botonMenuDrawer}
@@ -66,13 +70,14 @@ function DrawerMenu({ navigation }: { navigation: any }) {
             navigation.navigate("Perfil", {
               usuario: usuario,
               contraseña: contraseña,
-              modification: modification,
               datosVariable: datosVariable,
               data: data,
               nuevoUsuario: nuevoUsuario,
               newIdentification: newIdentification,
               changeUser: changeUser,
               changeContra: changeContra,
+              modification: modification,
+              modifiContra: modifiContra,
               modifiCel: modifiCel,
             })
           }
