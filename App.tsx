@@ -40,6 +40,8 @@ import Perfil from "./src/screens/Perfil";
 import EditarDatos from "./src/screens/EditarDatos";
 import EditIdentificación from "./src/screens/EditIdentificación";
 import EditContraseña from "./src/screens/EditContraseña";
+import EditCelular from "./src/screens/EditCelular";
+import EditUbicacion from "./src/screens/EditUbicacion";
 
 const Drawer = createDrawerNavigator();
 // const Tab = createBottomTabNavigator();
@@ -47,7 +49,7 @@ const Drawer = createDrawerNavigator();
 function DrawerApp() {
   return (
     <Drawer.Navigator
-      //initialRouteName="Balance"
+      initialRouteName="Balance"
       drawerContent={DrawerMenu}
       screenOptions={{
         drawerStyle: {
@@ -103,6 +105,28 @@ function DrawerApp() {
       <Drawer.Screen
         name="EditContraseña"
         component={EditContraseña}
+        options={{
+          swipeEnabled: false,
+          headerTransparent: true,
+          headerTitle: "",
+          headerTintColor: "grey",
+          headerShown: false,
+        }}
+      />
+      {/* <Drawer.Screen
+        name="EditCelular"
+        component={EditCelular}
+        options={{
+          swipeEnabled: false,
+          headerTransparent: true,
+          headerTitle: "",
+          headerTintColor: "grey",
+          headerShown: false,
+        }}
+      /> */}
+      <Drawer.Screen
+        name="EditUbicacion"
+        component={EditUbicacion}
         options={{
           swipeEnabled: false,
           headerTransparent: true,
@@ -263,11 +287,17 @@ export default function App() {
           options={{ headerShown: false }}
         />
 
+        <Stack.Screen
+          name="EditCelular"
+          component={EditCelular}
+          options={{ headerShown: false }}
+        />
+
         {/* <Stack.Screen
           name="EditarDatos"
           component={EditarDatos}
           options={{ headerShown: false }}
-        />
+        />*/}
         <Stack.Screen
           name="EditIdentificación"
           component={EditIdentificación}
@@ -277,7 +307,7 @@ export default function App() {
           name="EditContraseña"
           component={EditContraseña}
           options={{ headerShown: false }}
-        /> */}
+        />
 
         {/* <Stack.Screen
           name="AccionesSost"

@@ -37,6 +37,7 @@ const Perfil = ({ navigation }: { navigation: any }) => {
   let nuevoUsuario = route.params?.nuevoUsuario;
   let newIdentification = route.params?.newIdentification;
   let changeContra = route.params?.changeContra;
+  let modifiCel = route.params?.modifiCel;
 
   let changeUser = usuario ? usuario : newIdentification;
   console.log("changeUser: " + changeUser);
@@ -77,6 +78,7 @@ const Perfil = ({ navigation }: { navigation: any }) => {
               newIdentification: newIdentification,
               changeUser: changeUser,
               changeContra: changeContra,
+              modifiCel: modifiCel,
             })
           }
         >

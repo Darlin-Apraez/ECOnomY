@@ -8,8 +8,13 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useRoute } from "@react-navigation/native";
-import { stylesM } from "../appTheme/_modules/modules";
-import { stylesO } from "../appTheme/_other/other";
+import {
+  stylesB,
+  stylesL,
+  stylesM,
+  stylesO,
+  stylesS,
+} from "./../appTheme/styles/styles";
 
 function DrawerMenu({ navigation }: { navigation: any }) {
   const route = useRoute();
@@ -22,6 +27,7 @@ function DrawerMenu({ navigation }: { navigation: any }) {
   let inDatos = route.params?.inDatos;
   let data = route.params?.data;
   let op2 = route.params?.op2;
+  let modifiCel = route.params?.modifiCel;
   //dato modificado identificación
   let modification = route.params?.modification;
   let nuevoUsuario = route.params?.nuevoUsuario;
@@ -47,6 +53,7 @@ function DrawerMenu({ navigation }: { navigation: any }) {
               nuevoUsuario: nuevoUsuario,
               changeUser: changeUser,
               changeContra: changeContra,
+              modifiCel: modifiCel,
             })
           }
           style={stylesM.botonMenuDrawer}
@@ -66,6 +73,7 @@ function DrawerMenu({ navigation }: { navigation: any }) {
               newIdentification: newIdentification,
               changeUser: changeUser,
               changeContra: changeContra,
+              modifiCel: modifiCel,
             })
           }
           style={stylesM.botonMenuDrawer}

@@ -58,6 +58,7 @@ const Balance = ({ navigation }: { navigation: any }) => {
   let changeUser = route.params?.changeUser;
   let contChageUser = route.params?.contChageUser;
   let changeContra = route.params?.changeContra;
+  let modifiCel = route.params?.modifiCel;
 
   const register = () => {
     // console.log(md5("12345"));
@@ -237,7 +238,6 @@ const Balance = ({ navigation }: { navigation: any }) => {
           maxLength={6}
         /> */}
 
-        {/* <Text style={stylesM.textBalance}>{datoVariable}</Text> */}
         <Text style={stylesM.textBalance}>{datosVariable}</Text>
         {/* <Text>{usuario}</Text> */}
         {/* <Text>dtsVar: {dtsVar}</Text>

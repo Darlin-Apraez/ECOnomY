@@ -36,33 +36,33 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
   const route = useRoute();
   let usuario = route.params?.usuario;
   let contraseña = route.params?.contraseña;
-  let nuevoUsuario = route.params?.nuevoUsuario;
   //origen modificación identificación
   let modification = route.params?.modification;
   let datosVariable = route.params?.datosVariable;
   let nuevaContra = route.params?.nuevaContra;
   let modifiContra = route.params?.modifiContra;
+  let modifiCel = route.params?.modifiCel;
 
   let changeUser = modification ? modification : usuario;
   let changeContra = modifiContra ? modifiContra : contraseña;
 
+  //let changCon = contraseña ? contraseña : changeContra;
+  //console.log("changCon: " + changCon);
+
   const [user, setUser] = useState("");
-  let newIdentification = modification;
-  let newContraseña = changeContra ? changeContra : contraseña;
 
-  let changeUser2 = newIdentification ? newIdentification : changeUser;
   console.log("change: " + changeUser);
-
-  AsyncStorage.setItem(STORAGE_KEY, newIdentification);
 
   const storeData = async () => {
     try {
-      await AsyncStorage.setItem(STORAGE_KEY, newIdentification);
+      await AsyncStorage.setItem(STORAGE_KEY, changeUser);
       alert("Datos modificados correctamente");
       navigation.navigate("Balance", {
-        newIdentification,
         changeUser,
+        modification,
         changeContra,
+        modifiContra,
+        modifiCel,
       });
     } catch (error) {
       // Error saving data
@@ -91,7 +91,7 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
         <View style={[stylesL.JustifyAlign, stylesM.topForm]}>
           <Text>Identificación</Text>
           <View style={[stylesL.JustifyAlign, stylesM.flexDire]}>
-            <TextInput
+            {/* <TextInput
               style={[
                 stylesM.InputEditDatos,
                 stylesL.JustifyAlign,
@@ -101,7 +101,16 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
               onChangeText={(text) => setUser(text)}
               value={changeUser}
               editable={false}
-            />
+            /> */}
+            <Text
+              style={[
+                stylesM.InputEditDatos,
+                stylesL.JustifyAlign,
+                stylesM.LeftInput,
+              ]}
+            >
+              {changeUser}
+            </Text>
             <TouchableOpacity
               activeOpacity={0.3}
               onPress={() =>
@@ -109,9 +118,10 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
                   usuario: usuario,
                   contraseña: contraseña,
                   modification: modification,
-                  nuevoUsuario: nuevoUsuario,
+                  modifiContra: modifiContra,
                   changeUser: changeUser,
                   changeContra: changeContra,
+                  modifiCel: modifiCel,
                 })
               }
             >
@@ -127,7 +137,7 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
         <View style={stylesL.JustifyAlign}>
           <Text>Contraseña</Text>
           <View style={[stylesL.JustifyAlign, stylesM.flexDire]}>
-            <TextInput
+            {/* <TextInput
               style={[
                 stylesM.InputEditDatos,
                 stylesL.JustifyAlign,
@@ -137,16 +147,27 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
               onChangeText={(text) => setContra(text)}
               value={changeContra}
               editable={false}
-            />
+            /> */}
+            <Text
+              style={[
+                stylesM.InputEditDatos,
+                stylesL.JustifyAlign,
+                stylesM.LeftInput,
+              ]}
+            >
+              {changeContra}
+            </Text>
             <TouchableOpacity
               activeOpacity={0.3}
               onPress={() =>
                 navigation.navigate("EditContraseña", {
                   usuario: usuario,
                   contraseña: contraseña,
+                  modification: modification,
                   modifiContra: modifiContra,
                   changeContra: changeContra,
                   changeUser: changeUser,
+                  modifiCel: modifiCel,
                 })
               }
             >
@@ -162,7 +183,7 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
         <View style={stylesL.JustifyAlign}>
           <Text>Ubicación</Text>
           <View style={[stylesL.JustifyAlign, stylesM.flexDire]}>
-            <TextInput
+            {/* <TextInput
               style={[
                 stylesM.InputEditDatos,
                 stylesL.JustifyAlign,
@@ -172,10 +193,19 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
               onChangeText={(text) => setUbicacion(text)}
               value={ubicacion}
               editable={false}
-            />
+            /> */}
+            <Text
+              style={[
+                stylesM.InputEditDatos,
+                stylesL.JustifyAlign,
+                stylesM.LeftInput,
+              ]}
+            >
+              {ubicacion}
+            </Text>
             <TouchableOpacity
               activeOpacity={0.3}
-              onPress={() => alert("En proximas versiones")}
+              onPress={() => alert("En próximas versiones")}
             >
               <Image
                 source={require("./../../assets/img/Edit.png")}
@@ -189,7 +219,7 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
         <View style={stylesL.JustifyAlign}>
           <Text>Celular</Text>
           <View style={[stylesL.JustifyAlign, stylesM.flexDire]}>
-            <TextInput
+            {/* <TextInput
               style={[
                 stylesM.InputEditDatos,
                 stylesL.JustifyAlign,
@@ -197,12 +227,31 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
               ]}
               keyboardType="numeric"
               onChangeText={(text) => setCelular(text)}
-              value={celular}
+              value={modifiCel}
               editable={false}
-            />
+            /> */}
+            <Text
+              style={[
+                stylesM.InputEditDatos,
+                stylesL.JustifyAlign,
+                stylesM.LeftInput,
+              ]}
+            >
+              {modifiCel}
+            </Text>
             <TouchableOpacity
               activeOpacity={0.3}
-              onPress={() => alert("En proximas versiones")}
+              onPress={() =>
+                navigation.navigate("EditCelular", {
+                  usuario: usuario,
+                  contraseña: contraseña,
+                  changeUser,
+                  changeContra,
+                  modification: modification,
+                  modifiContra: modifiContra,
+                  modifiCel,
+                })
+              }
             >
               <Image
                 source={require("./../../assets/img/Edit.png")}
@@ -214,14 +263,7 @@ const EditarDatos = ({ navigation }: { navigation: any }) => {
 
         <TouchableOpacity
           style={stylesM.botonScanSend}
-          onPress={() =>
-            // navigation.navigate("Balance", {
-            //   modification: modification,
-            //   nuevoUsuario: nuevoUsuario,
-            //   datosVariable: datosVariable,
-            // })
-            storeData()
-          }
+          onPress={() => storeData()}
         >
           <Text>Guardar datos</Text>
         </TouchableOpacity>
